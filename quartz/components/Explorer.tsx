@@ -96,7 +96,7 @@ export default ((userOpts?: Partial<Options>) => {
           aria-controls="explorer-content"
           aria-expanded={opts.folderDefaultState === "open"}
         >
-          <h2>{opts.title ?? i18n(cfg.locale).components.explorer.title}</h2>
+         <a href="/"> <h2 style="color: var(--dark);">{opts.title ?? i18n(cfg.locale).components.explorer.title}</h2></a>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="14"

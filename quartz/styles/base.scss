@@ -121,7 +121,7 @@ a {
 }
 
 .page {
-  max-width: calc(#{map-get($breakpoints, desktop)} + 300px);
+  max-width: calc(#{map-get($breakpoints, desktop)} + 750px);
   margin: 0 auto;
   & article {
     & > h1 {

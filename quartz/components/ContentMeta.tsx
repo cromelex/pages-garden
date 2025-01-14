@@ -29,8 +29,10 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
     if (text) {
       const segments: (string | JSX.Element)[] = []
 
+      // Display modified and created date
       if (fileData.dates) {
-        segments.push(<Date date={getDate(cfg, fileData)!} locale={cfg.locale} />)
+        segments.push("Last Update: " + fileData.dates.modified.toDateString() + " ▪ ")
+        segments.push("Created: " + fileData.dates.created.toDateString() + " ▪ ")
       }
 
       // Display reading time if enabled
@@ -44,7 +46,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
 
       return (
         <p show-comma={options.showComma} class={classNames(displayClass, "content-meta")}>
-          {segments}
+        {segments}
         </p>
       )
     } else {

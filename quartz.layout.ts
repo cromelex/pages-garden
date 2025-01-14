@@ -8,8 +8,9 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      "About": "https://dansgarden.eu/about#about-this-site",
+      "Contact": "https://dansgarden.eu/contact",
+      "RSS": "https://dansgarden.eu/rss",
     },
   }),
 }
@@ -18,19 +19,39 @@ export const sharedPageComponents: SharedLayout = {
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
     Component.Breadcrumbs(),
-    Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
   ],
   left: [
     Component.PageTitle(),
-    Component.MobileOnly(Component.Spacer()),
-    Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
+    Component.MobileOnly(Component.Spacer()),
+    Component.DesktopOnly(Component.Explorer({
+      title: "Home", // title of the explorer component
+      folderClickBehavior: "link",
+      folderDefaultState: "collapsed",
+      filterFn: (node) => {
+        // set containing names of everything you want to filter out
+        const omit = new Set(["contact"])
+        return !omit.has(node.name.toLowerCase())
+      },
+      sortFn: (a, b) => {
+        if ((!a.file && !b.file) || (a.file && b.file)) {
+          return a.displayName.localeCompare(b.displayName)
+        }
+        if (a.file && !b.file) {
+          return -1
+        } else {
+          return 1
+        }
+      },
+    })),
+  ],
+  afterBody: [
+    Component.ReplyByEmail(),
   ],
   right: [
-    Component.Graph(),
+    Component.Search(),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
@@ -38,13 +59,33 @@ export const defaultContentPageLayout: PageLayout = {
 
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
-  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle()],
   left: [
     Component.PageTitle(),
-    Component.MobileOnly(Component.Spacer()),
-    Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
+    Component.MobileOnly(Component.Spacer()),
+    Component.DesktopOnly(Component.Explorer({
+      title: "Home", // title of the explorer component
+      folderClickBehavior: "link",
+      folderDefaultState: "collapsed",
+      filterFn: (node) => {
+        // set containing names of everything you want to filter out
+        const omit = new Set(["contact"])
+        return !omit.has(node.name.toLowerCase())
+      },
+      sortFn: (a, b) => {
+        if ((!a.file && !b.file) || (a.file && b.file)) {
+          return a.displayName.localeCompare(b.displayName)
+        }
+        if (a.file && !b.file) {
+          return -1
+        } else {
+          return 1
+        }
+      },
+    })),
   ],
-  right: [],
+  right: [
+    Component.Search(),
+  ],
 }

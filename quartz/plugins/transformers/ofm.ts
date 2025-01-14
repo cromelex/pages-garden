@@ -235,23 +235,20 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
 
                 // embed cases
                 if (value.startsWith("!")) {
-                  const ext: string = path.extname(fp).toLowerCase()
-                  const url = slugifyFilePath(fp as FilePath)
+                  const baseExt = path.extname(fp).toLowerCase();
+                  const ext = baseExt.split("?")[0]; // Remove query string from the extension
+                  const url = slugifyFilePath(fp as FilePath);
                   if ([".png", ".jpg", ".jpeg", ".gif", ".bmp", ".svg", ".webp"].includes(ext)) {
                     const match = wikilinkImageEmbedRegex.exec(alias ?? "")
                     const alt = match?.groups?.alt ?? ""
                     const width = match?.groups?.width ?? "auto"
                     const height = match?.groups?.height ?? "auto"
-                    return {
-                      type: "image",
-                      url,
-                      data: {
-                        hProperties: {
-                          width,
-                          height,
-                          alt,
-                        },
-                      },
+                  return {
+                    type: "html",
+                    value: `<figure>
+                              <img src="${url}" alt="${alt}" width="${width}" height="${height}">
+                              <figcaption>${alt}</figcaption>
+                            </figure>`,
                     }
                   } else if ([".mp4", ".webm", ".ogv", ".mov", ".mkv"].includes(ext)) {
                     return {
