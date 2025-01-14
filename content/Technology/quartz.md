@@ -18,7 +18,7 @@ The full code for this Quartz page is available in the [GitHub repo](https://git
 11-01-2025 ▪ Each post/note now displays the last update date in addition to the created date, whereas the original code only allowed me to display one of them.
 
 `/quartz/components/ContentMeta.tsx`
-```diff
+```diff {5,7-9,17-18}
 @@ -29,8 +29,10 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
      if (text) {
        const segments: (string | JSX.Element)[] = []
@@ -49,7 +49,7 @@ The full code for this Quartz page is available in the [GitHub repo](https://git
 08-01-2025 ▪ Modified the Obsidian flavoured markdown component to automatically add a caption to any image, using the content of the alt-text.
 
 `ofm.ts`
-```diff
+```diff {5-9,15-30}
 @@ -235,23 +235,20 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
  
                  // embed cases
@@ -90,7 +90,7 @@ The full code for this Quartz page is available in the [GitHub repo](https://git
 06-01-2025 ▪ While the design of the page is responsive by default, I felt that it didn't use enough of the screen when using large screens (ie, wide-screen and 4K monitors). Made a few changes to make sure it uses more of the screen, where possible.
 
 `variables.scss`
-```diff
+```diff {5-6}
 @@ -46,7 +46,7 @@ $tabletGrid: (
  );
  $desktopGrid: (
@@ -104,7 +104,7 @@ The full code for this Quartz page is available in the [GitHub repo](https://git
 ```
 
 `base.scss`
-```diff
+```diff {5-6}
 @@ -121,7 +121,7 @@ a {
  }
  
@@ -121,7 +121,7 @@ The full code for this Quartz page is available in the [GitHub repo](https://git
 20-12-2024 ▪ Modified the Explorer component in order to show the root/index as "Home" on the navigation bar.
 
 `quartz/components/Explorer.tsx`
-```diff
+```diff {5-6} 
 @@ -96,7 +96,7 @@ export default ((userOpts?: Partial<Options>) => {
            aria-controls="explorer-content"
            aria-expanded={opts.folderDefaultState === "open"}
@@ -138,7 +138,7 @@ The full code for this Quartz page is available in the [GitHub repo](https://git
 20-12-2024 ▪ Changed the default to dark-mode, keeping the option to switch between light/dark.
 
 `quartz/components/scripts/darkmode.inline.ts`
-```diff
+```diff {3-4}
 @@ -1,5 +1,5 @@
  const userPref = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"
 -const currentTheme = localStorage.getItem("theme") ?? userPref
@@ -154,7 +154,7 @@ Added title, CC-BY license, link and logos.
 
 
 `quartz/components/Footer.tsx`
-```diff
+```diff {5-28}
 @@ -14,9 +14,27 @@ export default ((opts?: Options) => {
      return (
        <footer class={`${displayClass ?? ""}`}>
@@ -243,7 +243,7 @@ export default (() => ReplyByEmail) satisfies QuartzComponentConstructor
 ```
 
 Added the new component to `index.ts`
-```diff
+```diff {5,13}
 @@ -20,6 +20,7 @@ import MobileOnly from "./MobileOnly"
  import RecentNotes from "./RecentNotes"
  import Breadcrumbs from "./Breadcrumbs"
@@ -274,7 +274,7 @@ Added the new component to `quartz.layout.ts`
 `/rss` is a redirect from `/index.xml`done via Cloudflare.
 
 `quartz.layout.ts`
-```diff
+```diff {5-9}
 @@ -8,8 +8,9 @@ export const sharedPageComponents: SharedLayout = {
    afterBody: [],
    footer: Component.Footer({
