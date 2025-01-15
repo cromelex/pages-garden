@@ -19,7 +19,7 @@ The full code for this Quartz page is available in the [GitHub repo](https://git
 11-01-2025 ▪ Each post/note now displays the last update date in addition to the created date, whereas the original code only allowed me to display one of them.
 
 `/quartz/components/ContentMeta.tsx`
-```diff {5,7-9,17-18}
+```diff {5,7-9}
 @@ -29,8 +29,10 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
      if (text) {
        const segments: (string | JSX.Element)[] = []
@@ -30,18 +30,6 @@ The full code for this Quartz page is available in the [GitHub repo](https://git
 +        segments.push("Last Update: " + fileData.dates.modified.toDateString() + " ▪ ")
 +        segments.push("Created: " + fileData.dates.created.toDateString() + " ▪ ")
        }
- 
-       // Display reading time if enabled
-@@ -44,7 +46,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
- 
-       return (
-         <p show-comma={options.showComma} class={classNames(displayClass, "content-meta")}>
--          {segments}
-+        {segments}
-         </p>
-       )
-     } else {
-
 ```
 
 
