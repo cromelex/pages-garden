@@ -22,7 +22,7 @@ I tested it on my computer and it worked!
 ## Gitting Things Done
 The vast majority of these open source projects are done by people who are volunteering their time and knowledge, for free. 
 
-While I have used open source software for years (for free), I had never contributed code to any project. I have opened bug reports in the past, but those are somewhat self-serving, in the sense that I was just trying to get whatever issue I was facing fixed.
+While I have used open source software for years, I had never contributed code to any project. I have opened bug reports in the past, but those are somewhat self-serving, in the sense that I was just trying to get whatever issue I was facing fixed.
 
 I had previously heard quite a bit about **git** as a fantastic tool for version control, and had some curiosity, but not enough to try it out just for the sake of it. 
 

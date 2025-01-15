@@ -2,7 +2,7 @@
 publish: true
 title: Quartz customisation
 created: 2025-01-11
-modified: 2025-01-14
+modified: 2025-01-15
 ---
 # Quartz customisation
 [Quartz](https://quartz.jzhao.xyz/) ([GitHub](https://github.com/jackyzha0/quartz)) is the *tool* used to create this website.  

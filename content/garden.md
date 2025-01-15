@@ -15,7 +15,6 @@ tags:
   - [[add CO2 to jukebox|Adding a CO2 sensor to the NFC Jukebox]]
   - [[CO2 sensor|ESPHome CO2 Sensor]]
   - [[NFC jukebox|NFC Jukebox]]
-- [[quartz]]
 - [[quotes|Quotes]]
 - **Technology**
   - [[cold boot|Cold Boot]]
@@ -25,6 +24,7 @@ tags:
   - [[HTTPS with Caddy|HTTPS with Caddy]]
   - [[immich machine learning|Immich Machine Learning with NVIDIA GPU]]
   - [[mTLS Cloudflare|mTLS via Cloudflare]]
+  - [[quartz|Quartz customisation]]
   - [[Tailscale ACLs|Tailscale Access Controls]]
 - **Travel**
   - [[japan2024|Travelling to Japan with a 18 month Old]]
