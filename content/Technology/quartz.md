@@ -6,8 +6,9 @@ modified: 2025-01-14
 ---
 # Quartz customisation
 [Quartz](https://quartz.jzhao.xyz/) ([GitHub](https://github.com/jackyzha0/quartz)) is the *tool* used to create this website.  
-I have done a number of modifications to different components of Quartz, in order to better suit my use and my preferences. 
-The repo history makes it a bit hard to track all the changes, so I I've decided to add those code snippets here, almost like a changelog.
+I have done a number of modifications to different components of Quartz, in order to better suit my use case and my preferences. 
+The repo history was a huge mess and it made it very hard to track all the changes, so I've decided to add these code snippets here.  
+In addition to this, I ended up recreating a new git repo for my Quartz page, allowing me to properly document all the changes to the tool, and the content, separately, using the git commit messages to document the changes.
 
 ## Full code
 The full code for this Quartz page is available in the [GitHub repo](https://github.com/cromelex/pages-garden).
