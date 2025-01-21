@@ -25,7 +25,7 @@ export const defaultContentPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.Darkmode(),
-    Component.Explorer(),
+    Component.Explorer({
       title: "Home", // title of the explorer component
       folderClickBehavior: "link",
       folderDefaultState: "collapsed",
@@ -44,7 +44,7 @@ export const defaultContentPageLayout: PageLayout = {
           return 1
         }
       },
-    })),
+    }),
   ],
   afterBody: [
     Component.ReplyByEmail(),
@@ -82,7 +82,7 @@ export const defaultListPageLayout: PageLayout = {
           return 1
         }
       },
-    })),
+    }),
   ],
   right: [
     Component.Search(),
