@@ -1,3 +1,115 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+// Adding Inter with ss02
+@font-face {
+    font-family: InterVariable;
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    font-feature-settings: 'liga' 1, 'calt' 1, 'ss02' 1; /* fix for Chrome */
+    src: url("/static/fonts/InterVariable.woff2") format("woff2");
+}
+@font-face {
+    font-family: InterVariable;
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    font-feature-settings: 'liga' 1, 'calt' 1, 'ss02' 1; /* fix for Chrome */
+    src: url("/static/fonts/InterVariable-Italic.woff2") format("woff2");
+}
+
+//  Change style for footnotes
+section[data-footnotes] {
+    & > #footnote-label.sr-only {
+        font-size: 1.25rem;
+        color: var(--dark);
+        margin-bottom: -0.75rem;
+    }
+
+    & > ol {
+        margin-bottom: 2rem;
+    }
+}
+
+
+// hide Date if frontmatter contains cssclasses hideDate
+body:has(.page-header ~ article.hideDate) .content-meta {
+    display: none;
+}
+
+// Change style for external links
+a {
+    &.external {
+        text-decoration: underline;
+        text-decoration-color: var(--secondary);
+        color: var(--darkgray);
+        background-color: var(--light);
+    }
+}
+
+// typography improvements
+h1 {
+    font-size: 1.75rem;
+    margin-top: 2.25rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.4rem;
+    margin-top: 1.9rem;
+    margin-bottom: 1rem;
+    color: var(--secondary)
+
+}
+
+h3 {
+    font-size: 1.12rem;
+    margin-top: 1.62rem;
+    margin-bottom: 1rem;
+}
+
+h4 {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: -0.5rem;
+    color: var(--tertiary)
+}
+
+h5 {
+    text-indent: 2em;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: -0.9rem;
+}
+
+h6 {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: -0.9rem;
+}
+
+// Apply justification to only paragraphs or text elements if needed
+p {
+    text-align: justify;
+}
+
+// center fig caption
+figure:has(img) {
+    margin-top: -1rem;
+    text-align: center;
+}
+
+figcaption {
+    text-align: center;
+    margin-top: -1rem;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+// push the darkmode button to the right
+button.darkmode {
+    position: absolute;
+    right: 1rem;
+}
