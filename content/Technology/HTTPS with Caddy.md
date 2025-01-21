@@ -165,7 +165,7 @@ The full Caddyfile would include both the Global Config and the site block. In t
 Start Caddy and, if the set up was done correctly, it should automatically fetch SSL certificates to encrypt the connection. 
 SSL certificates will expire after a certain amount of time. Caddy will monitor this and renew the certificates automatically, without the need for any human intervention. It just works! 
 
-We used private IPs for the DNS entries -this way the DNS entry will only resolve when you are connected to your local network. 
+We used private IPs for the DNS entries - this means the DNS entry will only resolve when you are connected to your local network. 
 There is no risk whatsoever in having a domain associated to a private IP address. No one outside will be able to connect to it.
 
 When you type `service1.example.com` or `service2.example.com` on your browser, Caddy will route the request to the correct service and port, and it'll make sure everything is encrypted along the way, so no one can listen in on this traffic!

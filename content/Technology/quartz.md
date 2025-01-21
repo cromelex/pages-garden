@@ -2,7 +2,7 @@
 publish: true
 title: Quartz customisation
 created: 2025-01-11
-modified: 2025-01-15
+modified: 2025-01-21
 ---
 # Quartz customisation
 [Quartz](https://quartz.jzhao.xyz/) ([GitHub](https://github.com/jackyzha0/quartz)) is the *tool* used to create this website.  
@@ -14,6 +14,11 @@ In addition to this, I ended up recreating a new git repo for my Quartz page, al
 The full code for this Quartz page is available in the [GitHub repo](https://github.com/cromelex/pages-garden).
 
 ## Snippets
+
+### Added the mobile explorer component (aka "hamburger" menu)
+21-01-2025 ▪ This is one of the things I felt was missing in Quartz. Luckily, there is an [existing PR to add it to Quartz](https://github.com/jackyzha0/quartz/pull/1471). I tested it and it works fine, so I decided to go ahead and grab it immediately rather than wait until it gets merged, as it looks like it's been sitting there for a few months already.
+
+The code is a bit too extensive to list here, and it is really just a copy of the Quartz PR, but the changes can be seen in my repo's [merge commit](https://github.com/cromelex/pages-garden/commit/11f62431a67c3fe3b3fd501e6a35e6895d0c48dd).
 
 ### Display both modified and created date
 11-01-2025 ▪ Each post/note now displays the last update date in addition to the created date, whereas the original code only allowed me to display one of them.
