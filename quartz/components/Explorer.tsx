@@ -46,7 +46,7 @@ export default ((userOpts?: Partial<Options>) => {
   let jsonTree: string
   let lastBuildId: string = ""
 
-  function constructFileTree(allFiles: QuartzPluginData[]) {
+  function constructFileTree(allFiles: QuartzPluginData[], currentFilePath: string) {
     // Construct tree from allFiles
     fileTree = new FileNode("")
     allFiles.forEach((file) => fileTree.add(file))
@@ -81,20 +81,48 @@ export default ((userOpts?: Partial<Options>) => {
   }: QuartzComponentProps) => {
     if (ctx.buildId !== lastBuildId) {
       lastBuildId = ctx.buildId
-      constructFileTree(allFiles)
+      constructFileTree(allFiles, (fileData.filePath ?? "").replaceAll(" ", "-"))
     }
-
     return (
       <div class={classNames(displayClass, "explorer")}>
         <button
           type="button"
-          id="explorer"
+          id="mobile-explorer"
+          class="collapsed hide-until-loaded"
           data-behavior={opts.folderClickBehavior}
           data-collapsed={opts.folderDefaultState}
           data-savestate={opts.useSavedState}
           data-tree={jsonTree}
+          data-mobile={true}
           aria-controls="explorer-content"
-          aria-expanded={opts.folderDefaultState === "open"}
+          aria-expanded={false}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-menu"
+          >
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          id="desktop-explorer"
+          class="title-button"
+          data-behavior={opts.folderClickBehavior}
+          data-collapsed={opts.folderDefaultState}
+          data-savestate={opts.useSavedState}
+          data-tree={jsonTree}
+          data-mobile={false}
+          aria-controls="explorer-content"
+          aria-expanded={true}
         >
          <a href="/"> <h2 style="color: var(--dark);">{opts.title ?? i18n(cfg.locale).components.explorer.title}</h2></a>
           <svg
