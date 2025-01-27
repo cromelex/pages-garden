@@ -13,6 +13,7 @@ In addition to this, I ended up recreating a new git repo for my Quartz page, al
 ## Full code
 The full code for this Quartz page is available in the [GitHub repo](https://github.com/cromelex/pages-garden).
 
+---
 ## Snippets
 
 ### Added the mobile explorer component (aka "hamburger" menu)
@@ -20,6 +21,7 @@ The full code for this Quartz page is available in the [GitHub repo](https://git
 
 The code is a bit too extensive to list here, and it is really just a copy of the Quartz PR, but the changes can be seen in my repo's [merge commit](https://github.com/cromelex/pages-garden/commit/11f62431a67c3fe3b3fd501e6a35e6895d0c48dd).
 
+---
 ### Display both modified and created date
 11-01-2025 ▪ Each post/note now displays the last update date in addition to the created date, whereas the original code only allowed me to display one of them.
 
@@ -37,8 +39,7 @@ The code is a bit too extensive to list here, and it is really just a copy of th
        }
 ```
 
-
-
+---
 ### Display alt-text as caption for images 
 08-01-2025 ▪ Modified the Obsidian flavoured markdown component to automatically add a caption to any image, using the content of the alt-text.
 
@@ -80,6 +81,7 @@ The code is a bit too extensive to list here, and it is really just a copy of th
 
 ```
 
+---
 ### Make content use up more of the screen for wide-screens
 06-01-2025 ▪ While the design of the page is responsive by default, I felt that it didn't use enough of the screen when using large screens (ie, wide-screen and 4K monitors). Made a few changes to make sure it uses more of the screen, where possible.
 
@@ -111,6 +113,7 @@ The code is a bit too extensive to list here, and it is really just a copy of th
  
 ```
 
+---
 ### Link the Explorer title to Home, and change colour
 20-12-2024 ▪ Modified the Explorer component in order to show the root/index as "Home" on the navigation bar.
 
@@ -128,6 +131,7 @@ The code is a bit too extensive to list here, and it is really just a copy of th
 
 ```
 
+---
 ### Default to dark-mode
 20-12-2024 ▪ Changed the default to dark-mode, keeping the option to switch between light/dark.
 
@@ -142,10 +146,10 @@ The code is a bit too extensive to list here, and it is really just a copy of th
  const emitThemeChangeEvent = (theme: "light" | "dark") => {
 ```
 
+---
 ### Change footer
 20-12-2024 ▪ Removed the link to Quartz (it's mentioned and linked to in [[about#About this site]]).  
 Added title, CC-BY license, link and logos.
-
 
 `quartz/components/Footer.tsx`
 ```diff {5-28}
@@ -183,7 +187,7 @@ Added title, CC-BY license, link and logos.
 
 ```
 
-
+---
 ### Added Reply by Email Component
 30-12-2024 ▪ Added a "Reply by Email" button under each note, inspired by [Kev Quirk's blog](https://kevquirk.com/blog/it-s-good-to-talk)
 
@@ -262,6 +266,7 @@ Added the new component to `quartz.layout.ts`
 +  ],
 ```
 
+---
 ### Added links to footer
 20-12-2024 ▪ Added links to About, Contact and RSS.
 
@@ -283,6 +288,7 @@ Added the new component to `quartz.layout.ts`
  }
 ```
 
+---
 ### Misc custom css adjustments
 ▪ All the different items are commented within the code.  
 

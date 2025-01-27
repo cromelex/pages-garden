@@ -112,6 +112,7 @@ Once the rule is live, if you try to access a protected subdomain from your brow
 
 This is what will happen to anyone who is not using the valid certificate when they try to access your subdomain.
 
+---
 #### Leaving a path unprotected
 You might want to have certain URLs still publicly available from your subdomain - for example, to use a webhook, and allowing the URL to be reachable so that the webhook can be triggered.
 
@@ -124,6 +125,7 @@ We can set up a new rule, pick URI full, and put as a value the full path we wan
 
 Based on the rule we had set up previously, anyone trying to access any URI except `/123public` on this subdomain will get the Cloudflare block page.
 
+---
 ### Adding the certificate to your devices
 Of course, you still want to be able to access from your devices, so let's go ahead and add the certificate to your client devices:
 #### Adding the certificate to Firefox
@@ -137,6 +139,7 @@ Go to Settings->Privacy and Security->View Certificates, Your Certificates, clic
 You can restart the browser, and now when you try to access `subdomain1.example.com` you will be prompted to select a certificate and actually access the page. If it doesn't work immediately, try to do a hard refresh on your browser (usually CTRL+F5).
 Sucess!
 
+---
 #### Adding the certificate to Chrome
 
 ##### Windows
@@ -148,6 +151,8 @@ Click import and select the `.p12` file. You will be prompted for the passphrase
 
 You can restart the browser, and now when you try to access `subdomain1.example.com` you will be prompted to select a certificate and actually access the page. If it doesn't work immediately, try to do a hard refresh on your browser (usually CTRL+F5).
 Sucess!
+
+---
 #### Adding the certificate to Android apps
 For Android, there are 2 ways of using this:  
 
