@@ -113,3 +113,17 @@ button.darkmode {
     position: absolute;
     right: 1rem;
 }
+
+// Adding some spacing between entries for the entries in folder groups
+.overflow {
+    li {
+        li {
+            margin-bottom: 0.3rem; // Nested items spacing
+        }
+
+        // Remove margin from the last item in each group
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
