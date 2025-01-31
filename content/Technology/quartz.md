@@ -2,7 +2,7 @@
 publish: true
 title: Quartz customisation
 created: 2025-01-11
-modified: 2025-01-21
+modified: 2025-01-31
 ---
 # Quartz customisation
 [Quartz](https://quartz.jzhao.xyz/) ([GitHub](https://github.com/jackyzha0/quartz)) is the *tool* used to create this website.  
@@ -15,6 +15,26 @@ The full code for this Quartz page is available in the [GitHub repo](https://git
 
 ---
 ## Snippets
+
+### Added better spacing to explorer menu items to improve readability for long titles
+31-01-2025 ▪ Some notes with longer titles were difficult to read in the explorer menu, as the spacing between titles and the lines was the same. Taken and modified from [this PR](https://github.com/jackyzha0/quartz/pull/1747).
+
+This was added to the `custom.scss`
+```css
+// Adding some spacing between entries in the explorer
+.overflow {
+    li {
+        li {
+            margin-bottom: 0.3rem; // Nested items spacing
+        }
+        // Remove margin from the last item in each group
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+```
+---
 
 ### Added the mobile explorer component (aka "hamburger" menu)
 21-01-2025 ▪ This is one of the things I felt was missing in Quartz. Luckily, there is an [existing PR to add it to Quartz](https://github.com/jackyzha0/quartz/pull/1471). I tested it and it works fine, so I decided to go ahead and grab it immediately rather than wait until it gets merged, as it looks like it's been sitting there for a few months already.
@@ -409,4 +429,16 @@ button.darkmode {
     right: 1rem;
 }
 
+// Adding some spacing between entries in the explorer
+.overflow {
+    li {
+        li {
+            margin-bottom: 0.3rem; // Nested items spacing
+        }
+        // Remove margin from the last item in each group
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
 ```
