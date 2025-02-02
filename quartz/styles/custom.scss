@@ -115,15 +115,15 @@ button.darkmode {
 }
 
 // Adding some spacing between entries in the explorer
-.overflow {
-    li {
+div.explorer {
+    .overflow {
         li {
-            margin-bottom: 0.3rem; // Nested items spacing
-        }
-
-        // Remove margin from the last item in each group
-        &:last-child {
-            margin-bottom: 0;
+            li {
+                margin-bottom: 0.3rem;
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
     }
 }
