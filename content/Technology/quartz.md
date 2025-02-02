@@ -2,7 +2,10 @@
 publish: true
 title: Quartz customisation
 created: 2025-01-11
-modified: 2025-01-31
+modified: 2025-02-02
+tags:
+  - quartz
+  - obsidian
 ---
 # Quartz customisation
 [Quartz](https://quartz.jzhao.xyz/) ([GitHub](https://github.com/jackyzha0/quartz)) is the *tool* used to create this website.  
@@ -17,19 +20,20 @@ The full code for this Quartz page is available in the [GitHub repo](https://git
 ## Snippets
 
 ### Added better spacing to explorer menu items to improve readability for long titles
-31-01-2025 ▪ Some notes with longer titles were difficult to read in the explorer menu, as the spacing between titles and the lines was the same. Taken and modified from [this PR](https://github.com/jackyzha0/quartz/pull/1747).
+02-02-2025 ▪ Some notes with longer titles were difficult to read in the explorer menu, as the spacing between titles and the lines was the same. I increased the spacing between entries. Taken and modified from [this PR](https://github.com/jackyzha0/quartz/pull/1747).
 
 This was added to the `custom.scss`
 ```css
 // Adding some spacing between entries in the explorer
-.overflow {
-    li {
+div.explorer {
+    .overflow {
         li {
-            margin-bottom: 0.3rem; // Nested items spacing
-        }
-        // Remove margin from the last item in each group
-        &:last-child {
-            margin-bottom: 0;
+            li {
+                margin-bottom: 0.3rem;
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
     }
 }
@@ -430,14 +434,15 @@ button.darkmode {
 }
 
 // Adding some spacing between entries in the explorer
-.overflow {
-    li {
+div.explorer {
+    .overflow {
         li {
-            margin-bottom: 0.3rem; // Nested items spacing
-        }
-        // Remove margin from the last item in each group
-        &:last-child {
-            margin-bottom: 0;
+            li {
+                margin-bottom: 0.3rem;
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
     }
 }
