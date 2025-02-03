@@ -1,5 +1,5 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import explorerStyle from "./styles/explorer.scss"
+import style from "./styles/explorer.scss"
 
 // @ts-ignore
 import script from "./scripts/explorer.inline"
@@ -150,7 +150,7 @@ export default ((userOpts?: Partial<Options>) => {
     )
   }
 
-  Explorer.css = explorerStyle
+  Explorer.css = style
   Explorer.afterDOMLoaded = script
   return Explorer
 }) satisfies QuartzComponentConstructor
