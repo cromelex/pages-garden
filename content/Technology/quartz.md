@@ -2,10 +2,9 @@
 publish: true
 title: Quartz customisation
 created: 2025-01-11
-modified: 2025-02-02
+modified: 2025-02-03
 tags:
   - quartz
-  - obsidian
 ---
 # Quartz customisation
 [Quartz](https://quartz.jzhao.xyz/) ([GitHub](https://github.com/jackyzha0/quartz)) is the *tool* used to create this website.  
@@ -38,12 +37,6 @@ div.explorer {
     }
 }
 ```
----
-
-### Added the mobile explorer component (aka "hamburger" menu)
-21-01-2025 ▪ This is one of the things I felt was missing in Quartz. Luckily, there is an [existing PR to add it to Quartz](https://github.com/jackyzha0/quartz/pull/1471). I tested it and it works fine, so I decided to go ahead and grab it immediately rather than wait until it gets merged, as it looks like it's been sitting there for a few months already.
-
-The code is a bit too extensive to list here, and it is really just a copy of the Quartz PR, but the changes can be seen in my repo's [merge commit](https://github.com/cromelex/pages-garden/commit/11f62431a67c3fe3b3fd501e6a35e6895d0c48dd).
 
 ---
 ### Display both modified and created date
