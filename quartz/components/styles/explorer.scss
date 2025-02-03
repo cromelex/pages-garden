@@ -29,6 +29,9 @@
 
 .explorer {
   display: flex;
+  height: 100%;
+  flex-direction: column;
+  overflow-y: hidden;
 
   @media all and ($mobile) {
     order: -1;
@@ -55,10 +58,6 @@
       display: none;
     }
   }
-
-  height: 100%;
-  flex-direction: column;
-  overflow-y: hidden;
 
   &.desktop-only {
     @media all and not ($mobile) {
