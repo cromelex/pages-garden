@@ -127,3 +127,8 @@ div.explorer {
         }
     }
 }
+
+// Change title colour for explorer.
+#desktop-explorer h2 {
+    color: var(--dark);
+}
