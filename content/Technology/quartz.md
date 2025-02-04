@@ -2,7 +2,7 @@
 publish: true
 title: Quartz customisation
 created: 2025-01-11
-modified: 2025-02-03
+modified: 2025-02-04
 tags:
   - quartz
 ---
@@ -131,17 +131,16 @@ div.explorer {
 ```
 
 ---
-### Link the Explorer title to Home, and change colour
-20-12-2024 ▪ Modified the Explorer component in order to show the root/index as "Home" on the navigation bar.
+### Link the Explorer title to Home
+20-12-2024 ▪ Modified the Explorer component in order to show the root/index as "Home" on the navigation bar and link to Home
 
 `quartz/components/Explorer.tsx`
 ```diff {5-6} 
-@@ -96,7 +96,7 @@ export default ((userOpts?: Partial<Options>) => {
            aria-controls="explorer-content"
            aria-expanded={opts.folderDefaultState === "open"}
          >
 -          <h2>{opts.title ?? i18n(cfg.locale).components.explorer.title}</h2>
-+         <a href="/"> <h2 style="color: var(--dark);">{opts.title ?? i18n(cfg.locale).components.explorer.title}</h2></a>
++         <a href="/"> <h2>{opts.title ?? i18n(cfg.locale).components.explorer.title}</h2></a>
            <svg
              xmlns="http://www.w3.org/2000/svg"
              width="14"
@@ -439,4 +438,10 @@ div.explorer {
         }
     }
 }
+
+// Change title header colour for explorer.
+#desktop-explorer h2 {
+    color: var(--dark);
+}
+
 ```
