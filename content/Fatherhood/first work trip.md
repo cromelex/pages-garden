@@ -14,15 +14,15 @@ This was actually the very first time I was away from her for more than 24 or 30
 
 For most of last year, work just happened in a way that didn't actually require me to travel. There was one work *event* over a weekend, but I was lucky enough that it took place in my local office, so was able to just go in to the office and back each day. It is part of the role, so it will eventually happen again.
 
-I have to admit, the whole thing left me quite anxious, before I even flew out. It's an odd feeling - that mixture of parental guilt, worry, and the practical stress of travel preparations!  
-
+I have to admit, the whole thing left me quite anxious, before I even flew out. It's an odd feeling - a mixture of parental guilt, worry, and the practical stress of travel preparations!  
 When the time actually came for the trip to happen, I was actually so stressed and so busy with work, overall, that this anxiety had to take a back seat.
 
 ## Staying connected
-Once I was away, the reality of separation set in on both sides.
-I was told by my partner that it was somewhat confusing for my daughter too - anytime she heard noise upstairs (from my home office), usually caused by one of the cats, she would call out for me.
+Once I was away, the reality of separation set in on both sides.  
+I was told by my partner that it was somewhat confusing for my daughter too - anytime she heard noise upstairs (from my home office), usually caused by one of the cats, she would call out for me.  
+For me, the experience was quite different. It was the first time in years that I didn't get kicked or climbed on during the night - not that it helped me sleep any better, but it was certainly *quieter*.  
 
 Fortunately, flying eastwards meant the time difference worked in my favour, allowing me to [[videocalls|video call]] home after finishing work each day. During these calls, my view was mostly limited to the top of her head and a constantly moving ceiling - the classic toddler video call experience! But it was still nice to be able to interact with her for a bit, and having her try and show me whatever she was interested in in that moment.
 
 ## Reunion
-When I finally got home (which was late at night), nothing could beat the big, long hug I got the next morning when she saw me. That moment made all the stress instantly melt away!
+I finally got home, late at night. Nothing can beat the big, long hug I got when she saw me in the morning. That moment made all the stress instantly melt away!
