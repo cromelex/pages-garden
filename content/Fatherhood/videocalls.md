@@ -25,7 +25,7 @@ Calls need not be very long. Sometimes all it takes is 10 minutes, as long as it
 Whenever a phone rings, she immediately shouts "Grandma!", and expects the call to be for her.
 We don't do the calls on a schedule - any time of the day will work.
 ### A joyful reunion: real connection
-This month the grandparents came over for a small visit, and she immediately recognised them. After a few initial moments of shyness and awkwardness, in which she looked a bit serious (probably while trying to handle emotions internally), it was as if they had never been apart! Lots of play ensued, and to me this is the most important thing. Video calls do not replace interaction, and they are certainly not sufficient for a connection by themselves... but they clearly help maintain those connections between those moments in person where that connection is truly forged.
+This month the grandparents came over for a small visit. When we met them at the airport's arrivals, she immediately recognised them. After a few initial moments of shyness and awkwardness, in which she looked a bit serious (probably while trying to handle emotions internally), it was as if they had never been apart! Lots of play ensued, and to me this is the most important thing. Video calls do not replace interaction, and they are certainly not sufficient for a connection by themselves... but they clearly help maintain those connections between those moments in person where that connection is truly forged.
 
 ### Sharing some tips:
 #### Video call best practices for family members

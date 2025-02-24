@@ -10,7 +10,11 @@ tags:
 - **Fatherhood**
   - [[fatherhood pt1|Fatherhood - part 1]]
   - [[fatherhood pt2|Fatherhood - part 2]]
+  - [[first work trip|First work trip after becoming a parent]]
   - [[paternity leave|On paternity leave]]
+  - [[scrambled eggs]]
+  - [[videocalls|Video calls: keeping family connected across borders]]
+  - [[weaning|Weaning]]
 - **Projects**
   - [[add CO2 to jukebox|Adding a CO2 sensor to the NFC Jukebox]]
   - [[CO2 sensor|ESPHome CO2 Sensor]]
@@ -31,6 +35,7 @@ tags:
 
 %% End Waypoint %%
 
+
 ---
 ### Recently Updated Notes:
 ```dataview
@@ -41,4 +46,6 @@ WHERE file.name != "index" and publish = true
 SORT modified desc
 LIMIT 5
 ```
+
+
 

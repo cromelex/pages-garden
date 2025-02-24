@@ -296,7 +296,7 @@ Added the new component to `quartz.layout.ts`
      links: {
 -      GitHub: "https://github.com/jackyzha0/quartz",
 -      "Discord Community": "https://discord.gg/cRFFHYye7t",
-+      "About": "https://dansgarden.eu/about#about-this-site",
++      "About": "https://dansgarden.eu/about",
 +      "Contact": "https://dansgarden.eu/contact",
 +      "RSS": "https://dansgarden.eu/rss",
      },
