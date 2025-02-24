@@ -164,7 +164,7 @@ div.explorer {
 
 ---
 ### Change footer
-20-12-2024 ▪ Removed the link to Quartz (it's mentioned and linked to in [[about#About this site]]).  
+20-12-2024 ▪ Removed the link to Quartz (it's mentioned and linked to in [[../about#About this site]]).  
 Added title, CC-BY license, link and logos.
 
 `quartz/components/Footer.tsx`

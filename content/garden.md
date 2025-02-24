@@ -5,22 +5,22 @@ tags:
 %% Begin Waypoint %%
 - [[about|About me]]
 - [[contact|Contact me]]
-- **Economics**
+- **economics**
   - [[commuting to office|On commuting to the office]]
-- **Fatherhood**
+- **fatherhood**
   - [[fatherhood pt1|Fatherhood - part 1]]
   - [[fatherhood pt2|Fatherhood - part 2]]
   - [[first work trip|First work trip after becoming a parent]]
   - [[paternity leave|On paternity leave]]
-  - [[scrambled eggs]]
-  - [[videocalls|Video calls: keeping family connected across borders]]
+  - [[scrambled eggs|Scrambled Eggs before 2]]
+  - [[videocalls|Video calls: keeping family connected]]
   - [[weaning|Weaning]]
-- **Projects**
+- **projects**
   - [[add CO2 to jukebox|Adding a CO2 sensor to the NFC Jukebox]]
   - [[CO2 sensor|ESPHome CO2 Sensor]]
   - [[NFC jukebox|NFC Jukebox]]
 - [[quotes|Quotes]]
-- **Technology**
+- **technology**
   - [[cold boot|Cold Boot]]
   - [[ESP sensors for ESPHome|ESP sensors for ESPHome]]
   - [[first pull request|My First Pull Request]]
@@ -30,7 +30,7 @@ tags:
   - [[mTLS Cloudflare|mTLS via Cloudflare]]
   - [[quartz|Quartz customisation]]
   - [[Tailscale ACLs|Tailscale Access Controls]]
-- **Travel**
+- **travel**
   - [[japan2024|Travelling to Japan with a 18 month Old]]
 
 %% End Waypoint %%
