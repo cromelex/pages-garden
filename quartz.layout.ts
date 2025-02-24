@@ -35,14 +35,33 @@ export const defaultContentPageLayout: PageLayout = {
         return !omit.has(node.name.toLowerCase())
       },
       sortFn: (a, b) => {
-        if ((!a.file && !b.file) || (a.file && b.file)) {
-          return a.displayName.localeCompare(b.displayName)
+        const nameOrderMap: Record<string, number> = {
+          "economics": 100,
+          "fatherhood": 200,
+          "fatherhood/paternity-leave": 201,
+          "fatherhood/fatherhood-pt2": 202,
+          "fatherhood/fatherhood-pt1": 203,
+          "technology": 300,
+          "projects": 400,
+          "about": 999,
         }
-        if (a.file && !b.file) {
-          return -1
-        } else {
-          return 1
+
+        let orderA = 0
+        let orderB = 0
+
+        if (a.file && a.file.slug) {
+          orderA = nameOrderMap[a.file.slug] || 0
+        } else if (a.name) {
+          orderA = nameOrderMap[a.name] || 0
         }
+
+        if (b.file && b.file.slug) {
+          orderB = nameOrderMap[b.file.slug] || 0
+        } else if (b.name) {
+          orderB = nameOrderMap[b.name] || 0
+        }
+
+        return orderA - orderB
       },
     }),
   ],
@@ -73,14 +92,33 @@ export const defaultListPageLayout: PageLayout = {
         return !omit.has(node.name.toLowerCase())
       },
       sortFn: (a, b) => {
-        if ((!a.file && !b.file) || (a.file && b.file)) {
-          return a.displayName.localeCompare(b.displayName)
+        const nameOrderMap: Record<string, number> = {
+          "economics": 100,
+          "fatherhood": 200,
+          "fatherhood/paternity-leave": 201,
+          "fatherhood/fatherhood-pt2": 202,
+          "fatherhood/fatherhood-pt1": 203,
+          "technology": 300,
+          "projects": 400,
+          "about": 999,
         }
-        if (a.file && !b.file) {
-          return -1
-        } else {
-          return 1
+
+        let orderA = 0
+        let orderB = 0
+
+        if (a.file && a.file.slug) {
+          orderA = nameOrderMap[a.file.slug] || 0
+        } else if (a.name) {
+          orderA = nameOrderMap[a.name] || 0
         }
+
+        if (b.file && b.file.slug) {
+          orderB = nameOrderMap[b.file.slug] || 0
+        } else if (b.name) {
+          orderB = nameOrderMap[b.name] || 0
+        }
+
+        return orderA - orderB
       },
     }),
   ],
