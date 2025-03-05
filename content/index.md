@@ -20,6 +20,7 @@ The majority of the content of this garden falls within two main types:
 ##### 1. My thoughts on lived experiences
 - [[fatherhood/index|Fatherhood]]: Honest reflections on the ups and downs of raising a child, a journey I only just started.
 - [[economics/index|Economics]]: Exploring economic concepts and how they tie in with the reality we live in.
+- [[misc/index|Misc]]: Some random thoughts or writings that do not fit neatly under any of the other categories.
 ##### 2. Documenting projects and experiments
 - [[technology/index|Technology]]: Diving into the world of tech, and my smart home automation [[projects/index|projects]].
 - [[tags/self-hosting|Self-hosting]]: Notes and tips based on my attempt at taking control of my digital infrastructure.
