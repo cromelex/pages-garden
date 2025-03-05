@@ -43,6 +43,7 @@ export const defaultContentPageLayout: PageLayout = {
           //"fatherhood/fatherhood-pt1": 203,
           "technology": 300,
           "projects": 400,
+          "misc": 700,
           "about": 999,
         }
 
@@ -100,6 +101,7 @@ export const defaultListPageLayout: PageLayout = {
           //"fatherhood/fatherhood-pt1": 203,
           "technology": 300,
           "projects": 400,
+          "misc": 700,
           "about": 999,
         }
 
