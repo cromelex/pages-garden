@@ -2,7 +2,7 @@
 publish: true
 title: Quartz customisation
 created: 2025-01-11
-modified: 2025-02-04
+modified: 2025-02-25
 tags:
   - quartz
 ---
@@ -17,6 +17,9 @@ The full code for this Quartz page is available in the [GitHub repo](https://git
 
 ---
 ## Snippets
+
+### Added the sorting function to the explorer
+24-02-2025 ▪ Added a custom sorting to the Explorer using the standard functionality described in the Quartz Documentation. Code in the [GitHub commit](https://github.com/cromelex/pages-garden/commit/1b3d779533e1cd88f85d948fea6cfa0a39a90790).
 
 ### Added better spacing to explorer menu items to improve readability for long titles
 02-02-2025 ▪ Some notes with longer titles were difficult to read in the explorer menu, as the spacing between titles and the lines was the same. I increased the spacing between entries. Taken and modified from [this PR](https://github.com/jackyzha0/quartz/pull/1747).
