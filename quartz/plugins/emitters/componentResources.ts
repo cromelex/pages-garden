@@ -1,4 +1,4 @@
-import { FilePath, FullSlug, joinSegments } from "../../util/path"
+import { FullSlug, joinSegments } from "../../util/path"
 import { QuartzEmitterPlugin } from "../types"
 
 // @ts-ignore
@@ -9,11 +9,10 @@ import styles from "../../styles/custom.scss"
 import popoverStyle from "../../components/styles/popover.scss"
 import { BuildCtx } from "../../util/ctx"
 import { QuartzComponent } from "../../components/types"
-import { googleFontHref, joinStyles } from "../../util/theme"
+import { googleFontHref, joinStyles, processGoogleFonts } from "../../util/theme"
 import { Features, transform } from "lightningcss"
 import { transform as transpile } from "esbuild"
 import { write } from "./helpers"
-import DepGraph from "../../depgraph"
 
 type ComponentResources = {
   css: string[]
@@ -36,17 +35,21 @@ function getComponentResources(ctx: BuildCtx): ComponentResources {
     afterDOMLoaded: new Set<string>(),
   }
 
+  function normalizeResource(resource: string | string[] | undefined): string[] {
+    if (!resource) return []
+    if (Array.isArray(resource)) return resource
+    return [resource]
+  }
+
   for (const component of allComponents) {
     const { css, beforeDOMLoaded, afterDOMLoaded } = component
-    if (css) {
-      componentResources.css.add(css)
-    }
-    if (beforeDOMLoaded) {
-      componentResources.beforeDOMLoaded.add(beforeDOMLoaded)
-    }
-    if (afterDOMLoaded) {
-      componentResources.afterDOMLoaded.add(afterDOMLoaded)
-    }
+    const normalizedCss = normalizeResource(css)
+    const normalizedBeforeDOMLoaded = normalizeResource(beforeDOMLoaded)
+    const normalizedAfterDOMLoaded = normalizeResource(afterDOMLoaded)
+
+    normalizedCss.forEach((c) => componentResources.css.add(c))
+    normalizedBeforeDOMLoaded.forEach((b) => componentResources.beforeDOMLoaded.add(b))
+    normalizedAfterDOMLoaded.forEach((a) => componentResources.afterDOMLoaded.add(a))
   }
 
   return {
@@ -82,7 +85,7 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
     componentResources.afterDOMLoaded.push(`
       const gtagScript = document.createElement("script")
       gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=${tagId}"
-      gtagScript.async = true
+      gtagScript.defer = true
       document.head.appendChild(gtagScript)
 
       window.dataLayer = window.dataLayer || [];
@@ -117,7 +120,7 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
       umamiScript.src = "${cfg.analytics.host ?? "https://analytics.umami.is"}/script.js"
       umamiScript.setAttribute("data-website-id", "${cfg.analytics.websiteId}")
       umamiScript.setAttribute("data-auto-track", "false")
-      umamiScript.async = true
+      umamiScript.defer = true
       document.head.appendChild(umamiScript)
 
       document.addEventListener("nav", () => {
@@ -128,7 +131,7 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
     componentResources.afterDOMLoaded.push(`
       const goatcounterScript = document.createElement("script")
       goatcounterScript.src = "${cfg.analytics.scriptSrc ?? "https://gc.zgo.at/count.js"}"
-      goatcounterScript.async = true
+      goatcounterScript.defer = true
       goatcounterScript.setAttribute("data-goatcounter",
         "https://${cfg.analytics.websiteId}.${cfg.analytics.host ?? "goatcounter.com"}/count")
       document.head.appendChild(goatcounterScript)
@@ -169,14 +172,13 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
       const cabinScript = document.createElement("script")
       cabinScript.src = "${cfg.analytics.host ?? "https://scripts.withcabin.com"}/hello.js"
       cabinScript.defer = true
-      cabinScript.async = true
       document.head.appendChild(cabinScript)
     `)
   } else if (cfg.analytics?.provider === "clarity") {
     componentResources.afterDOMLoaded.push(`
       const clarityScript = document.createElement("script")
       clarityScript.innerHTML= \`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      t=l.createElement(r);t.defer=1;t.src="https://www.clarity.ms/tag/"+i;
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       })(window, document, "clarity", "script", "${cfg.analytics.projectId}");\`
       document.head.appendChild(clarityScript)
@@ -200,11 +202,7 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
 export const ComponentResources: QuartzEmitterPlugin = () => {
   return {
     name: "ComponentResources",
-    async getDependencyGraph(_ctx, _content, _resources) {
-      return new DepGraph<FilePath>()
-    },
-    async emit(ctx, _content, _resources): Promise<FilePath[]> {
-      const promises: Promise<FilePath>[] = []
+    async *emit(ctx, _content, _resources) {
       const cfg = ctx.cfg.configuration
       // component specific scripts and styles
       const componentResources = getComponentResources(ctx)
@@ -213,42 +211,35 @@ export const ComponentResources: QuartzEmitterPlugin = () => {
         // let the user do it themselves in css
       } else if (cfg.theme.fontOrigin === "googleFonts" && !cfg.theme.cdnCaching) {
         // when cdnCaching is true, we link to google fonts in Head.tsx
-        let match
+        const response = await fetch(googleFontHref(ctx.cfg.configuration.theme))
+        googleFontsStyleSheet = await response.text()
 
-        const fontSourceRegex = /url\((https:\/\/fonts.gstatic.com\/s\/[^)]+\.(woff2|ttf))\)/g
-
-        googleFontsStyleSheet = await (
-          await fetch(googleFontHref(ctx.cfg.configuration.theme))
-        ).text()
-
-        while ((match = fontSourceRegex.exec(googleFontsStyleSheet)) !== null) {
-          // match[0] is the `url(path)`, match[1] is the `path`
-          const url = match[1]
-          // the static name of this file.
-          const [filename, ext] = url.split("/").pop()!.split(".")
-
-          googleFontsStyleSheet = googleFontsStyleSheet.replace(
-            url,
-            `https://${cfg.baseUrl}/static/fonts/${filename}.ttf`,
+        if (!cfg.baseUrl) {
+          throw new Error(
+            "baseUrl must be defined when using Google Fonts without cfg.theme.cdnCaching",
           )
+        }
 
-          promises.push(
-            fetch(url)
-              .then((res) => {
-                if (!res.ok) {
-                  throw new Error(`Failed to fetch font`)
-                }
-                return res.arrayBuffer()
-              })
-              .then((buf) =>
-                write({
-                  ctx,
-                  slug: joinSegments("static", "fonts", filename) as FullSlug,
-                  ext: `.${ext}`,
-                  content: Buffer.from(buf),
-                }),
-              ),
-          )
+        const { processedStylesheet, fontFiles } = await processGoogleFonts(
+          googleFontsStyleSheet,
+          cfg.baseUrl,
+        )
+        googleFontsStyleSheet = processedStylesheet
+
+        // Download and save font files
+        for (const fontFile of fontFiles) {
+          const res = await fetch(fontFile.url)
+          if (!res.ok) {
+            throw new Error(`Failed to fetch font ${fontFile.filename}`)
+          }
+
+          const buf = await res.arrayBuffer()
+          yield write({
+            ctx,
+            slug: joinSegments("static", "fonts", fontFile.filename) as FullSlug,
+            ext: `.${fontFile.extension}`,
+            content: Buffer.from(buf),
+          })
         }
       }
 
@@ -263,45 +254,45 @@ export const ComponentResources: QuartzEmitterPlugin = () => {
         ...componentResources.css,
         styles,
       )
+
       const [prescript, postscript] = await Promise.all([
         joinScripts(componentResources.beforeDOMLoaded),
         joinScripts(componentResources.afterDOMLoaded),
       ])
 
-      promises.push(
-        write({
-          ctx,
-          slug: "index" as FullSlug,
-          ext: ".css",
-          content: transform({
-            filename: "index.css",
-            code: Buffer.from(stylesheet),
-            minify: true,
-            targets: {
-              safari: (15 << 16) | (6 << 8), // 15.6
-              ios_saf: (15 << 16) | (6 << 8), // 15.6
-              edge: 115 << 16,
-              firefox: 102 << 16,
-              chrome: 109 << 16,
-            },
-            include: Features.MediaQueries,
-          }).code.toString(),
-        }),
-        write({
-          ctx,
-          slug: "prescript" as FullSlug,
-          ext: ".js",
-          content: prescript,
-        }),
-        write({
-          ctx,
-          slug: "postscript" as FullSlug,
-          ext: ".js",
-          content: postscript,
-        }),
-      )
+      yield write({
+        ctx,
+        slug: "index" as FullSlug,
+        ext: ".css",
+        content: transform({
+          filename: "index.css",
+          code: Buffer.from(stylesheet),
+          minify: true,
+          targets: {
+            safari: (15 << 16) | (6 << 8), // 15.6
+            ios_saf: (15 << 16) | (6 << 8), // 15.6
+            edge: 115 << 16,
+            firefox: 102 << 16,
+            chrome: 109 << 16,
+          },
+          include: Features.MediaQueries,
+        }).code.toString(),
+      })
 
-      return await Promise.all(promises)
+      yield write({
+        ctx,
+        slug: "prescript" as FullSlug,
+        ext: ".js",
+        content: prescript,
+      })
+
+      yield write({
+        ctx,
+        slug: "postscript" as FullSlug,
+        ext: ".js",
+        content: postscript,
+      })
     },
+    async *partialEmit() {},
   }
 }

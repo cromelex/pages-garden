@@ -15,7 +15,7 @@ interface Colors {
   darkMode: ColorScheme
 }
 
-type FontSpecification =
+export type FontSpecification =
   | string
   | {
       name: string
@@ -90,6 +90,36 @@ export function googleFontHref(theme: Theme) {
   return `https://fonts.googleapis.com/css2?family=${bodyFont}&family=${headerFont}&family=${codeFont}&display=swap`
 }
 
+export interface GoogleFontFile {
+  url: string
+  filename: string
+  extension: string
+}
+
+export async function processGoogleFonts(
+  stylesheet: string,
+  baseUrl: string,
+): Promise<{
+  processedStylesheet: string
+  fontFiles: GoogleFontFile[]
+}> {
+  const fontSourceRegex = /url\((https:\/\/fonts.gstatic.com\/s\/[^)]+\.(woff2|ttf))\)/g
+  const fontFiles: GoogleFontFile[] = []
+  let processedStylesheet = stylesheet
+
+  let match
+  while ((match = fontSourceRegex.exec(stylesheet)) !== null) {
+    const url = match[1]
+    const [filename, extension] = url.split("/").pop()!.split(".")
+    const staticUrl = `https://${baseUrl}/static/fonts/${filename}.${extension}`
+
+    processedStylesheet = processedStylesheet.replace(url, staticUrl)
+    fontFiles.push({ url, filename, extension })
+  }
+
+  return { processedStylesheet, fontFiles }
+}
+
 export function joinStyles(theme: Theme, ...stylesheet: string[]) {
   return `
 ${stylesheet.join("\n\n")}
@@ -105,9 +135,9 @@ ${stylesheet.join("\n\n")}
   --highlight: ${theme.colors.lightMode.highlight};
   --textHighlight: ${theme.colors.lightMode.textHighlight};
 
-  --headerFont: "${theme.typography.header}", ${DEFAULT_SANS_SERIF};
-  --bodyFont: "${theme.typography.body}", ${DEFAULT_SANS_SERIF};
-  --codeFont: "${theme.typography.code}", ${DEFAULT_MONO};
+  --headerFont: "${getFontSpecificationName(theme.typography.header)}", ${DEFAULT_SANS_SERIF};
+  --bodyFont: "${getFontSpecificationName(theme.typography.body)}", ${DEFAULT_SANS_SERIF};
+  --codeFont: "${getFontSpecificationName(theme.typography.code)}", ${DEFAULT_MONO};
 }
 
 :root[saved-theme="dark"] {
