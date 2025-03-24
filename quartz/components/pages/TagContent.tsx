@@ -32,6 +32,8 @@ export default ((opts?: Partial<TagContentOptions>) => {
     const tag = simplifySlug(slug.slice("tags/".length) as FullSlug)
     const allPagesWithTag = (tag: string) =>
       allFiles.filter((file) =>
+        // mod: skip files with specific tag
+        !file.frontmatter?.tags?.includes("explorerexclude") &&
         (file.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes).includes(tag),
       )
 
