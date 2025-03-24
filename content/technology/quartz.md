@@ -349,6 +349,11 @@ body:has(.page-header ~ article.hideDate) .content-meta {
     display: none;
 }
 
+// hide Tags if frontmatter contains cssclasses hideTags
+body:has(.page-header ~ article.hideTags) .tags {
+    display: none;
+}
+
 // Change style for external links
 a {
     &.external {
