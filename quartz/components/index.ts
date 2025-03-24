@@ -20,6 +20,8 @@ import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
+import Flex from "./Flex"
+import ConditionalRender from "./ConditionalRender"
 import ReplyByEmail from "./ReplyByEmail"
 
 export {
@@ -45,5 +47,7 @@ export {
   NotFound,
   Breadcrumbs,
   Comments,
+  Flex,
+  ConditionalRender,
   ReplyByEmail,
 }

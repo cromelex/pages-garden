@@ -5,18 +5,18 @@
 @font-face {
     font-family: InterVariable;
     font-style: normal;
-    font-weight: 100 900;
+    font-weight: 100 400 900;
     font-display: swap;
     font-feature-settings: 'liga' 1, 'calt' 1, 'ss02' 1; /* fix for Chrome */
-    src: url("/static/fonts/InterVariable.woff2") format("woff2");
+    src: url("/static/fonts/InterVariable.ttf") format("ttf");
 }
 @font-face {
     font-family: InterVariable;
     font-style: italic;
-    font-weight: 100 900;
+    font-weight: 100 400 900;
     font-display: swap;
     font-feature-settings: 'liga' 1, 'calt' 1, 'ss02' 1; /* fix for Chrome */
-    src: url("/static/fonts/InterVariable-Italic.woff2") format("woff2");
+    src: url("/static/fonts/InterVariable-Italic.ttf") format("ttf");
 }
 
 //  Change style for footnotes
@@ -108,12 +108,6 @@ figcaption {
     font-size: 0.9rem;
 }
 
-// push the darkmode button to the right
-button.darkmode {
-    position: absolute;
-    right: 1rem;
-}
-
 // Adding some spacing between entries in the explorer
 div.explorer {
     .overflow {
@@ -128,7 +122,7 @@ div.explorer {
     }
 }
 
-// Change title colour for explorer.
-#desktop-explorer h2 {
+// Changing the colour of the Home page button link
+.explorer .title-button.explorer-toggle.desktop-explorer a h2 {
     color: var(--dark);
 }
