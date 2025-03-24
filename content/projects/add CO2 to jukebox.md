@@ -2,7 +2,7 @@
 publish: true
 title: Adding a CO2 sensor to the NFC Jukebox
 created: 2024-12-31
-modified: 2024-12-31
+modified: 2025-03-24
 tags:
   - esphome
   - homeassistant
@@ -114,10 +114,8 @@ i2c:
   id: bus_1
   
 # RFID Reader Sensor
-mfrc522_i2c:
-  i2c_id: bus_1
-  address: 0x28 # I2C adress 
-  update_interval: 200ms # It seems happiest with 200ms minimum
+rc522_i2c:
+  address: 0x28
   on_tag:
     then:
       - homeassistant.tag_scanned: !lambda 'return x;'
