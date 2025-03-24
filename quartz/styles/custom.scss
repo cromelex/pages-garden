@@ -8,7 +8,7 @@
     font-weight: 100 400 900;
     font-display: swap;
     font-feature-settings: 'liga' 1, 'calt' 1, 'ss02' 1; /* fix for Chrome */
-    src: url("/static/fonts/InterVariable.ttf") format("ttf");
+    src: url("/static/fonts/InterVariable.woff2") format("woff2");
 }
 @font-face {
     font-family: InterVariable;
@@ -16,7 +16,7 @@
     font-weight: 100 400 900;
     font-display: swap;
     font-feature-settings: 'liga' 1, 'calt' 1, 'ss02' 1; /* fix for Chrome */
-    src: url("/static/fonts/InterVariable-Italic.ttf") format("ttf");
+    src: url("/static/fonts/InterVariable-Italic.woff2") format("woff2");
 }
 
 //  Change style for footnotes
