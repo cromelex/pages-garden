@@ -2,7 +2,7 @@
 publish: true
 title: Quartz customisation
 created: 2025-01-11
-modified: 2025-02-25
+modified: 2025-03-24
 tags:
   - quartz
 ---
@@ -17,9 +17,6 @@ The full code for this Quartz page is available in the [GitHub repo](https://git
 
 ---
 ## Snippets
-
-### Added the sorting function to the explorer
-24-02-2025 ▪ Added a custom sorting to the Explorer using the standard functionality described in the Quartz Documentation. Code in the [GitHub commit](https://github.com/cromelex/pages-garden/commit/1b3d779533e1cd88f85d948fea6cfa0a39a90790).
 
 ### Added better spacing to explorer menu items to improve readability for long titles
 02-02-2025 ▪ Some notes with longer titles were difficult to read in the explorer menu, as the spacing between titles and the lines was the same. I increased the spacing between entries. Taken and modified from [this PR](https://github.com/jackyzha0/quartz/pull/1747).
@@ -319,7 +316,7 @@ Added the new component to `quartz.layout.ts`
 @font-face {
     font-family: InterVariable;
     font-style: normal;
-    font-weight: 100 900;
+    font-weight: 100 400 900;
     font-display: swap;
     font-feature-settings: 'liga' 1, 'calt' 1, 'ss02' 1; /* fix for Chrome */
     src: url("/static/fonts/InterVariable.woff2") format("woff2");
@@ -327,7 +324,7 @@ Added the new component to `quartz.layout.ts`
 @font-face {
     font-family: InterVariable;
     font-style: italic;
-    font-weight: 100 900;
+    font-weight: 100 400 900;
     font-display: swap;
     font-feature-settings: 'liga' 1, 'calt' 1, 'ss02' 1; /* fix for Chrome */
     src: url("/static/fonts/InterVariable-Italic.woff2") format("woff2");
@@ -422,12 +419,6 @@ figcaption {
     font-size: 0.9rem;
 }
 
-// push the darkmode button to the right
-button.darkmode {
-    position: absolute;
-    right: 1rem;
-}
-
 // Adding some spacing between entries in the explorer
 div.explorer {
     .overflow {
@@ -442,8 +433,8 @@ div.explorer {
     }
 }
 
-// Change title header colour for explorer.
-#desktop-explorer h2 {
+// Changing the colour of the Home page button link
+.explorer .title-button.explorer-toggle.desktop-explorer a h2 {
     color: var(--dark);
 }
 

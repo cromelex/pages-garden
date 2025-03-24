@@ -2,7 +2,7 @@
 publish: true
 title: NFC Jukebox
 created: 2024-11-29
-modified: 2024-11-29
+modified: 2025-03-24
 tags:
   - esphome
   - homeassistant
@@ -21,6 +21,8 @@ A few years later, I now have a daughter who's almost 2, and who occasionally de
 ## The NFC bit 
 
 To read the cards, I bought a M5Stack RFID sensor, plugged it into an Atom Lite ESP32, and flashed it with ESPHome. Someone has already done the hard work, so it's easy to find a working config and to quickly adapt it to my needs.
+I put together a configuration using a template from [M5Stack-ESPHome.](https://github.com/Chill-Division/M5Stack-ESPHome/blob/main/RFID%202%20Unit%20(WS1850S).md)
+The below NFC/RFID related bit has been updated on 24/03/2025, following changes in the upstream template.
 
 I did a small change in the code, based on the existing code of the Adonno Tag Reader which I use as part of my alarm system.
 This is what the final code looks like:
@@ -61,25 +63,13 @@ wifi:
 
 captive_portal:
     
-
-
-external_components:
-  - source:
-      type: git
-      url: https://github.com/chill-Division/M5Stack-ESPHome/
-      ref: main
-    components: mfrc522_i2c
-
+# RFID Reader Sensor
 i2c:
-  sda: 26
-  scl: 32
-  scan: true
-  id: bus_1
+  sda: GPIO26
+  scl: GPIO32
 
-mfrc522_i2c:
-  i2c_id: bus_1
-  address: 0x28 # I2C adress 
-  update_interval: 200ms # It seems happiest with 200ms minimum
+rc522_i2c:
+  address: 0x28
   on_tag:
     then:
       - homeassistant.tag_scanned: !lambda 'return x;'

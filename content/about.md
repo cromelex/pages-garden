@@ -16,7 +16,6 @@ I am Portuguese, but I have lived in Ireland since 2016.
 I have purposely chosen a **.eu** domain for this site as I feel that this is a good way to signal a bit of who I am - and that is, a citizen from a EU country who made use of the freedom of movement to take up a better job within a different EU country, and ended up adopting the new country as my own.  
 It is also a good warning for any american reader, who might otherwise be shocked at mentions of paid parental leave or other socialist *nightmares*. 🙂
 
-For the past 10 years I have worked in a number of roles linked to Asset Servicing / Corporate Actions, all within a securities Custody environment.   
 I have a Bachelor's degree in Economics and a Post-grad degree in Monetary and Financial Economics.  
 I am also particularly interested in *Behavioural Economics* and it's impact on risk-related decision making, although I have not had the chance to formally study this field.
 

@@ -5,6 +5,8 @@ cssclasses:
   - hideDate
 created: 2024-01-01
 modified: 2024-01-01
+tags:
+  - explorerexclude
 ---
 # Contact me
 
