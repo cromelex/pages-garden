@@ -11,7 +11,7 @@ I know this is hardly an original thought, but being ill really does suck.
 This month has been a complete write off.
 
 ## First the little one
-My daughter got sick, not once, but twice in a row. 2 different viral infections, one right after the other. For the first time ever we had to end up going to the A&E department at a children's hospital. I had not been in once in over 10 years, and this was in fact the first time I've been in one in Ireland.
+My daughter got sick, not once, but twice in a row. 2 different viral infections, one right after the other. For the first time ever we had to end up going to the A&E department at a children's hospital. I had not been in a A&E in over 10 years, and this was in fact the first time I've been in one in Ireland.
 
 I did expect worse, a lot worse. Triage was quick, we were seen quickly enough by nurses and a doctor, and my daughter was well looked after. We spent less than 8 hours in the hospital, and that included the time it took to wait for the exam results. 
 If anything, the only complaint I could have is that *some* staff, especially when dealing with children, could use a bit more emotional warmth. I know it is a tough job, in a tough environment (my partner works in hospital healthcare too!), but a bit more friendliness helps getting children more comfortable and at ease.
