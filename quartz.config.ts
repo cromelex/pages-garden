@@ -21,8 +21,8 @@ const config: QuartzConfig = {
     defaultDateType: "modified",
     generateSocialImages: false,
     theme: {
-      fontOrigin: "local",
-      cdnCaching: false,
+      fontOrigin: "googleFonts",
+      cdnCaching: true,
       typography: {
         header: "Montserrat",
         body: "InterVariable",
