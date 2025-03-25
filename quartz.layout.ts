@@ -30,10 +30,6 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Flex({
       components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
         { Component: Component.Darkmode() },
       ],
     }),
@@ -49,7 +45,14 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ReplyByEmail(),
   ],
   right: [
-    Component.Search(),
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+                   grow: true,
+        },
+      ],
+    }),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
@@ -63,10 +66,6 @@ export const defaultListPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Flex({
       components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
         { Component: Component.Darkmode() },
       ],
     }),
@@ -79,6 +78,13 @@ export const defaultListPageLayout: PageLayout = {
     })
   ],
   right: [
-    Component.Search(),
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+                   grow: true,
+        },
+      ],
+    }),
   ],
 }
