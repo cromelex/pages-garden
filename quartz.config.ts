@@ -18,7 +18,7 @@ const config: QuartzConfig = {
     locale: "en-GB",
     baseUrl: "dansgarden.eu",
     ignorePatterns: ["private", "templates", ".obsidian"],
-    defaultDateType: "created",
+    defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
