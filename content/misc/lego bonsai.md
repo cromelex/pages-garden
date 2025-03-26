@@ -2,7 +2,7 @@
 publish: true
 title: Rediscovering Lego
 created: 2025-03-05
-modified: 2025-03-06
+modified: 2025-03-26
 tags:
   - lego
 ---
@@ -30,3 +30,10 @@ I could not resist, and that same afternoon I went out and purchased a new set -
 
 I am impressed by Lego's ability to bridge the gap between childhood play and adult creativity. Although I don't know when I'll get the chance to build this new set, at least I have it at the ready, once the opportunity shows up.  
 And I can only look forward to the time when I will finally be able to build one of these sets with my daughter!
+
+## Orchid update
+I finally had a bit of time, as I recovered from [[illness sucks|being ill]], and managed to spend some time building the new set. My daughter helped put a few pieces together. She definitely doesn't have the required dexterity yet, but she was happy to press in a few pieces once I had inserted them in the right slot.
+
+![[attachments/lego bonsai-2038x2708.webp|The assembled Lego Orchid, sitting on a shelf above my desk|800]]
+
+I have to say this set looks great! I am very happy with the assembled look, and might even end up grabbing the Lego Mini Orchid next. At least these *plants* won't die, and so far the cats have stayed away from them too.
