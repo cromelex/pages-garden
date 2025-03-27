@@ -52,9 +52,9 @@ The new Renault 5 EV is looking class... Watch this space.
 ## Environmental and Economic Considerations
 Beyond personal economics, our EV represents a meaningful step towards sustainable transportation (although, if you can cycle, take a bus, or train, you should).
 
-- Reduced pollutant emissions
+- Reduced pollutant emissions:
 	- No particulate matter being spewed out while you're stuck in traffic in the city.
-- Lower dependency on fossil fuels
+- Lower dependency on fossil fuels:
 	- The lower priced night rate corresponds to a period with lower consumption overall, and in Ireland it also matches the time of day where the share of wind generated electricity is higher. 
 - Technological innovation supporting climate goals
 
