@@ -24,7 +24,7 @@ const config: QuartzConfig = {
       cdnCaching: true,
       typography: {
         header: "Montserrat",
-        body: "InterVariable",
+        body: "Inter",
         code: "Fira Code",
       },
       colors: {
