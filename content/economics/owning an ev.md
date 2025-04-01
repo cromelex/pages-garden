@@ -56,7 +56,7 @@ Beyond personal economics, our EV represents a meaningful step towards sustainab
 	- No particulate matter being spewed out while you're stuck in traffic in the city.
 - Lower dependency on fossil fuels:
 	- The lower priced night rate corresponds to a period with lower consumption overall, and in Ireland it also matches the time of day where the share of wind generated electricity is higher. 
-- Technological innovation supporting climate goals
+- Technological innovation supporting climate goals.
 
 ## Key Takeaways
 - EV running costs are extremely low *if* you are able to charge at Home, rather than using public charging. This is true even in Ireland, which has some of the highest electricity prices in the EU.

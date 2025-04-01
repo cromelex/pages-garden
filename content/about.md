@@ -27,7 +27,7 @@ While I have never had formal training nor education in IT, it's something I hav
 # About this site
 
 This site was created using [Quartz](https://quartz.jzhao.xyz/) ([GitHub](https://github.com/jackyzha0/quartz)), and includes some modifications from the original Quartz code, detailed [[technology/quartz|here]].  
-The full code for this page is available on [Github](https://github.com/cromelex/pages-garden).  
+The full code for this page is available on [Github.](https://github.com/cromelex/pages-garden)
 It is hosted using Cloudflare Pages and does not use any cookies.  
 It uses a self hosted version of [Umami](https://umami.is) to provide basic analytics, while ensuring anonymity and safeguarding your privacy. If you wish to block the analytics entirely, you can do so by blocking the `stats.dansgarden.eu` subdomain.
 
