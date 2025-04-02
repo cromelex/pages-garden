@@ -40,7 +40,7 @@ Each plant entity gives you a binary state (ok/problem), and the attributes tell
 ![[./attachments/plant sensors-1984x648.webp|The plant entity details within Home Assistant.|800]]
 
 
-![[./attachments/plant sensors-1042x1492.webp|Each plant's information gets displayed in a neat card. I am using the compact version, but the symbols correspond to (top to bottom, left then right): air humidity, soil conductivity (ie, quantity of minerals on the soil), accumulated light received today, soil humidity, temperature, and light received.|800]]
+![[./attachments/plant sensors-1042x1492.webp|Each plant's information gets displayed in a neat card. I am using the compact version, but the symbols correspond to (top to bottom, left then right): air humidity, soil conductivity (ie, quantity of minerals on the soil), accumulated light received today, soil humidity, temperature, and light received.|600]]
 
 ## Automating notifications
 To make my life easier, rather than checking the cards each time, I have set up automations to let me know a plant needs watering, or plant food.
