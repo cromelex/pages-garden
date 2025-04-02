@@ -2,7 +2,7 @@
 publish: true
 title: Rediscovering Lego
 created: 2025-03-05
-modified: 2025-03-26
+modified: 2025-04-02
 tags:
   - lego
 ---
@@ -26,7 +26,7 @@ It took a few months before I found the time to open and build the set - it was 
 
 It had been a long time but, admittedly, it's still just as fun as it used to be.   
 
-I could not resist, and that same afternoon I went out and purchased a new set - the [Lego Orchid](https://rebrickable.com/sets/10311-1/orchid/).  My mum has always had *real* orchids around the house, and they seemed to last forever. Unlike my ill-fated attempts with real orchids (even with _smart_ plant sensors), this Lego version promises to be a lasting, maintenance-free addition to my growing collection.
+I could not resist, and that same afternoon I went out and purchased a new set - the [Lego Orchid](https://rebrickable.com/sets/10311-1/orchid/).  My mum has always had *real* orchids around the house, and they seemed to last forever. Unlike my ill-fated attempts with real orchids (even with _smart_ [[../projects/plant sensors|plant sensors]]), this Lego version promises to be a lasting, maintenance-free addition to my growing collection.
 
 I am impressed by Lego's ability to bridge the gap between childhood play and adult creativity. Although I don't know when I'll get the chance to build this new set, at least I have it at the ready, once the opportunity shows up.  
 And I can only look forward to the time when I will finally be able to build one of these sets with my daughter!
@@ -36,4 +36,9 @@ I finally had a bit of time, as I recovered from [[illness sucks|being ill]], an
 
 ![[attachments/lego bonsai-2038x2708.webp|The assembled Lego Orchid, sitting on a shelf above my desk|800]]
 
-I have to say this set looks great! I am very happy with the assembled look, and might even end up grabbing the Lego Mini Orchid next. At least these *plants* won't die, and so far the cats have stayed away from them too.
+I have to say this set looks great! I am very happy with the assembled look, and might even end up grabbing the Lego Mini Orchid next. At least these *plants* won't die, and so far the [[../tags/cats|cats]] have stayed away from them too.
+
+## Another Orchid update 
+I found a good price on the sets and couldn't resist! Grabbed the [Lego Mini Orchid](https://rebrickable.com/sets/10343-1/mini-orchid/) and the [Lego Plum Blossom](https://rebrickable.com/sets/10369-1/plum-blossom/). Must say I am really looking forward to building the new sets!
+
+![[./attachments/lego bonsai-4035x2466.webp|The two new boxed sets|800]]

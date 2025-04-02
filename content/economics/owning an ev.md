@@ -43,9 +43,9 @@ We've travelled throughout Ireland, and even have even took a ferry to Spain and
 However, it is *incredibly* expensive[^4]. It is very rare that we that we actually need to use it, but we have done a few longer road trips where we had to, and they significantly impact the costs. We do over 90% of our charging at home, but that 10% of public charging costed 40% of our total spend.
 There are a number of charging cards and plans that will make it cheaper, sometimes by half as much. If you need public charging, you definitely need to look into those, as sometimes they offer savings of over 50% vs the standard prices. They may have a monthly fee, but often the difference in prices will cover the fee in a single charge, or less. 
 
-## Future Considerations: a second car?
+## Near future: a second car?
 Between the push to [[commuting to office|return to office]] and our daughter starting creche and eventually pre-school, we are in a position where we will eventually need a 2nd car. I think we are finally getting to the point where we are starting to see some smaller EV hatchbacks. In my opinion this is the range that has the potential to really increase EV adoption. 
-Not everyone can afford a big expensive EV.  And they shouldn't have to. A small hatchback is the best car for *most* people. The only reason we didn't buy one in 2022 was that none existed (yet).  
+Not everyone can afford a big expensive EV. And they shouldn't have to. A small hatchback is the best car for *most* people. The only reason we didn't buy one in 2022 was that none existed (yet).  
 We are happy with our EV, and will most likely get another EV as our 2nd car, likely in the next 6 months.  
 The new Renault 5 EV is looking class... Watch this space.
 
@@ -60,7 +60,7 @@ Beyond personal economics, our EV represents a meaningful step towards sustainab
 
 ## Key Takeaways
 - EV running costs are extremely low *if* you are able to charge at Home, rather than using public charging. This is true even in Ireland, which has some of the highest electricity prices in the EU.
-- The lowest priced time-period for charging overnight lasts for 3-4 hours, depending on the operator. Charging at 7.5kW, thats over 22kWh of top up per night. That is enough charge for over 120 km.
+- The lowest priced time-period for charging overnight lasts for 3-4 hours, depending on the operator. Charging at 7.5kW, that's over 22kWh of top up per night. That is enough charge for over 120 km.
 - Public charging is easy and convenient, there is no reason why you'll ever be stranded without a charge. A 15 minute stop to fast-charge and take a toilet break is hardly going to be noticeable on your total trip time.
 - Public charging is proportionally very expensive, and if you are reliant on it, you should do the maths and subscribe to a charging card.
 - Long-term ownership can significantly improve the economic case for EVs, due to the lower cost per km.
