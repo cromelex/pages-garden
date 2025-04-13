@@ -2,7 +2,7 @@
 publish: true
 title: Smart plant sensors
 created: 2025-04-02
-modified: 2025-04-02
+modified: 2025-04-05
 tags:
   - homeassistant
   - plants
@@ -15,7 +15,7 @@ I am quite fond of having different plants spread throughout the house. It takes
 > Even though I have been using the plant sensors for over two years, some plants will still randomly just die.
 > This is by no means a foolproof way to keep plants alive!
 
-As I already run [Home Assistant](https://www.home-assistant.io/) so it was only natural that I added the plant sensors into it.
+I already run [Home Assistant](https://www.home-assistant.io/) so it was only natural that I added the plant sensors into it.
 
 ## Materials 
 - Plants
@@ -81,7 +81,7 @@ I then send out the notification via Home Assistant:
 ```
 
 The timeout automatically dismisses the message after 30 minutes, to avoid cluttering my phone.
-The **clickAction** means that if I click the notification on the phone I am taken to my plants dashboard, so that I can view the cards and check which plants need to be taken care of.
+The "clickAction" means that if I click the notification on the phone I am taken to my plants dashboard, so that I can view the cards and check which plants need to be taken care of.
 ## Conclusion
 This is a very simple way to try and keep the plants alive. Considering the price of the sensors, one *could* argue that you might be better of buying a new plant each time one dies. I still feel better knowing I am doing all I can - and a reminder on the phone when it is time to water a plant really helps.  
 I have found that, overall, having the sensors does help in keeping plants alive longer. Yes, some of them still die randomly (maybe I am not good enough at this!), but even those seem to last longer than what they did when I had no sensors at all. And some of my other plants are really thriving! One in particular, the Fishbone Cactus (*Epiphyllum anguliger*) has been doing so well that I have managed to propagate small cuts from it into 2 new pots.

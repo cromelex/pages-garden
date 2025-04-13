@@ -5,6 +5,8 @@ created: 2025-03-05
 modified: 2025-04-02
 tags:
   - lego
+alias:
+  - "misc/lego-bonsai"
 ---
 # Rediscovering Lego
 

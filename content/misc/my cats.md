@@ -1,6 +1,6 @@
 ---
 publish: true
-title: Our cats
+title: My cats
 created: 2025-04-02
 modified: 2025-04-02
 tags:

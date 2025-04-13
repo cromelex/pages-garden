@@ -2,13 +2,13 @@
 publish: true
 title: Owning an EV
 created: 2025-03-27
-modified: 2025-03-27
+modified: 2025-04-05
 tags:
   - ev
 ---
 # The economics of owning an EV
 
-In 2022, when we moved to our new home, we moved away from Dublin, and from our new address we could no longer get away with relying solely on public transport.   
+In 2022 we moved to our new home, away from Dublin, and from our new address we could no longer get away with relying solely on public transport.   
 We made the decision to buy an EV, even if that meant that we ended up spending a bit more than what we initially wanted. At the time there were no real options in the used market for a full EV with anything like a 400km range. Not that we *needed* the 400km range, but the idea was to buy something with enough range that, even in a few years time, with degradation etc, the battery will still give us enough range to fulfil our every need. We test drove a few models and we opted for a Kia EV6 with a 77kWh battery. 
 EVs are comfortable, fun to drive[^1], and packed with assists that make them safer than most of the base petrol models.  
 And, if you ask me, the EV6 is a beautiful car!
