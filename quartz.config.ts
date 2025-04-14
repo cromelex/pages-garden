@@ -10,7 +10,7 @@ const config: QuartzConfig = {
   configuration: {
     pageTitle: "🍃 Dan's Garden",
     pageTitleSuffix: " - Dan's Garden",
-    enableSPA: true,
+    enableSPA: false,
     enablePopovers: true,
     analytics: {
       provider: 'umami', host: 'https://stats.dansgarden.eu', websiteId: '3978a97f-5d5e-4bbf-844b-06d9f6edfaf8'
