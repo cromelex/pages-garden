@@ -3,7 +3,9 @@ publish: true
 title: Cold Boot
 created: 2025-01-08
 modified: 2025-01-09
-tags:
+tags: 
+alias:
+  - "Technology/cold-boot"
 ---
 # Cold Boot
 
