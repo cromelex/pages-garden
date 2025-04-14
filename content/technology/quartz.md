@@ -5,6 +5,8 @@ created: 2025-01-11
 modified: 2025-03-24
 tags:
   - quartz
+alias:
+  - "Technology/quartz"
 ---
 # Quartz customisation
 [Quartz](https://quartz.jzhao.xyz/) ([GitHub](https://github.com/jackyzha0/quartz)) is the *tool* used to create this website.  

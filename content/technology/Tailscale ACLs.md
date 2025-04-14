@@ -6,6 +6,8 @@ modified: 2024-11-28
 tags:
   - tailscale
   - self-hosting
+alias:
+  - "Technology/Tailscale-ACLs"
 ---
 # Tailscale Access Controls
 ## What is Tailscale

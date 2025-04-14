@@ -6,6 +6,8 @@ modified: 2025-01-07
 tags:
   - self-hosting
   - caddy
+alias:
+  - "Technology/HTTPS-with-Caddy"
 ---
 # HTTPS with Caddy
 

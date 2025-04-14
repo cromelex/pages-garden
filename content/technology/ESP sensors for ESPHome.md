@@ -6,6 +6,8 @@ tags:
   - homeassistant
 created: 2024-11-29
 modified: 2024-11-29
+alias:
+  - "Technology/ESP-sensors-for-ESPHome"
 ---
 # ESP sensors for ESPHome
 Over the last few years, as part of my effort to make my house *smart* using Home Assistant, I have ended up buying a few ESP devices to serve multiple purposes.

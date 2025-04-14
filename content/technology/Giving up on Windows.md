@@ -7,6 +7,8 @@ tags:
   - foss
   - bazzite
   - windows
+alias:
+  - "Technology/Giving-up-on-Windows"
 ---
 
 # Why I Finally Gave Up on Windows for Good
