@@ -2,7 +2,7 @@
 publish: true
 title: HTTPS with Caddy
 created: 2024-12-16
-modified: 2025-01-07
+modified: 2025-04-16
 tags:
   - self-hosting
   - caddy
@@ -50,6 +50,45 @@ You will need a custom build to support DNS-01 challenges.
 [Serfriz](https://github.com/serfriz/caddy-custom-builds) provides docker images with the required modules to support this for Cloudflare, Porkbun and Namecheap, among others. You can also [build your own,](https://caddyserver.com/docs/build#docker) if you prefer not to trust a third-party.
 
 DNS-01 ACME validation means your server doesn't need to be publicly reachable. You can keep it all private and secure, entirely restricted to your private IP range.
+
+
+> [!example]- My Caddy (with Cloudflare module) docker compose
+> Below is an example of my docker compose and .env files for Caddy.
+> For simplicity and ease of backup, I prefer to use bind mounts (ie, mount a specific path on the host ) rather than using Docker volumes.
+> 
+> compose.yaml
+> ```yaml
+> services:
+>  ##### Caddy #####
+>  caddy:
+>    container_name: caddy
+>    restart: always
+>    command: caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
+>    image: ghcr.io/serfriz/caddy-cloudflare:latest
+>    volumes:
+>      - /path/on/host/caddy/config/:/config
+>      - /path/on/host/caddy/data/:/data
+>      - /path/on/host/caddy/Caddyfile:/etc/caddy/Caddyfile
+>      - /path/on/host/logs:/var/log/caddy
+>    env_file:
+>      - ./.env
+>    ports:
+>      - 80:80
+>      - 443:443
+>    networks:
+>      - caddynet
+> # networks
+> networks:
+>  caddynet: {}
+> ```
+> 
+> .env file
+ > ```
+> # VARIABLE=value # comment
+> CLOUDFLARE_API_TOKEN=string 
+> ```
+
+
 
 
 ### 3. Create a DNS entry for your subdomain and point it to the local IP address of the Caddy host
