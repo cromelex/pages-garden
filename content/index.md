@@ -23,8 +23,8 @@ The majority of the content of this garden falls within two main types:
 - [[economics/index|Economics]]: Exploring economic concepts and how they tie in with the reality we live in.
 - [[misc/index|Misc]]: Some random thoughts that do not fit neatly under any of the other main categories.
 ##### 2. Documenting projects and experiments
-- [[technology/index|Technology]]: Diving into the world of tech, and my smart home automation [[projects/index|projects]].
-- [[tags/self-hosting|Self-hosting]]: Notes and tips based on my attempt at taking control of my digital infrastructure.
+- [[technology/index|Technology]]: Diving into the world of tech, and my smart home automation [[technology/projects/index|projects]].
+- [[technology/self-hosting/index|Self-hosting]]: Notes and tips based on my attempt at taking control of my digital infrastructure.
 ---
 ### What this is and why I write
 This digital garden is intended as a living space.  

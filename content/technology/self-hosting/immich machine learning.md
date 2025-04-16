@@ -6,8 +6,9 @@ modified: 2025-01-06
 tags:
   - self-hosting
   - bazzite
-alias:
-  - "Technology/immich-machine-learning"
+aliases:
+  - Technology/immich-machine-learning
+  - technology/immich-machine-learning
 ---
 # Immich Machine Learning with external NVIDIA GPU
 

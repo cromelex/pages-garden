@@ -6,6 +6,9 @@ modified: 2025-04-05
 tags:
   - homeassistant
   - plants
+alias:
+  - "Projects/plant-sensors"
+  - "projects/plant-sensors"
 ---
 # Smart plant sensors with Home Assistant 
 ## Intro
@@ -20,7 +23,7 @@ I already run [Home Assistant](https://www.home-assistant.io/) so it was only na
 ## Materials 
 - Plants
 - Xiaomi MiFlora plant sensors (Bluetooth)[^1] (between 15 and 20€)
-- ESPHome Bluetooth proxies[^2] (4 to 10€ each, but they are not required specifically for this, you can leverage [[../technology/ESP sensors for ESPHome|existing ones]])
+- ESPHome Bluetooth proxies[^2] (4 to 10€ each, but they are not required specifically for this, you can leverage [[../ESP sensors for ESPHome|existing ones]])
 
 ## Home Assistant components
 - [homeassistant-plant](https://github.com/Olen/homeassistant-plant) - the central component that creates the *plant entities* in Home Assistant.
@@ -38,10 +41,10 @@ Each plant entity gives you a binary state (ok/problem), and the attributes tell
 - dli, daily light integral (the accumulated amount of light received today),
 - air humidity, which isn't measured by the Xiaomi MiFlora sensors, but you can take them from a Temperature/Humidity sensor, if you have one.
 
-![[./attachments/plant sensors-1984x648.webp|The plant entity details within Home Assistant.|800]]
+![[attachments/plant sensors-1984x648.webp|The plant entity details within Home Assistant.|800]]
 
 
-![[./attachments/plant sensors-1042x1492.webp|Each plant's information gets displayed in a neat card. I am using the compact version, but the symbols correspond to (top to bottom, left then right): air humidity, soil conductivity (ie, quantity of minerals on the soil), accumulated light received today, soil humidity, temperature, and light received.|600]]
+![[attachments/plant sensors-1042x1492.webp|Each plant's information gets displayed in a neat card. I am using the compact version, but the symbols correspond to (top to bottom, left then right): air humidity, soil conductivity (ie, quantity of minerals on the soil), accumulated light received today, soil humidity, temperature, and light received.|600]]
 
 ## Automating notifications
 To make my life easier, rather than checking the cards each time, I have set up automations to let me know a plant needs watering, or plant food.

@@ -6,8 +6,9 @@ modified: 2025-01-13
 tags:
   - mTLS
   - self-hosting
-alias:
-  - "Technology/mTLS-Cloudflare"
+aliases:
+  - Technology/mTLS-Cloudflare
+  - technology/mTLS-Cloudflare
 ---
 # mTLS via Cloudflare
 

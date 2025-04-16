@@ -28,7 +28,7 @@ It took a few months before I found the time to open and build the set - it was 
 
 It had been a long time but, admittedly, it's still just as fun as it used to be.   
 
-I could not resist, and that same afternoon I went out and purchased a new set - the [Lego Orchid](https://rebrickable.com/sets/10311-1/orchid/).  My mum has always had *real* orchids around the house, and they seemed to last forever. Unlike my ill-fated attempts with real orchids (even with [[../projects/plant sensors|smart plant sensors]]), this Lego version promises to be a lasting, maintenance-free addition to my growing collection.
+I could not resist, and that same afternoon I went out and purchased a new set - the [Lego Orchid](https://rebrickable.com/sets/10311-1/orchid/).  My mum has always had *real* orchids around the house, and they seemed to last forever. Unlike my ill-fated attempts with real orchids (even with [[../technology/projects/plant sensors|smart plant sensors]]), this Lego version promises to be a lasting, maintenance-free addition to my growing collection.
 
 I am impressed by Lego's ability to bridge the gap between childhood play and adult creativity. Although I don't know when I'll get the chance to build this new set, at least I have it at the ready, once the opportunity shows up.  
 And I can only look forward to the time when I will finally be able to build one of these sets with my daughter!

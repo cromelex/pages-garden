@@ -7,6 +7,9 @@ tags:
   - esphome
   - homeassistant
   - draft
+alias:
+  - "Projects/NFC-jukebox"
+  - "projects/NFC-jukebox" 
 ---
 # NFC Jukebox
 

@@ -6,6 +6,9 @@ modified: 2025-03-24
 tags:
   - esphome
   - homeassistant
+alias:
+  - "Projects/add-CO2-to-jukebox"
+  - "projects/add-CO2-to-jukebox"
 ---
 # Adding a CO2 sensor to the NFC Jukebox
 

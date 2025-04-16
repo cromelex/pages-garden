@@ -25,5 +25,5 @@ As with so many things ESPHome, someone has already done all of the hard-work.
 
 I have done a couple of mini-projects with these:
 
-- [[../projects/NFC jukebox|A NFC enabled jukebox for my daughter]]
-- [[../projects/CO2 sensor|A cheap CO2 sensor to help monitor air quality in our home]]
+- [[projects/NFC jukebox|A NFC enabled jukebox for my daughter]]
+- [[projects/CO2 sensor|A cheap CO2 sensor to help monitor air quality in our home]]
