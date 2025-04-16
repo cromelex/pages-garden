@@ -2,11 +2,11 @@
 publish: true
 title: Quartz customisation
 created: 2025-01-11
-modified: 2025-03-24
+modified: 2025-04-16
 tags:
   - quartz
-alias:
-  - "Technology/quartz"
+aliases:
+  - Technology/quartz
 ---
 # Quartz customisation
 [Quartz](https://quartz.jzhao.xyz/) ([GitHub](https://github.com/jackyzha0/quartz)) is the *tool* used to create this website.  
@@ -20,10 +20,39 @@ The full code for this Quartz page is available in the [GitHub repo](https://git
 ---
 ## Snippets
 
+### Added folder emoji and removed dates from folders listed on folder pages
+16-04-2025 ▪ In the pages listing the content of folders, subfolders where displayed with a date and look that made them look like actual notes. To make them more distinct, I used css to make the difference a bit more obvious.  
+This was kindly provided by saberzero1 on Quartz's Discord.
+
+The below code was added to  `custom.scss`.
+```css
+// hide date for subfolders on folderpage
+.page-listing {
+    li.section-li:has(.section .desc a.internal[href$="/"]) {
+        .meta {
+            // hides date, keep indent
+            visibility: hidden;
+        }
+    }
+}
+
+// indicate folder more clearly on folderpage
+.page-listing {
+    li.section-li:has(.section .desc a.internal[href$="/"]) {
+        .desc a.internal {
+            // prepend folder emoji
+            &:before {
+                content: "📁";
+            }
+        }
+    }
+}
+```
+
 ### Added better spacing to explorer menu items to improve readability for long titles
 02-02-2025 ▪ Some notes with longer titles were difficult to read in the explorer menu, as the spacing between titles and the lines was the same. I increased the spacing between entries. Taken and modified from [this PR](https://github.com/jackyzha0/quartz/pull/1747).
 
-This was added to the `custom.scss`
+This was added to  `custom.scss`
 ```css
 // Adding some spacing between entries in the explorer
 div.explorer {
@@ -445,4 +474,25 @@ div.explorer {
     color: var(--dark);
 }
 
+// hide date for subfolders on folderpage
+.page-listing {
+    li.section-li:has(.section .desc a.internal[href$="/"]) {
+        .meta {
+            // hides date, keep indent
+            visibility: hidden;
+        }
+    }
+}
+
+// indicate folder more clearly on folderpage
+.page-listing {
+    li.section-li:has(.section .desc a.internal[href$="/"]) {
+        .desc a.internal {
+            // prepend folder emoji
+            &:before {
+                content: "📁";
+            }
+        }
+    }
+}
 ```

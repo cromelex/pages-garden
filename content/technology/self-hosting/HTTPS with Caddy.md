@@ -56,7 +56,7 @@ DNS-01 ACME validation means your server doesn't need to be publicly reachable. 
 > Below is an example of my docker compose and .env files for Caddy.
 > For simplicity and ease of backup, I prefer to use bind mounts (ie, mount a specific path on the host ) rather than using Docker volumes.
 > 
-> compose.yaml
+> `compose.yaml`
 > ```yaml
 > services:
 >  ##### Caddy #####
@@ -82,7 +82,7 @@ DNS-01 ACME validation means your server doesn't need to be publicly reachable. 
 >  caddynet: {}
 > ```
 > 
-> .env file
+> `.env` file
  > ```
 > # VARIABLE=value # comment
 > CLOUDFLARE_API_TOKEN=string 
