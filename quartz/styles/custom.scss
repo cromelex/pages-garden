@@ -131,3 +131,25 @@ div.explorer {
 .explorer .title-button.explorer-toggle.desktop-explorer a h2 {
     color: var(--dark);
 }
+
+// hide date for subfolders on folderpage
+.page-listing {
+    li.section-li:has(.section .desc a.internal[href$="/"]) {
+        .meta {
+            // hides date, keep indent
+            visibility: hidden;
+        }
+    }
+}
+
+// indicate folder more clearly on folderpage
+.page-listing {
+    li.section-li:has(.section .desc a.internal[href$="/"]) {
+        .desc a.internal {
+            // prepend folder emoji
+            &:before {
+                content: "📁";
+            }
+        }
+    }
+}
