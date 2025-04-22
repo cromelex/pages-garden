@@ -2,7 +2,7 @@
 publish: true
 title: HTTPS with Caddy
 created: 2024-12-16
-modified: 2025-04-16
+modified: 2025-04-22
 tags:
   - self-hosting
   - caddy
@@ -132,6 +132,13 @@ homeassistant.example.com {
 ```
 
 If you have multiple services running, you might want to use a wildcard entry instead. It looks a bit more complex but it only requires a single certificate to cover all your subdomains. 
+
+> [!note] Wildcards by default since [Caddy v2.10.0](https://github.com/caddyserver/caddy/releases/tag/v2.10.0)
+> Previously, Caddy would obtain individual certificates for every domain in your config literally; now wildcards, if present, will be utilised for subdomains, rather than obtaining individual certificates.  
+> This means that if you were to list each subdomain as a separate entry, Caddy would still fetch a single wildcard server to cover them all.  
+> All of this code and examples are still valid.
+
+
 
 ```
 *.example.com {
