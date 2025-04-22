@@ -2,12 +2,12 @@
 publish: true
 title: My cats
 created: 2025-04-02
-modified: 2025-04-02
+modified: 2025-04-20
 tags:
   - cats
 ---
-# Our cats
-We adopted a cat in January 2021, and then a second one in November of the same year. Ever since, they have been a part of our family.
+# My cats
+We first adopted a cat in January 2021, and then a second one in November of the same year. Ever since, they have been a part of our family.
 
 Both were adopted as rescues, one from an individual, and another from a charity. The thought of buying a *branded* cat, as we call the fancy breeds, is completely alien to us.
 Both are black cats - black cats are much more unlikely to get adopted due to stupid superstitions. Yes, even in the 21st century.

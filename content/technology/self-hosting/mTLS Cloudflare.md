@@ -85,7 +85,7 @@ PKCS#12  is one of the most commonly used formats, however some apps require dif
 
 Using the command line and openssl it is easy to convert from the original `.pem` files to a PKCS#12. 
 ````shell
-openssl pkcs12 -export -out outfile.p12 -inkey key.pem -in certfificate.pem
+openssl pkcs12 -export -out outfile.p12 -inkey key.pem -in certificate.pem
 ````
 
 You will be prompted for a passphrase. This is only required when loading the certificate to a device, not on every usage. As such, go ahead and put something in, rather than leaving it blank, for some additional security.
@@ -140,7 +140,7 @@ In Windows, you can just download the `.p12` certificate and double click on it.
 Go to Settings->Privacy and Security->View Certificates, Your Certificates, click import, and select your `.p12` file. You will be prompted for the passphrase, if you set one when exporting.
 
 You can restart the browser, and now when you try to access `subdomain1.example.com` you will be prompted to select a certificate and actually access the page. If it doesn't work immediately, try to do a hard refresh on your browser (usually CTRL+F5).
-Sucess!
+Success!
 
 ---
 #### Adding the certificate to Chrome
@@ -153,7 +153,7 @@ Go to Settings->Privacy and Security->Security->Manage certificates (under Advan
 Click import and select the `.p12` file. You will be prompted for the passphrase, if you set one when exporting.
 
 You can restart the browser, and now when you try to access `subdomain1.example.com` you will be prompted to select a certificate and actually access the page. If it doesn't work immediately, try to do a hard refresh on your browser (usually CTRL+F5).
-Sucess!
+Success!
 
 ---
 #### Adding the certificate to Android apps
