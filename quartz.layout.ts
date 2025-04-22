@@ -31,7 +31,6 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Flex({
       components: [
         { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
       ],
     }),
     Component.Explorer({
