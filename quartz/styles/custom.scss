@@ -98,6 +98,8 @@ h6 {
 // Apply justification to only paragraphs or text elements if needed
 p {
     text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
 }
 
 // center fig caption
