@@ -2,7 +2,7 @@
 publish: true
 title: Immich Machine Learning with NVIDIA GPU
 created: 2025-01-06
-modified: 2025-01-06
+modified: 2025-04-26
 tags:
   - self-hosting
   - bazzite
@@ -30,9 +30,11 @@ My photo library has over 13,000 photos, all of which would have to be reprocess
 I own a gaming computer with a NVIDIA 3080 RTX GPU.  
 Last month [[Giving up on Windows|I finally gave up on Windows]], and installed [Bazzite](https://bazzite.gg/) on this machine.
 This was the perfect excuse to see if I could run the Immich Machine Learning container on the NVIDIA GPU to accelerate the process.
-
-## Quadlets and podman containers
-Bazzite has built in support for [Quadlets](https://docs.bazzite.gg/Installing_and_Managing_Software/Quadlet/) as a way to run [podman](https://podman.io/) containers.
+### Running with docker compose
+If you are already using Immich, chances are that you are already using Docker, and likely using the *official* `compose.yaml`. As such, I'll refrain from going into full detail.  
+It's as simple as copying the `immich-machine-learning` container block from the original `compose.yaml`, adapting to match your hardware (in this case, the NVIDIA GPU), and starting the container.
+### Quadlets and podman containers
+Bazzite has built in support for [Quadlets](https://docs.bazzite.gg/Installing_and_Managing_Software/Quadlet/) as a way to run [podman](https://podman.io/) containers. Although you can still install Docker, I found it easier to just adapt and use the built in functionality for containers.  
 
 I had to do a bit of digging but eventually found out how to setup the container via Quadlets.
 The below has been tested and is working as intended.
@@ -63,7 +65,8 @@ systemctl --user immich-machine-learning
 systemctl --user start immich-machine-learning
 ```
 
-Next, open Immich in your browser, go into Administration->Settings->Machine Learning Settings, and add the URL corresponding to this machine:
+### Setting up Immich to use the remote ML container
+Next, open Immich in your browser, go into Administration -> Settings -> Machine Learning Settings, and add the URL corresponding to this machine:
 
 `http://nvidia_machine_ip:3003`
 
