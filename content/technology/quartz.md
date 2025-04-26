@@ -2,7 +2,7 @@
 publish: true
 title: Quartz customisation
 created: 2025-01-11
-modified: 2025-04-16
+modified: 2025-04-26
 tags:
   - quartz
 aliases:
@@ -343,9 +343,10 @@ Added the new component to `quartz.layout.ts`
 ```scss
 @use "./base.scss";
 
+// put your custom CSS here!
 // Adding Inter with ss02
 @font-face {
-    font-family: InterVariable;
+    font-family: Inter;
     font-style: normal;
     font-weight: 100 400 900;
     font-display: swap;
@@ -353,7 +354,7 @@ Added the new component to `quartz.layout.ts`
     src: url("/static/fonts/InterVariable.woff2") format("woff2");
 }
 @font-face {
-    font-family: InterVariable;
+    font-family: Inter;
     font-style: italic;
     font-weight: 100 400 900;
     font-display: swap;
@@ -440,6 +441,8 @@ h6 {
 // Apply justification to only paragraphs or text elements if needed
 p {
     text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
 }
 
 // center fig caption
@@ -495,4 +498,5 @@ div.explorer {
         }
     }
 }
+
 ```
