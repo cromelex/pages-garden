@@ -2,11 +2,11 @@
 publish: true
 title: Rediscovering Lego
 created: 2025-03-05
-modified: 2025-04-02
+modified: 2025-04-26
 tags:
   - lego
-alias:
-  - "misc/lego-bonsai"
+aliases:
+  - misc/lego-bonsai
 ---
 # Rediscovering Lego
 
@@ -41,6 +41,8 @@ I finally had a bit of time, as I recovered from [[illness sucks|being ill]], an
 I have to say this set looks great! I am very happy with the assembled look, and might even end up grabbing the Lego Mini Orchid next. At least these *plants* won't die, and so far the [[../tags/cats|cats]] have stayed away from them too.
 
 ## Another Orchid update 
-I found a good price on the sets and couldn't resist! Grabbed the [Lego Mini Orchid](https://rebrickable.com/sets/10343-1/mini-orchid/) and the [Lego Plum Blossom](https://rebrickable.com/sets/10369-1/plum-blossom/). Must say I am really looking forward to building the new sets!
+I found a good price on the sets and couldn't resist! Grabbed the [Lego Mini Orchid](https://rebrickable.com/sets/10343-1/mini-orchid/) and the [Lego Plum Blossom](https://rebrickable.com/sets/10369-1/plum-blossom/). My partner built the Mini Orchid, and I did the Plum Blossom. Both sets look great, and, in my opinion, they are great as decor, especially in rooms where you can't get enough light for the real thing.
 
 ![[./attachments/lego bonsai-4035x2466.webp|The two new boxed sets|800]]
+
+![[./attachments/rediscovering lego-2520x2756.webp|Completed Mini Orchid and Plum Blossom sets|800]]
