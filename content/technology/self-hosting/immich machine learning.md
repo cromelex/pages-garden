@@ -6,13 +6,15 @@ modified: 2025-04-26
 tags:
   - self-hosting
   - bazzite
+  - Immich
+  - quadlets
 aliases:
   - Technology/immich-machine-learning
   - technology/immich-machine-learning
 ---
 # Immich Machine Learning with external NVIDIA GPU
 
-## What is Immich
+## What is Immich?
 [Immich](https://immich.app/) is an open-source self-hosted photo and video backup solution. It allows users to create their own private cloud for storing, organising, and sharing multimedia files. Essentially, Immich provides a way to store and access photos and videos on a personal server, replacing third-party cloud services like Google Photos or iCloud.
 
 ## Machine Learning?
@@ -31,8 +33,9 @@ I own a gaming computer with a NVIDIA 3080 RTX GPU.
 Last month [[Giving up on Windows|I finally gave up on Windows]], and installed [Bazzite](https://bazzite.gg/) on this machine.
 This was the perfect excuse to see if I could run the Immich Machine Learning container on the NVIDIA GPU to accelerate the process.
 ### Running with docker compose
-If you are already using Immich, chances are that you are already using Docker, and likely using the *official* `compose.yaml`. As such, I'll refrain from going into full detail.  
-It's as simple as copying the `immich-machine-learning` container block from the original `compose.yaml`, adapting to match your hardware (in this case, the NVIDIA GPU), and starting the container.
+If you are using Immich, chances are that you are already using Docker. As such, I'll refrain from going into full detail.  
+The official documentation is available [here.](https://immich.app/docs/guides/remote-machine-learning/)
+It's as simple as copying the `compose.yml` for the immich-machine-learning container, adapting to match your hardware (in this case, the NVIDIA GPU), and starting the container.
 ### Quadlets and podman containers
 Bazzite has built in support for [Quadlets](https://docs.bazzite.gg/Installing_and_Managing_Software/Quadlet/) as a way to run [podman](https://podman.io/) containers. Although you can still install Docker, I found it easier to just adapt and use the built in functionality for containers.  
 
