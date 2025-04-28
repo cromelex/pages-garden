@@ -6,7 +6,7 @@ modified: 2025-04-26
 tags:
   - self-hosting
   - bazzite
-  - Immich
+  - immich
   - quadlets
 aliases:
   - Technology/immich-machine-learning
