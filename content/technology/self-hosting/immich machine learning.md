@@ -2,7 +2,7 @@
 publish: true
 title: Immich Machine Learning with NVIDIA GPU
 created: 2025-01-06
-modified: 2025-04-26
+modified: 2025-04-29
 tags:
   - self-hosting
   - bazzite
@@ -13,6 +13,12 @@ aliases:
   - technology/immich-machine-learning
 ---
 # Immich Machine Learning with external NVIDIA GPU
+
+> [!tldr]+ **tldr:** setting up remote machine learning in Immich
+> 1. Run the `immich machine learning` container in the remote machine of your choice, using [[#Running with docker compose|docker]] or [[#Quadlets and podman containers|podman]].
+> 2. Open Immich in the browser, go to Administration -> Settings -> Machine Learning Settings, and add the URL of the remote machine learning container:
+> `http://your_remote_nvidia_machineip:3003`
+> 3. (Optional) [[#Changing the Smart Search CLIP model|Change the Smart Search CLIP model]] to the *improved* model of your choice.
 
 ## What is Immich?
 [Immich](https://immich.app/) is an open-source self-hosted photo and video backup solution. It allows users to create their own private cloud for storing, organising, and sharing multimedia files. Essentially, Immich provides a way to store and access photos and videos on a personal server, replacing third-party cloud services like Google Photos or iCloud.
@@ -71,10 +77,11 @@ systemctl --user start immich-machine-learning
 ### Setting up Immich to use the remote ML container
 Next, open Immich in your browser, go into Administration -> Settings -> Machine Learning Settings, and add the URL corresponding to this machine:
 
-`http://nvidia_machine_ip:3003`
+`http://your_remote_nvidia_machineip:3003`
 
 Save, and Immich will automatically try to use this address for the machine learning server, falling back to the original one if this is offline (which is ideal as I want to keep this machine off most of the time, due to power consumption).
 
+### Changing the Smart Search CLIP model 
 In the same screen, I also changed the Smart Search CLIP model to my new pick: `VIT-L-16-SigLIP-384_webli`, instead of the default `ViT-B-32_openai`.
 
 I saved, went to Jobs, and re-triggered the full Smart Search job, for all my photos[^1].

@@ -2,7 +2,7 @@
 publish: true
 title: mTLS via Cloudflare
 created: 2024-12-16
-modified: 2025-01-13
+modified: 2025-04-29
 tags:
   - mTLS
   - self-hosting
@@ -11,6 +11,21 @@ aliases:
   - technology/mTLS-Cloudflare
 ---
 # mTLS via Cloudflare
+
+> [!tldr]+ **tldr:** steps to set up mTLS via Cloudflare
+> 1. Buy a domain or move your domain's DNS to Cloudflare.
+> 2. In the Cloudflare Dashboard, go to SSL/TLS -> Client Certificates:
+> 	- Input the subdomains to protect with mTLS.
+> 	- Create the client certificate with `Generate private key and CSR with Cloudflare`
+> 	- Download and save the certificate somewhere safe.
+> 	- [[#Convert the .pem to PKCS 12|Convert the  cert]] from `.pem` to `PKCS#12` using `openssl` , if required.
+>3. [[#Cloudflare Zone-level Web Application Firewall (WAF) Rule|Create a WAF rule]] in the Cloudflare Dashboard -> Security -> WAF, under Custom Rules. You can use the following expression, replacing with the subdomains to protect:
+>```
+>((not cf.tls_client_auth.cert_verified or cf.tls_client_auth.cert_revoked) and http.host in {"subdomain1.example.com" "subdomain2.example.com"})
+>```
+> 4. [[#Adding the certificate to your devices|Install]] the Client Certificates in the devices you want to allow access from.
+> 
+
 
 ## What is mutual TLS (mTLS)?
 Mutual TLS, or mTLS for short, is a method for mutual authentication. With mTLS, both the client and server have a certificate, and both sides authenticate using their public/private key pair:
@@ -83,7 +98,7 @@ Many modern devices actually use different file formats for the certificate.
 PKCS#12  is one of the most commonly used formats, however some apps require different formats.
 `.pfx` is the same as `.p12`, if you happen to have an app that requires `.pfx` specifically, you can just rename the exported `.p12` file.
 
-Using the command line and openssl it is easy to convert from the original `.pem` files to a PKCS#12. 
+Using the command line and `openssl` it is easy to convert from the original `.pem` files to a PKCS#12. 
 ````shell
 openssl pkcs12 -export -out outfile.p12 -inkey key.pem -in certificate.pem
 ````
@@ -93,7 +108,7 @@ You will be prompted for a passphrase. This is only required when loading the ce
 This will export a `outfile.p12` file (you can use a different name).
 
 ### Cloudflare Zone-level Web Application Firewall (WAF) Rule
-You will need to setup a rule in the Cloudflare Dashboard for your domain -> Security -> WAF, under  Custom Rules.
+You will need to setup a rule in the Cloudflare Dashboard for your domain -> Security -> WAF, under Custom Rules.
 
 ![[attachments/mTLS Cloudflare-WAF rules 20241216110232-2138x1108.webp|Adding a WAF rule in Cloudflare|730]]
 
