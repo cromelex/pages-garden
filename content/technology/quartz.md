@@ -499,4 +499,9 @@ div.explorer {
     }
 }
 
+// re-work space on folderpage to allow more tags inline
+li.section-li > .section {
+    grid-template-columns: fit-content(8em) 3fr 2fr;
+}
+
 ```
