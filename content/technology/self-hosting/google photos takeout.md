@@ -28,12 +28,15 @@ You can obtain an API key in the user settings panel (Account settings -> API Ke
 
 ## Immich-Go
 I have found that the easiest way to actually import your Google Photos into Immich is to use a nice little tool called [Immich-Go](https://github.com/simulot/immich-go). It is a terminal tool, but one that is simple to use.  
-Install it on the computer you downloaded the Google export into. After installation, verify that Immich-Go is working correctly by running `immich-go --version`. Note that you may need to invoke the program differently when Immich-Go is in the current directory:
+### Installing the tool
+Install it on the computer you downloaded the Google export into. It's as simple as downloading the latest release for your platform and extracting. It is also available via brew.  
+After installation, verify that Immich-Go is working correctly by running `immich-go --version`. Note that you may need to invoke the program differently when Immich-Go is in the current directory:
 - Linux, macOS, FreeBSD: `./immich-go`
 - Windows: `.\immich-go`
 
 This should display the version number of Immich-Go and tell you it's working.  
 
+### Importing you Photos
 Next, it's time to run the import. I recommend you check the [documentation](https://github.com/simulot/immich-go#from-google-photos-sub-command) for all the options available.  
 At the very least you should run it with `--dry-run` to simulate all server actions, before trying it for real. You can also use `--date-range=YYYY` to try it with a single year, as a test, or to split the work over multiple sessions. Restarting an interrupted import won't cause any problems and will resume where it left off, without causing duplicates.
 
@@ -56,9 +59,9 @@ Check for any errors or failures. If successful, run again *without* `--dry-run`
 
 Let the process run. If there is any error you can always rerun the process, as there is built in functionality to avoid duplication. 
 
-![[attachments/google photos takeout-immich-go-complete.webp|Immich-Go's successful completion confirmation|750]]
+![[attachments/google photos takeout-immich-go-complete.webp|Immich-Go's successful completion confirmation.|600]]
 
-When the process is finished you should  a confirmation message, and you will then be able to see your photos in Immich. 
+When the process is finished you should  a confirmation message, and you will then be able to see all your photos in Immich. 
 The server will have to *chew* through all the photos and run all the different jobs, which might take a while. If you have specific hardware, like a gaming PC, you can set up an [[immich machine learning|Immich remote machine learning container]] to speed up the process.
 
 ## Don't forget to backup!
