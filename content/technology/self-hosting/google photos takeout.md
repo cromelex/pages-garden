@@ -36,7 +36,7 @@ After installation, verify that Immich-Go is working correctly by running `immic
 
 This should display the version number of Immich-Go and tell you it's working.  
 
-### Importing you Photos
+### Importing your Photos
 Next, it's time to run the import. I recommend you check the [documentation](https://github.com/simulot/immich-go#from-google-photos-sub-command) for all the options available.  
 At the very least you should run it with `--dry-run` to simulate all server actions, before trying it for real. You can also use `--date-range=YYYY` to try it with a single year, as a test, or to split the work over multiple sessions. Restarting an interrupted import won't cause any problems and will resume where it left off, without causing duplicates.
 
