@@ -11,7 +11,7 @@ tags:
 
 > [!tldr]+ **tldr:** steps to import Google Photos into Immich
 > 1. Export your Google Photos data via [Google Takeout](https://takeout.google.com/settings/takeout/custom/photos).
-> 2. Wait until get the email confirmation from Google and download all parts of the export.
+> 2. Wait until you get the email confirmation from Google and download all parts of the export.
 > 3. Generate an API key for each Immich user (Account settings -> API Keys -> New API Key).
 > 4. Install [Immich-Go](https://github.com/simulot/immich-go).
 > 5. Run Immich-Go with `immich-go upload from-google-photos --server=https://immich.url.tld --api-key=your-api-key --dry-run /path/to/files/takeout-*.zip`, using the `--dry-run` option.

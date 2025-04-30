@@ -18,8 +18,8 @@ aliases:
 > 	- Input the subdomains to protect with mTLS.
 > 	- Create the client certificate with `Generate private key and CSR with Cloudflare`
 > 	- Download and save the certificate somewhere safe.
-> 	- [[#Convert the .pem to PKCS 12|Convert the  cert]] from `.pem` to `PKCS#12` using `openssl` , if required.
->3. [[#Cloudflare Zone-level Web Application Firewall (WAF) Rule|Create a WAF rule]] in the Cloudflare Dashboard -> Security -> WAF, under Custom Rules. You can use the following expression, replacing with the subdomains to protect:
+> 	- Convert the  cert from `.pem` to `PKCS#12` using `openssl` , if required.
+>3. Create a [[#Cloudflare Zone-level Web Application Firewall (WAF) Rule|WAF rule]] in the Cloudflare Dashboard -> Security -> WAF, under Custom Rules. You can use the following expression, replacing with the subdomains to protect:
 >```
 >((not cf.tls_client_auth.cert_verified or cf.tls_client_auth.cert_revoked) and http.host in {"subdomain1.example.com" "subdomain2.example.com"})
 >```
