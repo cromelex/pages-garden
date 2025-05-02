@@ -2,7 +2,7 @@
 publish: true
 title: mTLS via Cloudflare
 created: 2024-12-16
-modified: 2025-04-29
+modified: 2025-05-01
 tags:
   - mTLS
   - self-hosting
@@ -179,7 +179,8 @@ Transfer your certificate to the device and open it, you will be asked to Choose
 The certificate will then be automatically be made available for use for apps such as Chrome, or Home Assistant.
 You might see a pop up asking you to confirm that you wish to use the certificate. Go ahead and the app should then load the page/content successfully.
 
-Firefox Android is unfortunately not compatible with mTLS certificates just yet.
+~~Firefox Android is unfortunately not compatible with mTLS certificates just yet.~~
+Firefox Android is finally compatible with mTLS certificates, from version 138 onwards.
 
 Other apps specifically require you to pick a certificate for use with them. You can usually find this option in their settings.
 Personally, I use Immich and the Paperless-mobile apps - both have this set up, where you need to specifically import the cert as a one-off step during the initial configuration.
