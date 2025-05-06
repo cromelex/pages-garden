@@ -2,7 +2,7 @@
 publish: true
 title: Quartz customisation
 created: 2025-01-11
-modified: 2025-04-26
+modified: 2025-05-06
 tags:
   - quartz
 aliases:
@@ -236,32 +236,62 @@ Added title, CC-BY license, link and logos.
 
 ---
 ### Added Reply by Email Component
-30-12-2024 ▪ Added a "Reply by Email" button under each note, inspired by [Kev Quirk's blog](https://kevquirk.com/blog/it-s-good-to-talk)
+30-12-2024 ▪ Added a "Reply by Email" button under each note, inspired by [Kev Quirk's blog](https://kevquirk.com/blog/it-s-good-to-talk).  
+06-05-2025 ▪ Updated the "Reply by Email", using base64 encoding for the 2 sections in the email, and adding the ability to specify it via the Quartz layout file.
 
 Created `quartz/components/ReplyByEmail.tsx`
 ```tsx
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { classNames } from "../util/lang"
 
-const ReplyByEmail: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
+interface ReplyByEmailOptions {
+  username?: string
+  domain?: string
+}
+
+// Default options will be used if not provided in the layout file
+const defaultOptions: ReplyByEmailOptions = {
+  username: "ZW1haWw=", // "email" in base64
+  domain: "ZXhhbXBsZS5jb20=" // "email.com" in base64
+}
+
+const ReplyByEmail: QuartzComponent = ({ fileData, displayClass, username, domain }: QuartzComponentProps & ReplyByEmailOptions) => {
   const title = fileData.frontmatter?.title
+
+  // Use provided values or defaults
+  const encodedPart1 = username || defaultOptions.username
+  const encodedPart2 = domain || defaultOptions.domain
+
   if (title && title !== "Home" && title !== "About me" && title !== "Contact me") {
-    const mailtoLink = `mailto:contact@dansgarden.eu?subject=${encodeURIComponent(title)}`;
     return (
       <div class="center-wrapper">
-      <a
-      href={mailtoLink}
+      <button
       class={classNames(displayClass, "reply-by-email-button")}
+      data-username={encodedPart1}
+      data-domain={encodedPart2}
+      data-title={encodeURIComponent(title)}
       >
       Reply by email
-      </a>
+      </button>
+      </div>
+    )
+  } else if (title === "Contact me") { // Different text for the "Contact me" page
+    return (
+      <div class="center-wrapper">
+      <button
+      class={classNames(displayClass, "reply-by-email-button")}
+      data-username={encodedPart1}
+      data-domain={encodedPart2}
+      data-title="Contact form"
+      >
+      Contact me by email
+      </button>
       </div>
     )
   } else {
     return null
   }
 }
-
 
 ReplyByEmail.css = `
 .center-wrapper {
@@ -277,6 +307,10 @@ ReplyByEmail.css = `
   color: var(--secondary);
   border-radius: 5px;
   transition: background-color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  font-family: inherit;
 }
 
 .reply-by-email-button:hover {
@@ -284,7 +318,62 @@ ReplyByEmail.css = `
 }
 `
 
-export default (() => ReplyByEmail) satisfies QuartzComponentConstructor
+// Script that works with SPA navigation
+ReplyByEmail.beforeDOMLoaded = `
+// Function to attach email button handlers
+function attachEmailHandlers() {
+  document.querySelectorAll('.reply-by-email-button').forEach(function(button) {
+    // Remove existing event listeners first to prevent duplicates
+    button.removeEventListener('click', handleEmailButtonClick);
+    // Add fresh event listener
+    button.addEventListener('click', handleEmailButtonClick);
+  });
+}
+
+// Handler function for the email button click
+function handleEmailButtonClick(e) {
+  e.preventDefault();
+
+  // Get data attributes
+  const username = atob(this.getAttribute('data-username'));
+  const domain = atob(this.getAttribute('data-domain'));
+  const title = this.getAttribute('data-title');
+
+  // Create email address and mailto link
+  const email = username + '@' + domain;
+  const mailtoLink = 'mailto:' + email + '?subject=' + title;
+
+  // Open email client
+  window.location.href = mailtoLink;
+}
+
+// Initial attachment when the page loads
+document.addEventListener('DOMContentLoaded', attachEmailHandlers);
+
+// Re-attach handlers after SPA navigation
+document.addEventListener('nav', function() {
+  // Small delay to ensure the new buttons are in the DOM
+  setTimeout(attachEmailHandlers, 10);
+});
+`
+
+export default ((opts?: ReplyByEmailOptions) => {
+  // Component constructor that accepts options
+  const component: QuartzComponent = (props) => {
+    return ReplyByEmail({
+      ...props,
+      username: opts?.username,
+      domain: opts?.domain
+    })
+  }
+
+  // Pass through the CSS and beforeDOMLoaded
+  component.css = ReplyByEmail.css
+  component.beforeDOMLoaded = ReplyByEmail.beforeDOMLoaded
+
+  return component
+}) satisfies QuartzComponentConstructor
+
 ```
 
 Added the new component to `index.ts`
@@ -309,7 +398,10 @@ Added the new component to `index.ts`
 Added the new component to `quartz.layout.ts`
 ```diff
 +  afterBody: [
-+    Component.ReplyByEmail(),
++    Component.ReplyByEmail({
++      username: "Y29udGFjdA==", // "contact" in base64
++      domain: "ZGFuc2dhcmRlbi5ldQ==" // "dansgarden.eu" in base64
++ }),
 +  ],
 ```
 
