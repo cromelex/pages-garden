@@ -8,8 +8,8 @@ interface ReplyByEmailOptions {
 
 // Default options will be used if not provided in the layout file
 const defaultOptions: ReplyByEmailOptions = {
-  username: "ZW1haWw=", // "email" in base64
-  domain: "ZXhhbXBsZS5jb20=" // "example.com" in base64
+  username: "Y29udGFjdA==", // "contact" in base64
+  domain: "ZGFuc2dhcmRlbi5ldQ==" // "dansgarden.eu" in base64
 }
 
 const ReplyByEmail: QuartzComponent = ({ fileData, displayClass, username, domain }: QuartzComponentProps & ReplyByEmailOptions) => {
@@ -19,7 +19,7 @@ const ReplyByEmail: QuartzComponent = ({ fileData, displayClass, username, domai
   const encodedPart1 = username || defaultOptions.username
   const encodedPart2 = domain || defaultOptions.domain
 
-  if (title && title !== "Home" && title !== "About me" && title !== "Contact me") { // Specify pages where you do NOT want the reply-by-email button
+  if (title && title !== "Home" && title !== "About me" && title !== "Contact me") {
     return (
       <div class="center-wrapper">
       <button
@@ -75,27 +75,42 @@ ReplyByEmail.css = `
 }
 `
 
-// Add JavaScript to handle the click event
+// Script that works with SPA navigation
 ReplyByEmail.beforeDOMLoaded = `
-document.addEventListener('DOMContentLoaded', function() {
-  // Add click handlers to all reply buttons
+// Function to attach email button handlers
+function attachEmailHandlers() {
   document.querySelectorAll('.reply-by-email-button').forEach(function(button) {
-    button.addEventListener('click', function(e) {
-      e.preventDefault();
-
-      // Get data attributes
-      const username = atob(this.getAttribute('data-username'));
-      const domain = atob(this.getAttribute('data-domain'));
-      const title = this.getAttribute('data-title');
-
-      // Create email address and mailto link
-      const email = username + '@' + domain;
-      const mailtoLink = 'mailto:' + email + '?subject=' + title;
-
-      // Open email client
-      window.location.href = mailtoLink;
-    });
+    // Remove existing event listeners first to prevent duplicates
+    button.removeEventListener('click', handleEmailButtonClick);
+    // Add fresh event listener
+    button.addEventListener('click', handleEmailButtonClick);
   });
+}
+
+// Handler function for the email button click
+function handleEmailButtonClick(e) {
+  e.preventDefault();
+
+  // Get data attributes
+  const username = atob(this.getAttribute('data-username'));
+  const domain = atob(this.getAttribute('data-domain'));
+  const title = this.getAttribute('data-title');
+
+  // Create email address and mailto link
+  const email = username + '@' + domain;
+  const mailtoLink = 'mailto:' + email + '?subject=' + title;
+
+  // Open email client
+  window.location.href = mailtoLink;
+}
+
+// Initial attachment when the page loads
+document.addEventListener('DOMContentLoaded', attachEmailHandlers);
+
+// Re-attach handlers after SPA navigation
+document.addEventListener('nav', function() {
+  // Small delay to ensure the new buttons are in the DOM
+  setTimeout(attachEmailHandlers, 10);
 });
 `
 
