@@ -11,6 +11,4 @@ tags:
 ---
 # Contact me
 
-You can reach me via email:  
-  
-[contact@dansgarden.eu](mailto:contact@dansgarden.eu)
+You can reach me over email, by using the button below.

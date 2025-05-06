@@ -42,7 +42,10 @@ export const defaultContentPageLayout: PageLayout = {
     })
   ],
   afterBody: [
-    Component.ReplyByEmail(),
+    Component.ReplyByEmail({
+      username: "Y29udGFjdA==", // "contact" in base64
+      domain: "ZGFuc2dhcmRlbi5ldQ==" // "dansgarden.eu" in base64
+    }),
   ],
   right: [
     Component.Flex({
