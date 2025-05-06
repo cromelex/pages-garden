@@ -7,8 +7,9 @@ tags:
   - foss
   - bazzite
   - windows
-alias:
-  - "Technology/Giving-up-on-Windows"
+  - aurora/bluefin
+aliases:
+  - Technology/Giving-up-on-Windows
 ---
 
 # Why I Finally Gave Up on Windows for Good
@@ -39,8 +40,9 @@ And it *just works* - something Windows used to be known for: user-friendliness.
 
 ## Linux that *just works*
 At one point last year I decided to buy a MiniPC to serve both as a host for my self-hosting projects, and also to serve as my day to day PC in my home office.
-A friend recommended [Bluefin](https://projectbluefin.io/) as a potential choice of OS, on the basis that it was a straightforward option, being maintenance free and image based (which makes it difficult for anyone to accidently break the OS). Everything auto updates, and when you reboot, the OS will start with the new image (while keeping all your user data safe).
-I looked into it, and found there was a new*ish* variation of it called [Aurora](https://getaurora.dev/). Aurora is essentially the same thing as Bluefin under the hood, but with a different top layer of paint - KDE Plasma instead of GNOME for the graphic environment.
+A friend recommended [Bluefin](https://projectbluefin.io/) as a potential choice of OS, on the basis that it was a straightforward option, being maintenance free and image based (which makes it difficult for anyone to accidentally break the OS). Everything auto updates, and when you reboot, the OS will start with the new image (while keeping all your user data safe).
+I looked into it, and found there was a new*ish* variation of it called [Aurora](https://getaurora.dev/). Aurora is essentially the same thing as Bluefin under the hood, but with a different top layer of paint - KDE Plasma instead of GNOME for the graphic environment.  
+Bluefin and Aurora are both built under the umbrella of the [Universal Blue](https://universal-blue.org/) project.  
 
 As mentioned above, the Steam Deck runs KDE Plasma in desktop mode. For simplicity, I decided to go with Aurora in order to use the same KDE Plasma across my devices.
 
