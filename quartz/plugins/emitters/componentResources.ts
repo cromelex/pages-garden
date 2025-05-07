@@ -130,12 +130,6 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
       umamiScript.setAttribute("data-website-id", "${cfg.analytics.websiteId}");
       umamiScript.setAttribute("data-auto-track", "true");
       umamiScript.defer = true;
-      umamiScript.onload = () => {
-        umami.track();
-        document.addEventListener("nav", () => {
-          umami.track();
-        });
-      };
 
       document.head.appendChild(umamiScript);
     `)
