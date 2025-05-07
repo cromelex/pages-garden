@@ -19,7 +19,7 @@ When the time actually came for the trip to happen, I was actually so stressed a
 
 ## Staying connected
 Once I was away, the reality of separation set in on both sides.  
-I was told by my partner that it was somewhat confusing for my daughter too - anytime she heard noise upstairs (from my home office), usually caused by one of the cats, she would call out for me.  
+I was told by my partner that it was somewhat confusing for my daughter too - anytime she heard noise upstairs (from my home office), usually caused by one of the [[../tags/cats|cats]], she would call out for me.  
 For me, the experience was quite different. It was the first time in years that I didn't get kicked or climbed on during the night - not that it helped me sleep any better, but it was certainly *quieter*.  
 
 Fortunately, flying eastwards meant the time difference worked in my favour, allowing me to [[videocalls|video call]] home after finishing work each day. During these calls, my view was mostly limited to the top of her head and a constantly moving ceiling - the classic toddler video call experience! But it was still nice to be able to interact with her for a bit, and having her try and show me whatever she was interested in in that moment.

@@ -12,7 +12,7 @@ alias:
 ---
 # Smart plant sensors with Home Assistant 
 ## Intro
-I am quite fond of having different plants spread throughout the house. It takes a bit of forethought, as I always need to check if they are [[../tags/cats|cat]] safe first. Despite how much effort I put into keeping them alive, sometimes they just die. This became incredibly frustrating, and I decided to take a *smarter* approach and use smart plant sensors to try and keep them alive and well.
+I am quite fond of having different plants spread throughout the house. It takes a bit of forethought, as I always need to check if they are [[../../tags/cats|cat]] safe first. Despite how much effort I put into keeping them alive, sometimes they just die. This became incredibly frustrating, and I decided to take a *smarter* approach and use smart plant sensors to try and keep them alive and well.
 
 > [!fail] Heads up 
 > Even though I have been using the plant sensors for over two years, some plants will still randomly just die.

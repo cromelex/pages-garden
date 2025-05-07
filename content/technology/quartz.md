@@ -252,7 +252,7 @@ interface ReplyByEmailOptions {
 // Default options will be used if not provided in the layout file
 const defaultOptions: ReplyByEmailOptions = {
   username: "ZW1haWw=", // "email" in base64
-  domain: "ZXhhbXBsZS5jb20=" // "email.com" in base64
+  domain: "ZXhhbXBsZS5jb20=" // "example.com" in base64
 }
 
 const ReplyByEmail: QuartzComponent = ({ fileData, displayClass, username, domain }: QuartzComponentProps & ReplyByEmailOptions) => {
