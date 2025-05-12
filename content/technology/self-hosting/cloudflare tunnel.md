@@ -85,6 +85,7 @@ In short, Cloudflare Tunnels provide a simpler, more secure method for connectin
 
 5. When you bring the tunnel online you should see the status update in the Cloudflare configure page. Click Next.
 6. In the Route Traffic page, under Public hostnames, you can create the entries that allow the domain to route traffic to your docker containers. This is basically a reverse-proxy.  
+	- Here I create a `service1.example.com` subdomain and point to a `container` service running on the same docker network, on port `:8001`.
 
 ![[attachments/cloudflare tunnel-public hostname.webp|A sample public hostname entry for a Cloudflared tunnel|1000]]
 
