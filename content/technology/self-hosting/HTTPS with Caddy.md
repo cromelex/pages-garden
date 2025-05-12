@@ -2,7 +2,7 @@
 publish: true
 title: HTTPS with Caddy
 created: 2024-12-16
-modified: 2025-04-22
+modified: 2025-05-12
 tags:
   - self-hosting
   - caddy
@@ -219,3 +219,5 @@ There is no risk whatsoever in having a domain associated to a private IP addres
 
 When you type `service1.example.com` or `service2.example.com` on your browser, Caddy will route the request to the correct service and port, and it'll make sure everything is encrypted along the way, so no one can listen in on this traffic!
 As a plus, having a valid certificate also prevents your browser from throwing security warnings due to unsecured connections or self-signed certificates.
+
+If you need to access your services from outside your home, [[tailscale external access|here is an option you can look at]].
