@@ -85,7 +85,7 @@ DNS-01 ACME validation means your server doesn't need to be publicly reachable. 
 > `.env` file
  > ```
 > # VARIABLE=value # comment
-> CLOUDFLARE_API_TOKEN=string 
+> CLOUDFLARE_API_TOKEN=<YOUR_CLOUDFLARE_API_TOKEN> 
 > ```
 
 
