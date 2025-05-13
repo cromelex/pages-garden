@@ -4,45 +4,57 @@ import { classNames } from "../util/lang"
 interface ReplyByEmailOptions {
   username?: string
   domain?: string
+  includeTitles?: string[]
+  excludeTitles?: string[]
+  buttonLabel?: string
 }
 
 // Default options will be used if not provided in the layout file
 const defaultOptions: ReplyByEmailOptions = {
-  username: "ZW1haWw=", // "email" in base64
-  domain: "ZXhhbXBsZS5jb20=" // "email.com" in base64
+  username: "Y29udGFjdA==", // "contact" encoded in base64, as in contact@example.com
+  domain: "ZXhhbXBsZS5jb20=", // "example.com" encoded in base64, as in contact@example.com
+  includeTitles: [],
+  excludeTitles: [],
+  buttonLabel: "Reply by email"
 }
 
-const ReplyByEmail: QuartzComponent = ({ fileData, displayClass, username, domain }: QuartzComponentProps & ReplyByEmailOptions) => {
+const ReplyByEmail: QuartzComponent = ({
+  fileData,
+  displayClass,
+  username,
+  domain,
+  includeTitles,
+  excludeTitles,
+  buttonLabel
+}: QuartzComponentProps & ReplyByEmailOptions) => {
   const title = fileData.frontmatter?.title
 
   // Use provided values or defaults
   const encodedPart1 = username || defaultOptions.username
   const encodedPart2 = domain || defaultOptions.domain
+  const includeList = includeTitles || defaultOptions.includeTitles
+  const excludeList = excludeTitles || defaultOptions.excludeTitles
+  const label = buttonLabel || defaultOptions.buttonLabel
 
-  if (title && title !== "Home" && title !== "About me" && title !== "Contact me") {
+  // Display logic:
+  // 1. If includeTitles is not empty, only show on those pages
+  // 2. If includeTitles is empty, show on all pages except those in excludeTitles
+  const shouldDisplay = title && (
+    (includeList.length > 0 && includeList.includes(title)) ||
+    (includeList.length === 0 && !excludeList.includes(title))
+  )
+
+  if (shouldDisplay) {
     return (
       <div class="center-wrapper">
-      <button
-      class={classNames(displayClass, "reply-by-email-button")}
-      data-username={encodedPart1}
-      data-domain={encodedPart2}
-      data-title={encodeURIComponent(title)}
-      >
-      Reply by email
-      </button>
-      </div>
-    )
-  } else if (title === "Contact me") { // Different text for the "Contact me" page
-    return (
-      <div class="center-wrapper">
-      <button
-      class={classNames(displayClass, "reply-by-email-button")}
-      data-username={encodedPart1}
-      data-domain={encodedPart2}
-      data-title="Contact form"
-      >
-      Contact me by email
-      </button>
+        <button
+          class={classNames(displayClass, "reply-by-email-button")}
+          data-username={encodedPart1}
+          data-domain={encodedPart2}
+          data-title={encodeURIComponent(title)}
+        >
+          {label}
+        </button>
       </div>
     )
   } else {
@@ -120,7 +132,10 @@ export default ((opts?: ReplyByEmailOptions) => {
     return ReplyByEmail({
       ...props,
       username: opts?.username,
-      domain: opts?.domain
+      domain: opts?.domain,
+      includeTitles: opts?.includeTitles,
+      excludeTitles: opts?.excludeTitles,
+      buttonLabel: opts?.buttonLabel
     })
   }
 
