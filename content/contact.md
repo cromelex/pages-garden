@@ -11,4 +11,4 @@ tags:
 ---
 # Contact me
 
-You can reach me over email, by using the button below.
+You can reach me over email by using the button below:
