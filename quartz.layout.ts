@@ -43,8 +43,7 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   afterBody: [
     Component.ReplyByEmail({
-      username: "Y29udGFjdA==", // "contact" in base64
-      domain: "ZGFuc2dhcmRlbi5ldQ==", // "dansgarden.eu" in base64
+      email: "contact@dansgarden.eu",
       // includeTitles: ["Welcome to Quartz 4"], // You can specify which page titles to include or comment out the line to include on all pages
       excludeTitles: ["Home", "About me"],
       buttonLabel: "Reply by email"
