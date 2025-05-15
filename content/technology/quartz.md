@@ -237,7 +237,7 @@ Added title, CC-BY license, link and logos.
 ---
 ### Added Reply by Email Component
 30-12-2024 ▪ Added a "Reply by Email" button under each note, inspired by [Kev Quirk's blog](https://kevquirk.com/blog/it-s-good-to-talk).  
-06-05-2025 ▪ Updated the "Reply by Email", using base64 encoding for the 2 sections in the email, and adding the ability to specify it via the Quartz layout file.
+06-05-2025 ▪ Updated the "Reply by Email", using base64 encoding for the email, and adding the ability to specify it via the Quartz layout file.
 13-05-2025 ▪ Further updated the component with the ability to specific include and exclude lists, plus the text label for the button.
 This has been submitted as a PR to Quartz, the code can be seen [here](https://github.com/jackyzha0/quartz/pull/1977).
 
