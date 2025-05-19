@@ -13,10 +13,10 @@ aliases:
 # HTTPS with Caddy on your local network
 
 > [!tldr]+ **tldr:** HTTPS with Caddy on your local network
-> 1. Buy a domain
-> 2. Install Caddy with a module that allows DNS validation
-> 3. Create a DNS entry for your subdomain and point it to the internal ip of the machine/container running Caddy (ie, `192.168.1.123`)
-> 4. Add the reverse proxy entries to your [[#4. Reverse proxy from Caddy to you services|Caddyfile]].
+> 1. [[#1. Buy a cheap domain name on Cloudflare or similar|Buy a domain]];
+> 2. [[#2. Install Caddy with the Cloudflare module to do DNS validation|Install Caddy]] with a module that allows DNS validation;
+> 3. [[#3. Create a DNS entry for your subdomain and point it to the local IP address of the Caddy host|Create a DNS entry]]  for your subdomain and point it to the internal ip of the machine/container running Caddy (ie, `192.168.1.123`);
+> 4. Add the reverse proxy entries to your [[#4. Reverse proxy from Caddy to you services|Caddyfile]];
 > 5. Start/reload Caddy and it will fetch the required certificates and automatically renew them. Your subdomain will now be available over `https://`.
 
 ## Intro 
