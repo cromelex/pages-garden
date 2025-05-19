@@ -2,7 +2,7 @@
 publish: true
 title: HTTPS with Caddy
 created: 2024-12-16
-modified: 2025-05-12
+modified: 2025-05-19
 tags:
   - self-hosting
   - caddy
@@ -10,7 +10,14 @@ aliases:
   - Technology/HTTPS-with-Caddy
   - technology/HTTPS-with-Caddy
 ---
-# HTTPS with Caddy
+# HTTPS with Caddy on your local network
+
+> [!tldr]+ **tldr:** HTTPS with Caddy on your local network
+> 1. Buy a domain
+> 2. Install Caddy with a module that allows DNS validation
+> 3. Create a DNS entry for your subdomain and point it to the internal ip of the machine/container running Caddy (ie, `192.168.1.123`)
+> 4. Add the reverse proxy entries to your [[#4. Reverse proxy from Caddy to you services|Caddyfile]].
+> 5. Start/reload Caddy and it will fetch the required certificates and automatically renew them. Your subdomain will now be available over `https://`.
 
 ## Intro 
 When I first started with Home Assistant, a more knowledgeable friend advised me to buy a domain name, and use public DNS entries with private range IP addresses, so that I could use names instead of having to remember IP addresses. 

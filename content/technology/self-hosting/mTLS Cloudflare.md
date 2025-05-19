@@ -152,7 +152,7 @@ Of course, you still want to be able to access from your devices, so let's go ah
 In Windows, you can just download the `.p12` certificate and double click on it. You will be prompted to add it to the Windows Certificate storage, from where the browser should automatically be able to import and use it.
 
 ##### Linux
-Go to Settings->Privacy and Security->View Certificates, Your Certificates, click import, and select your `.p12` file. You will be prompted for the passphrase, if you set one when exporting.
+Go to Settings -> Privacy and Security -> View Certificates, Your Certificates, click import, and select your `.p12` file. You will be prompted for the passphrase, if you set one when exporting.
 
 You can restart the browser, and now when you try to access `subdomain1.example.com` you will be prompted to select a certificate and actually access the page. If it doesn't work immediately, try to do a hard refresh on your browser (usually CTRL+F5).
 Success!
@@ -164,7 +164,7 @@ Success!
 In Windows, you can just download the `.p12` certificate and double click on it. You will be prompted to add it to the Windows Certificate storage, from where the browser should automatically be able to import and use it.
 
 ##### Linux
-Go to Settings->Privacy and Security->Security->Manage certificates (under Advanced).
+Go to Settings -> Privacy and Security-> Security -> Manage certificates (under Advanced).
 Click import and select the `.p12` file. You will be prompted for the passphrase, if you set one when exporting.
 
 You can restart the browser, and now when you try to access `subdomain1.example.com` you will be prompted to select a certificate and actually access the page. If it doesn't work immediately, try to do a hard refresh on your browser (usually CTRL+F5).
