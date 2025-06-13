@@ -28,8 +28,7 @@ The majority of the content of this page falls within two main types:
 ---
 ### What this is and why I write
 This *digital garden* is intended as a living space.  
-My goal is to capture and cultivate thoughts and ideas, allowing them to grow over time.
-You'll find some notes here are still in their early stages, while others will have matured into fully-fledged essays.  
+My goal is to capture and cultivate thoughts and ideas, allowing them to grow over time. You'll find some notes here are still in their early stages, while others will have matured into fully-fledged essays.  
 
 The core idea is that, rather than being static, these notes will be developed, updated and improved over time. All my writings display the date in which they were last modified/updated.  
 
