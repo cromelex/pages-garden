@@ -13,7 +13,7 @@ modified: 2024-01-01
 ## Hello World!
 Hi! I'm [[about|Dan]].   
 Welcome to my digital garden!  
-This page is a collection of my writings on a variety of topics, from the joys and challenges of fatherhood to random thoughts in economics, and my experiences with technology and creating a smart home.
+This page is a collection of my writings on a variety of topics, from the joys and challenges of fatherhood, to random thoughts in economics, and my experiences with technology and creating a smart home.
 
 ---
 ### What you'll find here
