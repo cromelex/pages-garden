@@ -2,7 +2,7 @@
 publish: true
 title: mTLS via Cloudflare
 created: 2024-12-16
-modified: 2025-05-01
+modified: 2025-07-03
 tags:
   - mTLS
   - self-hosting
@@ -52,6 +52,11 @@ This is much simpler than the alternative of connecting a VPN before opening the
 
 >[!warning]- Window 11 issues when using mTLS certificates
 >I'm aware of some occasional issues when using mTLS with Windows. As an example, on my partner's laptop, when using Windows 11, on both Chrome and Firefox, the browser will randomly not prompt you for the certificate, sometimes not even while in incognito/private browsing mode.  
+>
+> **A reader ( Ramón ) has kindly shared a tip to get this to work reliably on Windows 11. All it takes is disabling the HTTP/3 (with QUIC) optimisation in the Cloudflare Dashboard.**
+> 
+> **You can locate that setting through your Cloudflare Dashboard -> pick your domain -> and then go to Speed -> Optimization -> Protocol Optimization -> HTTP/3 (with QUIC), and make sure to disable it.**  
+> 
 >There's nothing preventing you from using two solutions at the same time. If you set an internal subdomain (ie, with a private IP address) and an external subdomain for the same service, you can always use a VPN to access via the internal subdomain without mTLS, while keeping it enabled for anything exposed externally.
 
 ## Why use Cloudflare to handle mTLS for you

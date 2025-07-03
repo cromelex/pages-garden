@@ -8,4 +8,4 @@ cssclasses:
 tags:
   - explorerexclude
 ---
-[Home Assistant](https://www.home-assistant.io/) is an Open source home automation that puts local control and privacy first.
+[Home Assistant](https://www.home-assistant.io/) is an Open source home automation tool that puts local control and privacy first.

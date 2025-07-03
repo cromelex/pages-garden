@@ -2,7 +2,7 @@
 publish: true
 title: Tailscale Access Controls
 created: 2024-11-28
-modified: 2024-11-28
+modified: 2025-07-03
 tags:
   - tailscale
   - self-hosting
@@ -115,26 +115,59 @@ We start by adding his machine as a host:
 ### The Access Control rules
 Next, we need to put in the actual rules to control the accesses:
 
+
+> [!NOTE]- *Grants* vs *ACLs*
+> Tailscale have brought in a [new format](https://tailscale.com/kb/1542/grants-migration) for the access controls, which they call "Grants". The previous ACL format has been deprecated, but it would still work. As such, I am keeping the old code sample here for reference.
+> 
+> ```json
+> 	"acls": [
+> 		// Allow all connections.
+> 		// Comment this section out if you want to define specific restrictions.
+> 		//{"action": "accept", "src": ["*"], "dst": ["*:*"]},
+> 		{"action": "accept", "src": ["tag:vps"], "dst": ["tag:local:port1,port2"]}, // use * for all ports, or specify comma separated ports if you want to narrow it down for the services that you are using.
+> 		{"action": "accept", "src": ["autogroup:admin"], "dst": ["*:*"]}, // Allows your "user" devices to connect to any other device (including your Homelab)
+> 		{"action": "accept", "src": ["john"], "dst": ["tag:local:32400"]}, // Allows John's machine to connect your local service running on port 32400 only.
+> 	],
+> 	},
+> ```
+> 
+> The `{"action": "accept", "src": ["tag:vps"], "dst": ["tag:local:port1,port2"]},` line ensures that the VPS can communicate with your Homelab (`tag:local`), but only on the specified `port1` and `port2`. Any service running on a different port, or a different device entirely, will not be accessible from the VPS.
+> 
+> The second line, `{"action": "accept", "src": ["autogroup:admin"], "dst": ["*:*"]},` allows any of your personal devices to connect to any other device. This means that you are still able to connect to your VPS via Tailscale (for example, to manage it), but the VPS would not be able to do the opposite and access your phone or laptop.
+> 
+> The third line, `{"action": "accept", "src": ["john"], "dst": ["tag:local:32400"]},` allows John's machine to *only* have access to your local server's service running on port 32400, as an example. He is unable to access anything else on your network!
+
+This is how the rules should look with the Tailscale "Grant" format.
 ```json
-	"acls": [
+	"grants": [
 		// Allow all connections.
 		// Comment this section out if you want to define specific restrictions.
-		//{"action": "accept", "src": ["*"], "dst": ["*:*"]},
-		{"action": "accept", "src": ["tag:vps"], "dst": ["tag:local:port1,port2"]}, // use * for all ports, or specify comma separated ports if you want to narrow it down for the services that you are using.
-		{"action": "accept", "src": ["autogroup:admin"], "dst": ["*:*"]}, // Allows your "user" devices to connect to any other device (including your Homelab)
-		{"action": "accept", "src": ["john"], "dst": ["tag:local:32400"]}, // Allows John's machine to connect your local service running on port 32400 only.
+		// {"action": "accept", "src": ["*"], "dst": ["*:*"]},
+		{
+			"src": ["tag:vps"],
+			"dst": ["tag:local"],
+			"ip":  ["port1", "port2"], // use * for all ports, or specify comma separated ports if you want to narrow it down for the services that you are using. You can also specify `udp` or `tcp:port`
+		},
+		{
+			"src": ["autogroup:admin"],
+			"dst": ["*"],
+			"ip":  ["*"], // Allows your "user" devices to connect to any other device (including your Homelab)
+		},
+		{
+			"src": ["john"],
+			"dst": ["tag:local"],
+			"ip":  ["32400"], // Allows John's machine to connect your local service running on port 32400 only.
+		},
 	],
-	},
 ```
 
-The `{"action": "accept", "src": ["tag:vps"], "dst": ["tag:local:port1,port2"]},` line ensures that the VPS can communicate with your Homelab (`tag:local`), but only on the specified `port1` and `port2`. Any service running on a different port, or a different device entirely, will not be accessible from the VPS.
+The first block ( `"src": ["tag:vps"],`) ensures that the VPS can communicate with your Homelab (`tag:local`), but only on the specified `port1` and `port2`. Any service running on a different port, or a different device entirely, will not be accessible from the VPS.
 
-The second line, `{"action": "accept", "src": ["autogroup:admin"], "dst": ["*:*"]},` allows any of your personal devices to connect to any other device. This means that you are still able to connect to your VPS via Tailscale (for example, to manage it), but the VPS would not be able to do the opposite and access your phone or laptop.
+The second block ( `"src": ["autogroup:admin"],`) allows any of your personal devices to connect to any other device. This means that you are still able to connect to your VPS via Tailscale (for example, to manage it), but the VPS would not be able to do the opposite and access your phone or laptop.
 
-The third line, `{"action": "accept", "src": ["john"], "dst": ["tag:local:32400"]},` allows John's machine to *only* have access to your local server's service running on port 32400, as an example. He is unable to access anything else on your network!
+The third block  ( `"src": ["john"],`) allows John's machine to _only_ have access to your local server's service running on port 32400, as an example. He is unable to access anything else on your network!
 
 Save, and that's it!
-
 ## Conclusion
 Now your VPS can only connect to our Homelab server, while all our other devices can still connect amongst themselves. 
 

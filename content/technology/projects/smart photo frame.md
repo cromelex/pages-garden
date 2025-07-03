@@ -10,7 +10,7 @@ tags:
 # Smart Photo Wall Panel
 
 ## Intro
-For the last 3 years I'd been using a refurbished Fire 10 tablet as a wall panel in my hallway. I found it was quite handy to have quick access to my Home Assistant dashboard, displaying information like the Weather, calendar entries, and approximate drive time to those calendar event locations, while also having a easy way to control the smart features in our house (blinds, lights, etc).
+For the last 3 years I'd been using a refurbished Fire 10 tablet as a wall panel in my hallway. I found it was quite handy to have quick access to my [[../../tags/homeassistant|Home Assistant]] dashboard, displaying information like the Weather, calendar entries, and approximate drive time to those calendar event locations, while also having a easy way to control the smart features in our house (blinds, lights, etc).
 
 The battery only lasted for a few days, but I couldn't be bothered to spend the time and effort to wire it in more permanently - I relied on a magnetic mount in order to have an easy way to remove it for charging.
 
@@ -46,7 +46,7 @@ When you tap the screen, it immediately takes you to the default page.
 
 This made the whole process much simpler. It was as easy as setting up FullyKiosk to point at the Home Assistant dashboard, and setting the screensaver to the Immich Kiosk URL!
 
-From within Home Assistant I am able to use the FullyKiosk integration to turn off the screen when the room is empty. When there is someone in the room, it will display my Immich photos from a curated album. Meanwhile, the Home Assistant dashboard and controls are always a single tap away!
+From within Home Assistant I am able to use the [FullyKiosk integration](https://www.home-assistant.io/integrations/fully_kiosk/) to turn off the screen when the room is empty. When there is someone in the room, it will display my Immich photos from a curated album. Meanwhile, the Home Assistant dashboard and controls are always a single tap away!
 
 ## Next steps
 All that is left is hiding the power cable so it isn't dangling on the wall. When I have a bit of time I will probably try to route it within the wall so as to make it completely invisible, as I believe that would make the photo frame look much better.
