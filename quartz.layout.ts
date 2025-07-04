@@ -60,6 +60,14 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
+    Component.ConditionalRender({
+      component: Component.RecentNotes({
+        limit: 5,
+        title: "Recently Updated Notes",
+        showTags: false
+      }),
+      condition: (props: QuartzComponentProps) => props.fileData.slug == "index",
+    }),
   ],
 }
 
