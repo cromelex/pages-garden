@@ -162,3 +162,13 @@ div.explorer {
         grid-template-columns: fit-content(8em) 3fr 2fr;
     }
 }
+
+// reduce font size on recent notes title
+.recent-ul .recent-li h3 {
+    font-size: 0.9em;
+}
+
+// reduce font size on recent notes dates
+.recent-ul .recent-li .meta {
+    font-size: 0.9em;
+}
