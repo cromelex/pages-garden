@@ -1,8 +1,8 @@
 ---
 publish: true
 title: Immich
-created: 2025-06-13
-modified: 2025-06-13
+created: 2025-01-01
+modified: 2025-01-01
 cssclasses:
   - hideDate
 tags:
