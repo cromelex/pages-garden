@@ -62,7 +62,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Backlinks(),
     Component.ConditionalRender({
       component: Component.RecentNotes({
-        limit: 5,
+        limit: 4,
         title: "Recently Updated Notes",
         showTags: false
       }),
