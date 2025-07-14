@@ -52,7 +52,7 @@ From within Home Assistant I am able to use the [FullyKiosk integration](https:/
 ## Results
 Overall, I am quite happy with this solution. The hardware has some issues. The frame is extremely slow, and the wifi is not super reliable, with random disconnects. Immich Kiosk runs really well, but on occasion the frame shows a small icon to let me know it has disconnected. On some rare occasions, the I get a 404 error when the page fails to load (probably when it tries to do it while the wifi is out). 9 out of 10 times, it's fine. I have tried using FullyKiosk's wakelock settings for wifi/cpu and even wifi re-connection, but it is still not fail proof. I might try using the [ImmichFrame Android app with ImmichKiosk](https://docs.immichkiosk.app/misc/frameo/#installing-immichframe), in the hope that the caching functionality works better and see if it's sufficient to handle the disconnections.
 
-![[./attachments/smart photo frame-3988x2012.webp|My current Home Assistant dashboard on the smart frame|600]]
+![[./attachments/smart photo frame-3988x2012.webp|My current Home Assistant dashboard on the smart frame|1000]]
 
 In terms of the Home Assistant dashboard, the hardware slowness cause issues too. Home Assistant loads all the pages in the dashboard, not just the one displaying, so splitting the information across multiple pages doesn't necessarily help.  
 I had to streamline the dashboards as much as possible, removing any type of "heavy" cards (such as the map cards for the vacuum robot, or the sankey chart which I typically use for power monitoring). I've found that this helped, but it is still not perfect, and sometimes it takes a good few seconds to respond. The fact that I make use of a lot of conditionals probably doesn't help either.  
