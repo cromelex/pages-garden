@@ -2,7 +2,7 @@
 publish: true
 title: Smart Photo Wall Panel
 created: 2025-06-13
-modified: 2025-06-13
+modified: 2025-07-14
 tags:
   - immich
   - homeassistant
@@ -26,7 +26,7 @@ By mere chance, the week after the tablet died, someone posted on [r/homeassista
 
 I went ahead and ordered one the same day!
 
-The screen is nice and bright, and although the frame itself is quite slow, it is just *bearable* enough in that it is still usable. The frame is relatively inexpensive, being regularly on sale at a decent discount, be it on Amazon, Aliexpress, or Arzopa's own website.
+The screen is nice and bright, and although the frame itself is quite slow (more on this later), it is just *bearable* enough in that it is still usable. The frame is relatively inexpensive, being regularly on sale at a decent discount, be it on Amazon, Aliexpress, or Arzopa's own website.
 
 I won't reproduce the guide in full, and instead just point you towards **photinus**'s  [guide again](https://github.com/photinus/HomeAssistant-Misc/blob/master/Arzopa.md). 
 There isn't a lot to it: 
@@ -48,6 +48,12 @@ This made the whole process much simpler. It was as easy as setting up FullyKios
 
 From within Home Assistant I am able to use the [FullyKiosk integration](https://www.home-assistant.io/integrations/fully_kiosk/) to turn off the screen when the room is empty. When there is someone in the room, it will display my Immich photos from a curated album. Meanwhile, the Home Assistant dashboard and controls are always a single tap away!
 
-## Next steps
-All that is left is hiding the power cable so it isn't dangling on the wall. When I have a bit of time I will probably try to route it within the wall so as to make it completely invisible, as I believe that would make the photo frame look much better.
+![[./attachments/smart photo frame-3072x3088.webp|The wall mounted smart frame|600]]
+## Results
+Overall, I am quite happy with this solution. The hardware has some issues. The frame is extremely slow, and the wifi is not super reliable, with random disconnects. Immich Kiosk runs really well, but on occasion the frame shows a small icon to let me know it has disconnected. On some rare occasions, the I get a 404 error when the page fails to load (probably when it tries to do it while the wifi is out). 9 out of 10 times, it's fine. I have tried using FullyKiosk's wakelock settings for wifi/cpu and even wifi re-connection, but it is still not fail proof. I might try using the [ImmichFrame Android app with ImmichKiosk](https://docs.immichkiosk.app/misc/frameo/#installing-immichframe), in the hope that the caching functionality works better and see if it's sufficient to handle the disconnections.
 
+![[./attachments/smart photo frame-3988x2012.webp|My current Home Assistant dashboard on the smart frame|600]]
+
+In terms of the Home Assistant dashboard, the hardware slowness cause issues too. Home Assistant loads all the pages in the dashboard, not just the one displaying, so splitting the information across multiple pages doesn't necessarily help.  
+I had to streamline the dashboards as much as possible, removing any type of "heavy" cards (such as the map cards for the vacuum robot, or the sankey chart which I typically use for power monitoring). I've found that this helped, but it is still not perfect, and sometimes it takes a good few seconds to respond. The fact that I make use of a lot of conditionals probably doesn't help either.  
+I consider this a work in progress and will probably keep changing and simplifying this dashboard over the next few months.

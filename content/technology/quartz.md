@@ -434,4 +434,13 @@ div.explorer {
     }
 }
 
+// reduce font size on recent notes title
+.recent-ul .recent-li h3 {
+    font-size: 0.9em;
+}
+
+// reduce font size on recent notes dates
+.recent-ul .recent-li .meta {
+    font-size: 0.9em;
+}
 ```
