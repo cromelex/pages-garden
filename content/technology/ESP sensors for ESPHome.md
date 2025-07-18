@@ -5,9 +5,9 @@ tags:
   - esphome
   - homeassistant
 created: 2024-11-29
-modified: 2024-11-29
-alias:
-  - "Technology/ESP-sensors-for-ESPHome"
+modified: 2025-07-18
+aliases:
+  - Technology/ESP-sensors-for-ESPHome
 ---
 # ESP sensors for ESPHome
 Over the last few years, as part of my effort to make my house *smart* using Home Assistant, I have ended up buying a few ESP devices to serve multiple purposes.
@@ -27,3 +27,10 @@ I have done a couple of mini-projects with these:
 
 - [[projects/NFC jukebox|A NFC enabled jukebox for my daughter]]
 - [[projects/CO2 sensor|A cheap CO2 sensor to help monitor air quality in our home]]
+
+## Flashing in Bazzite / Aurora / Bluefin
+If you are trying to flash a ESP using one of these OS, you need to run the following after connecting the USB:
+
+`sudo chmod 777 /dev/ttyACM0`
+
+Otherwise your browser will not be able to connect to the device. You don't need to add any additional permissions to the browsers in Flatseal.
