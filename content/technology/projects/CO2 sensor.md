@@ -5,10 +5,10 @@ tags:
   - esphome
   - homeassistant
 created: 2024-11-29
-modified: 2024-11-29
-alias:
-  - "Projects/CO2-sensor"
-  - "projects/CO2-sensor"
+modified: 2025-07-18
+aliases:
+  - Projects/CO2-sensor
+  - projects/CO2-sensor
 ---
 # ESPHome CO2 Sensor
 ## Monitoring air quality 
@@ -58,7 +58,7 @@ esphome:
 esp32:
   board: m5stack-atom
   framework:
-    type: arduino
+    type: esp-idf
 
 # Enable logging
 logger:

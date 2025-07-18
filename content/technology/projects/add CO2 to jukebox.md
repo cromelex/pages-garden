@@ -2,13 +2,13 @@
 publish: true
 title: Adding a CO2 sensor to the NFC Jukebox
 created: 2024-12-31
-modified: 2025-03-24
+modified: 2025-07-18
 tags:
   - esphome
   - homeassistant
-alias:
-  - "Projects/add-CO2-to-jukebox"
-  - "projects/add-CO2-to-jukebox"
+aliases:
+  - Projects/add-CO2-to-jukebox
+  - projects/add-CO2-to-jukebox
 ---
 # Adding a CO2 sensor to the NFC Jukebox
 
@@ -78,7 +78,7 @@ esphome:
 esp32:
   board: m5stack-atom
   framework:
-    type: arduino
+    type: esp-idf
 
 # Enable logging
 logger:

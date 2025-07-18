@@ -2,14 +2,14 @@
 publish: true
 title: NFC Jukebox
 created: 2024-11-29
-modified: 2025-03-24
+modified: 2025-07-18
 tags:
   - esphome
   - homeassistant
   - draft
-alias:
-  - "Projects/NFC-jukebox"
-  - "projects/NFC-jukebox" 
+aliases:
+  - Projects/NFC-jukebox
+  - projects/NFC-jukebox
 ---
 # NFC Jukebox
 
@@ -41,7 +41,7 @@ esphome:
 esp32:
   board: m5stack-atom
   framework:
-    type: arduino
+    type: esp-idf
     
 # Enable logging
 logger:
