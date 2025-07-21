@@ -181,11 +181,11 @@ Unfortunately, I had neither, and I didn't really want to waste space in my home
 
 These NFC cards are typically the size of a standard bank card (so as to fit in a wallet), meaning they measure 8.56x5.398 cm. 
 
-We often get photos printed online, so in the end I decided to grab a couple of pictures of my daughter's current favourite cartoons, and have them printed as 10x10 cm pictures, cutting them to size, and then laminating the cards.
+#### Printing the labels
+Getting them printed proved a bit of a challenge. I could not really find any place that would do a single print of a card or even labels. In the end, after spending quite a bit of time searching, I ended up ordering some AVERY Zweckform P3461 Labels (85 x 55 mm). These were literally the only labels in this size I could find!  
 
-#draft (add pics) 
-
-Having them laminated, rather than printed, also means that the cards can always be repurposed further down the line. All it takes is replacing the picture and rewriting the tag.
+When it came to printing the labels, bizarrely, the .eu Avery site printed on the packaging for the labels redirected me to their .uk page. Neither the .uk nor the .com sites actually have the P3461 label templates on their online designer. I ended up having to use their [german site](https://www.avery-zweckform.com/software/avery-design-print) in order to be able to use the templates. Just input the P3461 product code on the box and press start, it'll take you to the online designer. You can then change the language in the top right corner. 
+It'll allow you to design the individual labels and then save a .pdf to print on the labels themselves. It took a bit of trial and error but eventually I managed to get the print to align properly with the labels.
 
 ## The result
 
