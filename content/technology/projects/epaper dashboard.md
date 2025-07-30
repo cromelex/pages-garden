@@ -16,7 +16,7 @@ Today, I use a reMarkable 2 as a low-tech-but-digital notebook.
 As such, I had been keeping an eye on the technology, but wasn't really keen on spending 100+ € on a panel just for use with Home Assistant.
 
 ## The seeedstudio XIAO 7.5'' ePaper panel
-Recently I came upon a mention of the [Seeedstudio XIAO 7.5" ePaper Panel](https://www.seeedstudio.com/XIAO-7-5-ePaper-Panel-p-6416.html). As the name indicates, it's a 7.5'' e-ink display, provided in a 3D-printed enclosure with a XIAO ESP32-C3 and also including a 2000mAh battery. The price is quite decent too, and I ended up paying 64€ with shipping and tax (thanks to the current exchange rate of the EUR/USD). In Europe, the usual price for just the display itself is around 70€, so this unit is a bit of a bargain, and I didn't even have to assemble it myself.  Seeedstudio even provide a wiki with great examples of how to make it work, such as [using ESPHome and an addon to take a screenshot of a specific dashboard to display](https://wiki.seeedstudio.com/xiao_075inch_epaper_panel/#demo-1-take-the-home-assistant-dashboard-as-a-screenshot).
+Recently I came upon a mention of the [Seeedstudio XIAO 7.5" ePaper Panel.](https://www.seeedstudio.com/XIAO-7-5-ePaper-Panel-p-6416.html) As the name indicates, it's a 7.5'' e-ink display, provided in a 3D-printed enclosure with a XIAO ESP32-C3 and also including a 2000mAh battery. The price is quite decent too, and I ended up paying 64€ with shipping and tax (thanks to the current exchange rate of the EUR/USD). In Europe, the usual price for just the display itself is around 70€, so this unit is a bit of a bargain, and I didn't even have to assemble it myself.  Seeedstudio even provide a wiki with great examples of how to make it work, such as [using ESPHome and an addon to take a screenshot of a specific dashboard to display.](https://wiki.seeedstudio.com/xiao_075inch_epaper_panel/#demo-1-take-the-home-assistant-dashboard-as-a-screenshot)
 ### Perfect Form Factor for Home Display
 The size of the enclosure also makes it a perfect fit inside a standard IKEA photo frame. This makes it ideal if you want to mount it on a wall, to display information at a glance. 
 
@@ -27,14 +27,14 @@ To build the dashboard, I used 2 sections, so they would go side by side, and ad
 
 The device doesn't report battery percentage, and as it is e-ink, the screen doesn't go off when it runs out of power.
 
-![[attachments/epaper dashboard-1155x1640.webp|The  seeedstudio XIAO 7.5'' ePaper panel nicely fitted inside an Ikea photo frame.|600]]
+![[attachments/epaper dashboard-1155x1640.webp|The  seeedstudio XIAO 7.5'' ePaper panel nicely fitted inside an IKEA photo frame.|600]]
 
 ### Battery Performance
 The battery capacity is very decent. I was able to get 15 days out of it using deep sleep. This is done by waking the device for 2 minutes to process the update, and then have it sleep for the next 30 minutes. For the type of information we are using this for, this is frequent enough.  
 
 I am currently experimenting with more complex code to keep the display in deep sleep overnight, which should allow me to extend the battery life even further.
 
-## ESPHome code
+### ESPHome code
 
 After the update to ESPHome version 2025.7.x, I add to make some changes to the sample code provided by Seeedstudio in their wiki. The PNG decoder kept running out of memory, so I replaced it with BMP, which works just the same and avoids the issue entirely.
 #### Configuration with deep sleep
@@ -173,7 +173,7 @@ After the update to ESPHome version 2025.7.x, I add to make some changes to the 
 >     entity_category: diagnostic
 > ```
 
-### Faster display updates with partial refresh
+#### Faster display updates with partial refresh
 
 If you don't mind the battery lasting for a shorter amount of time, or if you will always have the device powered via USB, you can use partial/fast refresh to allow quicker screen updates, where only the relevant pixels are updated, without a full refresh (which causes a noticeable effect on the screen, with the whole thing going black and white again for a second). Eventually, the screen will still need a full refresh, but the code takes care of this and will automatically trigger it after a specified number of updates.
 #### Sample use case: desk clock and calendar display

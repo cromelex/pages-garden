@@ -66,12 +66,12 @@ logger:
 # Enable Home Assistant API
 api:
   encryption:
-    key: "the_esphome_randomly_generated_key"
+    key: <the_esphome_randomly_generated_key>
 
 # Enable Over the Air Updates
 ota:
   - platform: esphome
-    password: "the_esphome_randomly_generated_key"
+    password: <the_esphome_randomly_generated_key>
 
 # connect to the Wifi Network defined in the ESPHome secrets.yaml file
 wifi:

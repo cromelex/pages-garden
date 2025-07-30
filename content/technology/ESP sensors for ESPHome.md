@@ -29,8 +29,11 @@ I have done a couple of mini-projects with these:
 - [[projects/CO2 sensor|A cheap CO2 sensor to help monitor air quality in our home]]
 
 ## Flashing in Bazzite / Aurora / Bluefin
-If you are trying to flash a ESP using one of these OS, you need to run the following after connecting the USB:
+If you are trying to flash a ESP using one of these OS, you need to run the following after connecting the USB. Some ESP32 devices show as `ttyACM0` and other as `ttyUSB0`, so the exact command will depend on that.
 
 `sudo chmod 777 /dev/ttyACM0`
 
-Otherwise your browser will not be able to connect to the device. You don't need to add any additional permissions to the browsers in Flatseal.
+`sudo chmod 777 /dev/ttyUSB0`
+
+Otherwise your browser will not be able to connect to the device.  
+You don't need to add any additional permissions to the browsers in Flatseal.

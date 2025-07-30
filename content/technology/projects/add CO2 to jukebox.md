@@ -86,7 +86,7 @@ logger:
 # Enable Home Assistant API
 api:
   encryption:
-    key: "randomlygeneratedkey"
+    key: <randomlygeneratedkey>
 
 ota:
   - platform: esphome
@@ -99,7 +99,7 @@ wifi:
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "m5stack-rfid-co2 Fallback Hotspot"
-    password: "randompassword"
+    password: <randompassword>
 
 # RFID Reader Sensor
 external_components:
