@@ -46,7 +46,7 @@ export const defaultContentPageLayout: PageLayout = {
       email: "contact@dansgarden.eu",
       // includeTitles: ["Welcome to Quartz 4"], // You can specify which page titles to include or comment out the line to include on all pages
       excludeTitles: ["Home", "About me"],
-      buttonLabel: "Reply by email"
+      buttonLabel: "✉️ Reply by email"
     }),
   ],
   right: [
