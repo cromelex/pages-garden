@@ -31,7 +31,7 @@ This is the only thing I had to make sure my partner is aware of, when dealing w
 If things go wrong, the house can be made *dumb* again by turning off power to that box. This day hasn't happened yet, thankfully.
 
 ## Motion lights override
-How did I "solve" for the hallway motion light override? The motion sensor is Zigbee, and integrated in Home Assistant, rather than being on the light itself. As such, it was possible to find a workaround: if the physical light switch is toggled, I temporarily disable the motion light automation (using `automation.turn_off`) for on hour, and then restore it.
+How did I "solve" for the hallway motion light override? The motion sensor is Zigbee, and integrated in Home Assistant, rather than being on the light itself. As such, it was possible to find a workaround: if the physical light switch is toggled, I temporarily disable the motion light automation (using `automation.turn_off`) for one hour, and then restore it.
 
 ## Smart switches with fallback mode
 The core problem with smart lights is the fundamental trade-off: you need constant power for the smart features, but you also need physical switches that always work. Most solutions force you to choose one or the other.
