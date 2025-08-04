@@ -22,7 +22,7 @@ My solution was building multiple layers of fail-safes: Home Assistant now has a
 
 Below are some examples of how I did this.
 ## The kill switch
-Starting with then nuclear option - if automations go haywire, there needs to be a simple and straightforward way to shut everything down.
+Starting with the nuclear option - if automations go haywire, there needs to be a simple and straightforward way to shut everything down.
 
 The solution is plain and simple: pulling the plug.
 
