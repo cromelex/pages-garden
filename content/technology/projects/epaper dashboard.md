@@ -2,7 +2,7 @@
 publish: true
 title: E-paper dashboard
 created: 2025-07-21
-modified: 2025-07-21
+modified: 2025-08-04
 tags:
   - esphome
   - homeassistant
@@ -72,50 +72,11 @@ After the update to ESPHome version 2025.7.x, I add to make some changes to the 
 > 
 > # Eink display image from dashboard
 > 
-> ## Get time from Home Assistant
-> time:
->   - platform: homeassistant
->     id: homeassistant_time
->     timezone: "Europe/Dublin"  # Change to your timezone
->     on_time:
->       - seconds: 0
->         minutes: 0
->         hours: 23
->         then:
->           - script.execute: conditional_sleep
-> 
 > ## Deep sleep component
 > deep_sleep:
 >   id: deep_sleep_controller
 >   run_duration: 90s  # Stay awake for 2 minutes to update display
->   sleep_duration: 30min  # Default sleep duration (will be overridden by script)
-> 
-> ## Script to handle conditional sleep
-> script:
->   - id: conditional_sleep
->     then:
->       - lambda: |-
->           auto time = id(homeassistant_time).now();
->           if (time.is_valid()) {
->             int current_hour = time.hour;
->             // If it's between 11pm (23) and 7am (7), sleep until 7am
->             if (current_hour >= 23 || current_hour < 7) {
->               // Calculate time until 7am in milliseconds
->               int hours_until_7am;
->               if (current_hour >= 23) {
->                 hours_until_7am = 24 - current_hour + 7;
->               } else {
->                 hours_until_7am = 7 - current_hour;
->               }
->               ESP_LOGI("deep_sleep", "Night time detected, sleeping for %d hours until 7am", hours_until_7am);
->               // Enter deep sleep with calculated duration
->               id(deep_sleep_controller).set_sleep_duration(hours_until_7am * 60 * 60 * 1000);
->             } else {
->               ESP_LOGI("deep_sleep", "Daytime - using standard 30 minute sleep");
->               id(deep_sleep_controller).set_sleep_duration(30 * 60 * 1000);
->             }
->           }
->       - deep_sleep.enter: deep_sleep_controller
+>   sleep_duration: 30min  #  sleep duration
 > 
 > http_request:
 >   verify_ssl: false
