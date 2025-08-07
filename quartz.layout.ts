@@ -11,6 +11,7 @@ export const sharedPageComponents: SharedLayout = {
       "About": "https://dansgarden.eu/about",
       "Contact": "https://dansgarden.eu/contact",
       "RSS": "https://dansgarden.eu/rss",
+      "Buy me a coffee ☕": "https://www.buymeacoffee.com/dansgarden"
     },
   }),
 }
