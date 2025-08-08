@@ -49,7 +49,7 @@ In short, Cloudflare Tunnels provide a simpler, more secure method for connectin
 3. Select Cloudflared, pick a name, save, and then in the Install and run connectors you will be given a unique *tunnel token*.
 4. Create the container for the tunnel and start it.
 
-> [!info]- docker compose sample
+> [!code]- docker compose sample
 > 
 > ```bash
 > docker run cloudflare/cloudflared:latest tunnel --no-autoupdate run --token <YOUR_TUNNEL_TOKEN>
@@ -98,7 +98,7 @@ You don't have to use Caddy, and you don't have to use HTTPS. This is just my pr
 
 I specify a `cloudflared` network so that the tunnel can only access the Caddy container, and not any other container. I then use the `caddynet` network across any container that I want Caddy to reverse-proxy to.
 
-> [!info]- My docker compose file for Caddy (with Cloudflare module) and Cloudflared tunnel
+> [!code]- My docker compose file for Caddy (with Cloudflare module) and Cloudflared tunnel
 > For simplicity and ease of backup, I prefer to use bind mounts (ie, mount a specific path on the host ) rather than using Docker volumes.
 > 
 > `compose.yaml`

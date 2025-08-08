@@ -58,7 +58,7 @@ The result? Light switches that work exactly as people expect them to, whether y
 
 The ESPHome configuration handles the fail-over logic automatically. The key is using the `wifi.connected` and `api.connected` conditions to determine which mode to operate in:
 
-> [!example]- ESPHome sample code for the Shelly Plus 1PM, with fallback to *dumb* mode (based on [this](https://devices.esphome.io/devices/Shelly-Plus-1PM) original)
+> [!code]- ESPHome sample code for the Shelly Plus 1PM, with fallback to *dumb* mode (based on [this](https://devices.esphome.io/devices/Shelly-Plus-1PM) original)
 > ```yaml
 > esphome:
 >   name: shelly-plus-1pm-bedroom

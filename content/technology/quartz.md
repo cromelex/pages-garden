@@ -443,4 +443,9 @@ div.explorer {
 .recent-ul .recent-li .meta {
     font-size: 0.9em;
 }
+
+// add a code callout
+.callout[data-callout^="code"] {
+    --callout-icon: var(--callout-icon-example);
+}
 ```

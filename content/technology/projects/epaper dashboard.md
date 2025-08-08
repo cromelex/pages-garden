@@ -39,7 +39,7 @@ I am currently experimenting with more complex code to keep the display in deep 
 After the update to ESPHome version 2025.7.x, I add to make some changes to the sample code provided by Seeedstudio in their wiki. The PNG decoder kept running out of memory, so I replaced it with BMP, which works just the same and avoids the issue entirely.
 #### Configuration with deep sleep
 
-> [!example]- My ESPHome .yaml code with the 30m deep sleep between updates and a dashboard screenshot being taken by the [puppet](https://github.com/balloob/home-assistant-addons) addon.
+> [!code]- My ESPHome .yaml code with the 30m deep sleep between updates and a dashboard screenshot being taken by the [puppet](https://github.com/balloob/home-assistant-addons) addon.
 > ```yaml
 > substitutions:
 >   name: e-ink-display-1
@@ -142,7 +142,7 @@ With fast refresh, you could conceivably use the display as a desk clock + calen
 
 #### Configuration for Fast Refresh
 
-> [!example]- ESPHome .yaml code with partial/fast refresh every minute and a dashboard screenshot being taken by the [puppet](https://github.com/balloob/home-assistant-addons) addon.
+> [!code]- ESPHome .yaml code with partial/fast refresh every minute and a dashboard screenshot being taken by the [puppet](https://github.com/balloob/home-assistant-addons) addon.
 > ```yaml
 > substitutions:
 >   name: e-ink-display-2
