@@ -2,7 +2,7 @@
 publish: true
 title: Smart Photo Wall Panel
 created: 2025-06-13
-modified: 2025-07-14
+modified: 2025-08-08
 tags:
   - immich
   - homeassistant
@@ -57,3 +57,10 @@ Overall, I am quite happy with this solution. The hardware has some issues. The 
 In terms of the Home Assistant dashboard, the hardware slowness cause issues too. Home Assistant loads all the pages in the dashboard, not just the one displaying, so splitting the information across multiple pages doesn't necessarily help.  
 I had to streamline the dashboards as much as possible, removing any type of "heavy" cards (such as the map cards for the vacuum robot, or the sankey chart which I typically use for power monitoring). I've found that this helped, but it is still not perfect, and sometimes it takes a good few seconds to respond. The fact that I make use of a lot of conditionals probably doesn't help either.  
 I consider this a work in progress and will probably keep changing and simplifying this dashboard over the next few months.
+
+## Update after 2 months
+At some point over the last month I ended up setting the wifi to a static ip, and the issues became a bit less common. It still happens, on occasion, but it's a lot less common.  
+I also noticed that the screensaver (Immich-kiosk) connection failed a lot less often if connected via `http://` directly to the ip, instead of `https://` via reverse proxy. My guess is that the Android version is so ancient that it causes some type of issues with the TLS connection.  
+I am still happy with the purchase, 95% of the time it works without issue. I get to display my photos, and by just tapping on the screen I get quick access to a simple Home Assistant dashboard. 
+
+There is probably better hardware out there, but, for the price, this was unbeatable.
