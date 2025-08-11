@@ -36,7 +36,7 @@ A Sensirion SD40, one of the most popular sensors for CO2, costs between 15 and 
 
 M5Stack have a sensor based on the Sensirion SD40, which is supplied in a nice case and comes with a UART cable to allow you to connect this to one of their ESP32 devices, all for around 30€.
 
-I decided to order a couple of these, and simply attached each of them to a M5Stack Atom Lite ESP32, which I already had spread out throughout the house and which were currently being used solely as Bluetooth Proxies, to read information from my plant sensors and to send this to my Home Assistant instance.
+I decided to order a couple of these, and simply attached each of them to a M5Stack Atom Lite ESP32, which I already had spread out throughout the house and which were currently being used solely as Bluetooth Proxies, to read information from my plant sensors and to send this to my [[../../tags/homeassistant|Home Assistant]] instance.
 
 ![[attachments/CO2 sensor-m5stack co2-5472x3648.webp|The SD40 CO2 sensor connected to the M5Stack Atom Lite ESP32|500]]
 

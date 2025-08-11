@@ -23,7 +23,7 @@ I already run [Home Assistant](https://www.home-assistant.io/) so it was only na
 ## Materials 
 - Plants
 - Xiaomi MiFlora plant sensors (Bluetooth)[^1] (between 15 and 20€)
-- ESPHome Bluetooth proxies[^2] (4 to 10€ each, but they are not required specifically for this, you can leverage [[../ESP sensors for ESPHome|existing ones]])
+- ESPHome Bluetooth proxies[^2] (4 to 10€ each, but they are not required specifically for this, you can leverage [[../../tags/esphome|existing ones]])
 
 ## Home Assistant components
 - [homeassistant-plant](https://github.com/Olen/homeassistant-plant) - the central component that creates the *plant entities* in Home Assistant.

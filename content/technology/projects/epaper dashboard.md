@@ -36,7 +36,7 @@ I am currently experimenting with more complex code to keep the display in deep 
 
 ### ESPHome code
 
-After the update to ESPHome version 2025.7.x, I add to make some changes to the sample code provided by Seeedstudio in their wiki. The PNG decoder kept running out of memory, so I replaced it with BMP, which works just the same and avoids the issue entirely.
+After the update to [[../../tags/esphome|ESPHome]] version 2025.7.x, I add to make some changes to the sample code provided by Seeedstudio in their wiki. The PNG decoder kept running out of memory, so I replaced it with BMP, which works just the same and avoids the issue entirely.
 #### Configuration with deep sleep
 
 > [!code]- My ESPHome .yaml code with the 30m deep sleep between updates and a dashboard screenshot being taken by the [puppet](https://github.com/balloob/home-assistant-addons) addon.

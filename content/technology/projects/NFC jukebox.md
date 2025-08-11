@@ -17,13 +17,13 @@ aliases:
 
 ## The original idea
 
-Years ago, when I first started using Home Assistant, I came upon a post where someone mentioned using NFC cards as a Jukebox of sorts, allowing kids to easily pick a show to play on the TV. I thought this was absolutely brilliant, and the idea stuck in my head. 
+Years ago, when I first started using [[./../tags/homeassistant|Home Assistant]], I came upon a post where someone mentioned using NFC cards as a Jukebox of sorts, allowing kids to easily pick a show to play on the TV. I thought this was absolutely brilliant, and the idea stuck in my head. 
 
 A few years later, I now have a daughter who's almost 2, and who occasionally demands we put on a specific TV show. She will always want to play with the remote as well, but hasn't figured how to work it out yet. This gave me the perfect excuse to finally put this jukebox together. 
 
 ## The NFC bit 
 
-To read the cards, I bought a M5Stack RFID sensor, plugged it into an Atom Lite ESP32, and flashed it with ESPHome. Someone has already done the hard work, so it's easy to find a working config and to quickly adapt it to my needs.
+To read the cards, I bought a M5Stack RFID sensor, plugged it into an Atom Lite ESP32, and flashed it with [[../../tags/esphome|ESPHome]]. Someone has already done the hard work, so it's easy to find a working config and to quickly adapt it to my needs.
 I put together a configuration using a template from [M5Stack-ESPHome.](https://github.com/Chill-Division/M5Stack-ESPHome/blob/main/RFID%202%20Unit%20(WS1850S).md)
 The below NFC/RFID related bit has been updated on 24/03/2025, following changes in the upstream template.
 
