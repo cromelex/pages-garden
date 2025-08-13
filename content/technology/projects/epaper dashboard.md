@@ -40,7 +40,7 @@ After the update to [[../../tags/esphome|ESPHome]] version 2025.7.x, I add to ma
 
 #### Configuration with deep sleep
 
-13-Aug-2025: this code has been updated with a script section, kindly shared over Reddit. Instead of using a predefined `deep_sleep` duration, it is being called based on the current time. This allows you to set a longer period between updates at night, for example.
+13-Aug-2025: this code has been updated with a script section, kindly shared in Reddit by another user. Instead of using a predefined `deep_sleep` duration, it is being called based on the current time. This allows you to set a longer period between updates at night, for example.
 
 > [!code]- My ESPHome .yaml code with the 30m deep sleep between updates and a dashboard screenshot being taken by the [puppet](https://github.com/balloob/home-assistant-addons) addon.
 > ```yaml
