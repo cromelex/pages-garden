@@ -44,6 +44,35 @@ After the update to [[../../tags/esphome|ESPHome]] version 2025.7.x, I add to ma
 
 > [!code]- My ESPHome .yaml code with the 30m deep sleep between updates and a dashboard screenshot being taken by the [puppet](https://github.com/balloob/home-assistant-addons) addon.
 > ```yaml
+> substitutions:
+>   name: e-ink-display-2
+>   friendly_name: E-ink Display 2
+> 
+> esphome:
+>   name: ${name}
+>   friendly_name: ${friendly_name}
+> 
+> esp32:
+>   board: esp32-c3-devkitm-1
+>   framework:
+>     type: esp-idf 
+> 
+> # Enable logging
+> logger:
+> 
+> # Enable Home Assistant API
+> api:
+>   encryption:
+>     key: <randomly_generated_string>
+> 
+> ota:
+>   - platform: esphome
+>     password: !secret ota_password
+> 
+> wifi:
+>   ssid: !secret wifi_ssid
+>   password: !secret wifi_password
+> 
 > # Eink display image from dashboard
 > 
 > ## Get time from Home Assistant
