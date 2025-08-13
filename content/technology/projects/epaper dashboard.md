@@ -2,7 +2,7 @@
 publish: true
 title: E-paper dashboard
 created: 2025-07-21
-modified: 2025-08-04
+modified: 2025-08-13
 tags:
   - esphome
   - homeassistant
@@ -37,46 +37,24 @@ I am currently experimenting with more complex code to keep the display in deep 
 ### ESPHome code
 
 After the update to [[../../tags/esphome|ESPHome]] version 2025.7.x, I add to make some changes to the sample code provided by Seeedstudio in their wiki. The PNG decoder kept running out of memory, so I replaced it with BMP, which works just the same and avoids the issue entirely.
+
 #### Configuration with deep sleep
+
+13-Aug-2025: this code has been updated with a script section, kindly shared over Reddit. Instead of using a predefined `deep_sleep` duration, it is being called based on the current time. This allows you to set a longer period between updates at night, for example.
 
 > [!code]- My ESPHome .yaml code with the 30m deep sleep between updates and a dashboard screenshot being taken by the [puppet](https://github.com/balloob/home-assistant-addons) addon.
 > ```yaml
-> substitutions:
->   name: e-ink-display-1
->   friendly_name: E-ink Display 1 
-> 
-> esphome:
->   name: ${name}
->   friendly_name: ${friendly_name}
-> 
-> esp32:
->   board: esp32-c3-devkitm-1
->   framework:
->     type: esp-idf
-> 
-> # Enable logging
-> logger:
-> 
-> # Enable Home Assistant API
-> api:
->   encryption:
->     key: <randomly_generated_key>
-> 
-> ota:
->   - platform: esphome
->     password: !secret ota_password
-> 
-> wifi:
->   ssid: !secret wifi_ssid
->   password: !secret wifi_password
-> 
 > # Eink display image from dashboard
+> 
+> ## Get time from Home Assistant
+> time:
+>   - platform: homeassistant
+>     id: homeassistant_time
+>     timezone: "Europe/Dublin"  # Change to your timezone
 > 
 > ## Deep sleep component
 > deep_sleep:
->   id: deep_sleep_controller
->   run_duration: 90s  # Stay awake for 2 minutes to update display
->   sleep_duration: 30min  #  sleep duration
+>   id: deep_sleep_1
 > 
 > http_request:
 >   verify_ssl: false
@@ -88,11 +66,38 @@ After the update to [[../../tags/esphome|ESPHome]] version 2025.7.x, I add to ma
 >     format: BMP
 >     type: BINARY
 >     buffer_size: 30000
->     url: http://192.168.xxx.xx:10000/eink-1/0?viewport=800x480&eink=2&invert&format=bmp #change this link to your screenshot link, based on the puppet addon
+>     url: http://192.168.1.xx:10000/eink-1/0?viewport=800x480&eink=2&invert&format=bmp # change this link to your screenshot link
 >     update_interval: 60s
 >     on_download_finished:
 >       - delay: 100ms
->       - component.update: main_display   
+>       - component.update: main_display
+>       - script.execute: check_time_and_sleep
+> 
+> script:
+>   - id: check_time_and_sleep
+>     mode: single
+>     then:
+>       - lambda: |-
+>           auto time = id(homeassistant_time).now();
+>           if (!time.is_valid()) {
+>             ESP_LOGW("sleep_script", "Time not available, sleeping for 30 minutes");
+>             id(deep_sleep_1).set_sleep_duration(30 * 60 * 1000);
+>             id(deep_sleep_1).begin_sleep();
+>             return;
+>           }
+>           
+>           int hour = time.hour;
+>           ESP_LOGI("sleep_script", "Current hour: %d", hour);
+>           
+>           if (hour >= 23 || hour < 5) {
+>             ESP_LOGI("sleep_script", "Night time, sleeping for 3 hours");
+>             id(deep_sleep_1).set_sleep_duration(180 * 60 * 1000);
+>           } else {
+>             ESP_LOGI("sleep_script", "Day time, sleeping for 30 minutes");
+>             id(deep_sleep_1).set_sleep_duration(30 * 60 * 1000);
+>           }
+>           id(deep_sleep_1).begin_sleep();
+> 
 > 
 > spi:
 >   clk_pin: GPIO8
