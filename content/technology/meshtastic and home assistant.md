@@ -170,8 +170,8 @@ I have a small card in the Home Assistant dashboard where I can just quickly ass
 >                 action: person.remove_device_tracker
 > variables:
 >   device_tracker_map:
->     input_select.tracker_one: device_tracker.meshtastic_ffdr1
->     input_select.tracker_two: device_tracker.meshtastic_ffdr2
+>     input_select.tracker_one: device_tracker.tracker_one
+>     input_select.tracker_two: device_tracker.tracker_two
 >   person_map:
 >     Daniel: person.daniel
 >     Mia: person.mia

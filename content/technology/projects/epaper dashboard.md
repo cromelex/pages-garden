@@ -7,7 +7,6 @@ tags:
   - esphome
   - homeassistant
 ---
-
 # E-paper dashboard
 
 Ever since I got my first e-paper/e-ink device, a Kobo Aura HD ebook reader, back in 2013, I have had a great appreciation for this technology. The next year I got a Pebble watch, which also used this technology (and to this date, the Pebble Time Round, which I eventually bought, is the best smartwatch I've ever had - if a new version shows up, I'd buy it in a second).  
