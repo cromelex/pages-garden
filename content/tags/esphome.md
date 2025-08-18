@@ -11,7 +11,7 @@ aliases:
 cssclasses:
   - hideDate
 ---
-# ESP sensors for ESPHome
+
 Over the last few years, as part of my effort to make my house *smart* using Home Assistant, I have ended up buying a few ESP devices to serve multiple purposes.
 
 Some of those I bought ready-made, like the [Adonno NFC Tag Reader](https://adonno.com/tagreader/), or the Shelly smart relays (which I have flashed with ESPHome for additional functionality). I have also bought a few [M5Stack Atom Lite ESP32](https://docs.m5stack.switch-science.com/en/core/ATOM%20Lite) units, because they are cheap and they were a really easy way to try [ESPresense](https://espresense.com/) first, and [Bermuda](https://github.com/agittins/bermuda) currently, to track room presence (based on our phones) and also to track my [[../tags/cats|cats]].
