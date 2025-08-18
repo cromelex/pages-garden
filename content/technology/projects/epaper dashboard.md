@@ -2,7 +2,7 @@
 publish: true
 title: E-paper dashboard
 created: 2025-07-21
-modified: 2025-08-13
+modified: 2025-08-18
 tags:
   - esphome
   - homeassistant
@@ -52,7 +52,7 @@ After the update to [[../../tags/esphome|ESPHome]] version 2025.7.x, I add to ma
 >   friendly_name: ${friendly_name}
 > 
 > esp32:
->   board: esp32-c3-devkitm-1
+>   board: seeed_xiao_esp32c3
 >   framework:
 >     type: esp-idf 
 > 
@@ -118,8 +118,8 @@ After the update to [[../../tags/esphome|ESPHome]] version 2025.7.x, I add to ma
 >           ESP_LOGI("sleep_script", "Current hour: %d", hour);
 >           
 >           if (hour >= 23 || hour < 5) {
->             ESP_LOGI("sleep_script", "Night time, sleeping for 3 hours");
->             id(deep_sleep_1).set_sleep_duration(180 * 60 * 1000);
+>             ESP_LOGI("sleep_script", "Night time, sleeping for 6 hours");
+>             id(deep_sleep_1).set_sleep_duration(360* 60 * 1000);
 >           } else {
 >             ESP_LOGI("sleep_script", "Day time, sleeping for 30 minutes");
 >             id(deep_sleep_1).set_sleep_duration(30 * 60 * 1000);
@@ -186,7 +186,7 @@ With fast refresh, you could conceivably use the display as a desk clock + calen
 >   friendly_name: ${friendly_name}
 > 
 > esp32:
->   board: esp32-c3-devkitm-1
+>   board: seeed_xiao_esp32c3
 >   framework:
 >     type: esp-idf 
 > 
