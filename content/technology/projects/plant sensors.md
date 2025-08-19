@@ -6,9 +6,9 @@ modified: 2025-04-05
 tags:
   - homeassistant
   - plants
-alias:
-  - "Projects/plant-sensors"
-  - "projects/plant-sensors"
+aliases:
+  - Projects/plant-sensors
+  - projects/plant-sensors
 ---
 # Smart plant sensors with Home Assistant 
 ## Intro

@@ -118,8 +118,8 @@ After the update to [[../../tags/esphome|ESPHome]] version 2025.7.x, I add to ma
 >           ESP_LOGI("sleep_script", "Current hour: %d", hour);
 >           
 >           if (hour >= 23 || hour < 5) {
->             ESP_LOGI("sleep_script", "Night time, sleeping for 6 hours");
->             id(deep_sleep_1).set_sleep_duration(360 * 60 * 1000);
+>             ESP_LOGI("sleep_script", "Night time, sleeping for 6.5 hours");
+>             id(deep_sleep_1).set_sleep_duration(390 * 60 * 1000);
 >           } else {
 >             ESP_LOGI("sleep_script", "Day time, sleeping for 30 minutes");
 >             id(deep_sleep_1).set_sleep_duration(30 * 60 * 1000);
