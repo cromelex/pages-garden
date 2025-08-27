@@ -2,7 +2,7 @@
 publish: true
 title: Immich Machine Learning with NVIDIA GPU
 created: 2025-01-06
-modified: 2025-04-29
+modified: 2025-08-27
 tags:
   - self-hosting
   - bazzite
@@ -74,6 +74,11 @@ systemctl --user immich-machine-learning
 systemctl --user start immich-machine-learning
 ```
 
+If you want the container to be automatically updated, you also need to make sure that podman's auto update service is enabled overall.
+
+```bash
+systemctl --user enable --now podman-auto-update.service
+```
 ### Setting up Immich to use the remote ML container
 Next, open Immich in your browser, go into Administration -> Settings -> Machine Learning Settings, and add the URL corresponding to this machine:
 
