@@ -2,7 +2,7 @@
 publish: true
 title: Owning an EV
 created: 2025-03-27
-modified: 2025-04-05
+modified: 2025-09-29
 tags:
   - ev
 ---
@@ -48,6 +48,10 @@ Between the push to [[commuting to office|return to office]] and our daughter st
 Not everyone can afford a big expensive EV. And they shouldn't have to. A small hatchback is the best car for *most* people. The only reason we didn't buy one in 2022 was that none existed (yet).  
 We are happy with our EV, and will most likely get another EV as our 2nd car, likely in the next 6 months.  
 The new Renault 5 EV is looking class... Watch this space.
+
+### September 2025 Update
+We did get a new car. However, instead of the Renault 5, we decided to order a Hyundai Inster instead. The price difference was over 10,000 € between the two, with the Renault 5 being much more expensive while offering very little extra. In fact, the only real advantage was looks - it's a much better looking car, but that is a very poor reason to spend such a large amount of money.
+The Hyundai Inster is a small and compact EV, with 350 to 400km range, and, on the spec we purchased, it offers almost every assist that our much more expensive Kia EV6 offers. It's a real sensible choice, and while it doesn't look exciting, unlike "cheap" cars of the past, the fact that it is an EV means there's more than enough power for it to feel zippy, while being more than capable of doing 120kph on motorways.
 
 ## Environmental and Economic Considerations
 Beyond personal economics, our EV represents a meaningful step towards sustainable transportation (although, if you can cycle, take a bus, or train, you should).

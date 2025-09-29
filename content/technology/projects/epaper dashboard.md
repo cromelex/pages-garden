@@ -2,7 +2,7 @@
 publish: true
 title: E-paper dashboard
 created: 2025-07-21
-modified: 2025-08-18
+modified: 2025-09-29
 tags:
   - esphome
   - homeassistant
@@ -38,6 +38,8 @@ I am currently experimenting with more complex code to keep the display in deep 
 After the update to [[../../tags/esphome|ESPHome]] version 2025.7.x, I add to make some changes to the sample code provided by Seeedstudio in their wiki. The PNG decoder kept running out of memory, so I replaced it with BMP, which works just the same and avoids the issue entirely.
 
 #### Configuration with deep sleep
+
+29-Aug-2025: this code has been updated with manual sensor updates for the diagnostic sensors. The sensors were failing to update as the attempts were happening while wifi was disconnected (during deep sleep). They are now triggered manually each time the wifi connects.
 
 13-Aug-2025: this code has been updated with a script section, kindly shared in Reddit by another user. Instead of using a predefined `deep_sleep` duration, it is being called based on the current time. This allows you to set a longer period between updates at night, for example.
 
@@ -125,6 +127,13 @@ After the update to [[../../tags/esphome|ESPHome]] version 2025.7.x, I add to ma
 >             id(deep_sleep_1).set_sleep_duration(30 * 60 * 1000);
 >           }
 >           id(deep_sleep_1).begin_sleep();
+>       - id: update_sensors_script
+>         mode: single
+>         then:
+>           - lambda: |-
+>               id(sensorip).update();
+>               id(sensorssid).update();
+>               id(sensoruptime).update(); 
 > 
 > 
 > spi:
@@ -156,15 +165,21 @@ After the update to [[../../tags/esphome|ESPHome]] version 2025.7.x, I add to ma
 >       name: "${friendly_name} IP Address"
 >       icon: mdi:wifi
 >       entity_category: diagnostic
+>       id: sensorip
+>       update_interval: never
 >     ssid:
 >       name: "${friendly_name} Connected SSID"
 >       icon: mdi:wifi-strength-2
 >       entity_category: diagnostic
+>       id: sensorssid
+>       update_interval: never 
 >       
 > sensor:
 >   - platform: uptime
 >     name: "${friendly_name} Uptime"
 >     entity_category: diagnostic
+>     id: sensoruptime
+>     update_interval: never
 > ```
 
 #### Faster display updates with partial refresh
