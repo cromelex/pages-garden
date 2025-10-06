@@ -100,6 +100,9 @@ As for the cards themselves, I just bought a pack of plain white NTAG215 NFC car
 Scanning a card works as a trigger in Home Assistant, but now I needed to create the automations.
 I have an Nvidia Shield Pro (2019) connected to my TV and, thankfully, that gave me multiple options. 
 
+
+> [!warning] This part is still a work in progress. I have it working but I am having some reliability issues I am working on. I will update the section when I have it working reliably.
+
 ### Disney+
 For Disney+, googling the title will give you a watch now button - clicking on it will retrieve a URL which you can then use to play the show.
 
@@ -182,6 +185,9 @@ Unfortunately, I had neither, and I didn't really want to waste space in my home
 These NFC cards are typically the size of a standard bank card (so as to fit in a wallet), meaning they measure 8.56x5.398 cm. 
 
 #### Printing the labels
+
+![[./attachments/NFC jukebox-1913x1440.webp|The cards with the printed stickers|500]]
+
 Getting them printed proved a bit of a challenge. I could not really find any place that would do a single print of a card or even labels. In the end, after spending quite a bit of time searching, I ended up ordering some AVERY Zweckform P3461 Labels (85 x 55 mm). These were literally the only labels in this size I could find!  
 
 When it came to printing the labels, bizarrely, the .eu Avery site printed on the packaging for the labels redirected me to their .uk page. Neither the .uk nor the .com sites actually have the P3461 label templates on their online designer. I ended up having to use their [german site](https://www.avery-zweckform.com/software/avery-design-print) in order to be able to use the templates. Just input the P3461 product code on the box and press start, it'll take you to the online designer. You can then change the language in the top right corner. 
