@@ -2,7 +2,7 @@
 publish: true
 title: NFC Jukebox
 created: 2024-11-29
-modified: 2025-07-18
+modified: 2025-10-06
 tags:
   - esphome
   - homeassistant
