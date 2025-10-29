@@ -14,9 +14,9 @@ tags:
 
 The year was 1997, and my parents gifted me my first computer. I had previously used one at my dad's office, but this one was at home, and always available for me to use.
 
-One of the very first games I remember spending countless hours on was Pirates! Gold. I didn't know any English at the time, but somehow managed to figure out how to play it. 
+One of the very first games I remember spending countless hours on was *Pirates! Gold*. I didn't know any English at the time, but somehow managed to figure out how to play it. 
 
-Years later, in late 2004, Sid Meier's Pirates! was released. A newer remake, it dragged me back right into the game for hours on end. This time I could already read, and that obviously made for a far more enjoyable experience than just clicking around the screen and seeing what happened. 
+Years later, in late 2004, *Sid Meier's Pirates!* was released. A newer remake, it dragged me back right into the game for hours on end. This time I could already read, and that obviously made for a far more enjoyable experience than just clicking around the screen and seeing what happened. 
 
 ![[./attachments/pirates-640x480.webp|An in-game screenshot from the 2004 version.|600]]
 ## Playing It Again in 2025
