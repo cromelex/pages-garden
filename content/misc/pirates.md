@@ -2,9 +2,10 @@
 publish: true
 title: Pirates!
 created: 2025-10-29
-modified: 2025-10-29
+modified: 2025-11-03
 tags:
   - steamdeck
+  - games
 ---
 # Pirates!
 
@@ -35,7 +36,7 @@ The game's portrayal of Native settlements is rather simplistic - they're essent
 
 The economic simulation, whilst fun, reduces the complexities of Caribbean trade to straightforward commodities: sugar is just another good to buy low (or pillage!) and sell high, with no acknowledgement of the transatlantic slave trade and the brutal realities that underpinned the region's wealth. 
 
-And then there's the governor's daughters - the romance subplot ranks them by "beauty" in a way that was clearly tied to their bust size, which feels rather childish and awkward now. 
+And then there's the governor's daughters - the romance subplot ranks them by "beauty" in a way that was clearly linked to their chest size, which feels rather childish and awkward now. 
 
 None of this ruins the experience, and it's worth remembering this was fairly standard for games of that era, but these elements do stand out as products of their time. The swashbuckling adventure at the heart of *Pirates!* remains intact; it's just wrapped in some design decisions that haven't aged as gracefully as the gameplay itself.
 
