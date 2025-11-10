@@ -2,7 +2,7 @@
 publish: true
 title: External access with Cloudflare tunnels
 created: 2025-05-12
-modified: 2025-05-12
+modified: 2025-11-10
 tags:
   - self-hosting
   - cloudflared
@@ -10,7 +10,50 @@ tags:
 # External access with Cloudflare tunnels
 
 > [!tldr]+ **tldr:** steps to set up a Cloudflared Tunnel
-> ![[#Basic setup]]
+> ### Basic setup
+>1. Go to the Cloudflare One / Zero Trust Dashboard [https://one.dash.cloudflare.com/](https://one.dash.cloudflare.com/)
+>2. Select Networks -> Tunnels -> Create a Tunnel
+>3. Select Cloudflared, pick a name, save, and then in the Install and run connectors you will be given a unique *tunnel token*.
+>4. Create the container for the tunnel and start it.
+>
+>> [!code]- docker compose sample
+>> 
+>> ```bash
+>> docker run cloudflare/cloudflared:latest tunnel --no-autoupdate run --token <YOUR_TUNNEL_TOKEN>
+>> ```
+>> 
+>> If you use docker compose (like I do), you can use the following:
+>> 
+>> ```yaml
+>> services:
+>>   ##### Cloudflared #####      
+>>   cloudflared:
+>>     container_name: cloudflared
+>>     restart: always
+>>     command: tunnel run
+>>     image: cloudflare/cloudflared:latest
+>>     env_file:
+>>       - ./.env
+>>     networks:
+>>       - cloudflared
+>> #
+>> networks:
+>>   cloudflared: {}
+>> ```
+>> 
+>> And create a `.env` where you pass the token:
+>> 
+>> ```
+>> # cloudflared
+>> TUNNEL_TOKEN=<YOUR_TUNNEL_TOKEN>
+>> ```
+>> 
+>> Using the docker network named cloudflared here means that the tunnel can only reach any container that you explicitly assign that network to.
+>
+>5. When you bring the tunnel online you should see the status update in the Cloudflare configure page. Click Next.
+>6. In the Route Traffic page, under Public hostnames, you can create the entries that allow the domain to route traffic to your docker containers. This is basically a reverse-proxy.  
+>	- Here I create a `service1.example.com` subdomain and point to a `container` service running on the same docker network, on port `:8001`.
+>7. You should then be able to externally access any containers via the domain entries you created.
 
 
 ## What is a Cloudflare Tunnel and how do they work
