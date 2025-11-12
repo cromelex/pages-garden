@@ -28,7 +28,7 @@ The unit does have a hole for wall mounting, and 3 buttons which you can map at 
 ## A wall dashboard that blends in
 My use case for this device is to use it as a display for a Home Assistant dashboard, showing relevant information at a glance, while integrating neatly with the existing decor. The size means it still fits inside an IKEA frame, if you prefer to wall-mount it more discreetly. It does not completely fill the frame, but if you use the frame's passepartout it will mask the difference.
 
-![[./attachments/colour epaper dashboard-2303x1080.webp|The Xiao 7.5" monochrome epaper on the left *vs* the E1002 colour epaper on the right. Both are show inside a Ikea photo frame.|800]]
+![[./attachments/colour epaper dashboard-2303x1080.webp|The Xiao 7.5" monochrome epaper on the left vs the E1002 colour epaper on the right. Both are show inside a Ikea photo frame.|800]]
 
 That is my case. I prefer my home *not* to look smart, and prefer for things to be automated rather than having to interact with my smart home via a dashboard. However, there are plenty of scenarios where I want to have access to information *at a glance*. That is why I like having a dashboard in the main hallway showing information such as the weather, calendar appointments, range on our EVs, or the driving time estimate to work/the next calendar appointment.
 
