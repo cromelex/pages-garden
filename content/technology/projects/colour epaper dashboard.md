@@ -2,7 +2,7 @@
 publish: true
 title: Colour ePaper Dashboard
 created: 2025-11-12
-modified: 2025-11-12
+modified: 2025-11-14
 tags:
   - esphome
   - homeassistant
@@ -291,7 +291,7 @@ I wrote *most* of this code, based on the Seeedstudio's wiki and ESPHome's docum
 >   speed: 80MHz
 > 
 > logger:
->   hardware_uart: UART0 # Required to report logs over USB on this device
+>   hardware_uart: UART0 # Required to report logs over USB
 > 
 > api:
 >   encryption:
