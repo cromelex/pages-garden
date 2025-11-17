@@ -2,7 +2,7 @@
 publish: true
 title: Colour ePaper Dashboard
 created: 2025-11-12
-modified: 2025-11-14
+modified: 2025-11-17
 tags:
   - esphome
   - homeassistant
@@ -26,7 +26,8 @@ The unit does have a hole for wall mounting, and 3 buttons which you can map at 
 ![[./attachments/colour epaper dashboard-1434x1080.webp|The E1002 colour epaper displaying an Home Assistant dashboard.|800]]
 
 ## A wall dashboard that blends in
-My use case for this device is to use it as a display for a Home Assistant dashboard, showing relevant information at a glance, while integrating neatly with the existing decor. The size means it still fits inside an IKEA frame, if you prefer to wall-mount it more discreetly. It does not completely fill the frame, but if you use the frame's passepartout it will mask the difference.
+My use case for this device is to use it as a display for a Home Assistant dashboard, showing relevant information at a glance, while integrating neatly with the existing decor. The size means it still fits inside an IKEA frame, if you prefer to wall-mount it more discreetly. ~~It does not completely fill the frame, but if you use the frame's passepartout it will mask the difference.~~ If you can align it properly, it can actually be made to fit perfectly, without gaps. 
+In my case, I am using the mounting whole on the E1002, and then placed a bit of sponge on top of the unit, which holds it at the exact height. I have used the metal clips on the frame itself to provide additional hold on the sides, making sure it stays perfectly centered.
 
 ![[./attachments/colour epaper dashboard-2303x1080.webp|The Xiao 7.5" monochrome epaper on the left vs the E1002 colour epaper on the right. Both are shown inside a Ikea photo frame.|800]]
 
