@@ -2,7 +2,7 @@
 publish: true
 title: Colour ePaper Dashboard
 created: 2025-11-12
-modified: 2025-11-17
+modified: 2025-11-20
 tags:
   - esphome
   - homeassistant
@@ -35,66 +35,17 @@ That is my case. I prefer my home *not* to look smart, and prefer for things to 
 
 ## The Puppet add-on for Home Assistant
 
-Similarly to what I did previously with my [[epaper dashboard]], I am using the [Puppet add-on](https://github.com/balloob/home-assistant-addons/blob/main/puppet/README.md) to grab a Home Assistant screenshot with the right resolution and colours, and then retrieve it with ESPHome.
-The enhancement for the colour epapers has not yet been released. I will update this when that is the case, but currently, to be able to convert the image properly, you would need to locally build the add-on as a Docker container with the required changes. 
-The steps are not too difficult:
+Similarly to what I did previously with my [[epaper dashboard]], I am using the [Puppet add-on](https://github.com/balloob/home-assistant-addons/blob/main/puppet/README.md) to grab a Home Assistant screenshot with the correct resolution and colour settings, and then retrieve it with ESPHome.
 
-### Building the docker container locally
+Puppet was recently updated[^1] to add support for dithering and presets for displays such as this Spectra6 display, as well as adding a web UI that can be used to configure the URL with the different available options and seeing a preview. You can select the different settings and choose which dashboard to screenshot. If you are not entirely happy with the results, you can further try different dithering settings, or adding a theme.
 
-1. Clone the repo, with the relevant PR.
-```bash
-git clone https://github.com/balloob/home-assistant-addons.git
-cd home-assistant-addons
-git fetch origin pull/30/head:pr-30
-git checkout pr-30
+To get the image automatically sized and adapted for the ReTerminal E1002, append `?device=seeed-reterminal-e1002` at the end of the image URL from Puppet. In this example, I pass the `&theme=Graphite+Light` as an additional argument:
+
+```
+http://homeassistant.local:10000/lovelace/0?device=seeed-reterminal-e1002&theme=Graphite+Light
 ```
 
-2. Create the relevant files. This is the config information, but since we are running this as a simple Docker container rather than Home Assistant add-on, it needs to be created manually.
-
-Create a `options-dev.json` in `/home-assistant-addons/puppet/ha-puppet/`
-```json
-{
-  "home_assistant_url": "http://192.168.1.xx:8123",
-  "access_token": "your_home_assistant_API_key",
-  "chromium_executable": "/usr/bin/chromium",
-  "keep_browser_open": false
-}
-```
-
-3. Build the Docker image
-```bash
-cd puppet
-docker build -t puppet:local .
-```
-
-4. Run the Docker container
-```bash
-docker run -d \
-  --name puppet \
-  -p 10000:10000 \
-  puppet:local
-```
-
-You should then be able to retrieve the Home Assistant screenshots through the container:
-
-For example, to get a 1000px x 1000px screenshot of your default dashboard, fetch (using the IP of the machine running the docker container):
-```
-http://192.168.1.xxx:10000/lovelace/0?viewport=1000x1000
-```
-
-You can then add parameters to transform the image. I strongly recommend reading both the [readme](https://github.com/balloob/home-assistant-addons/blob/main/puppet/README.md) and the notes on [Pull Request 30.](https://github.com/balloob/home-assistant-addons/pull/30)
-
-### Recommended arguments for Puppet (with PR30 as of 12-Nov-2025)
-There seem to be some outstanding issues with the implementation, but based on my testing, for use with this display, I would recommend:
-
-- **for use with images only: `?viewport=800x480&eink=10&dither=floydSteinberg&serpentine&display=spectra6`** 
-- **for dashboards with text: `?viewport=800x480&eink=10&dither=floydSteinberg&serpentine&display=acep`**
-
-The `&eink=10` is somewhat arbitrary. If you use 6 or 7 (as expected based on the primary colours supported by the screen), the screengrabs seem to be missing the yellow/orange colours.
-Using `&display=spectra6` should be the correct setting for this epaper display, however using it currently seems to impact text, making it almost unreadable. 
-Using `&display=acep` still looks good and makes for much sharper text than the alternative. 
-
-This is probably something that will be fixed in the near-future, and I will update this documentation accordingly if that is the case.
+This can also be configured via the web UI, you can select the device and it should give you a preview and the URL to copy.
 
 ## Integrating with ESPHome and Home Assistant
 You can refer to the [Seeedstudio wiki](https://wiki.seeedstudio.com/reterminal_e10xx_with_esphome/#getting-started) for examples of basic configuration and different functionalities.
@@ -282,7 +233,11 @@ In my case, for the wallpaper dashboard page, I am using a single picture card, 
 
 I wrote *most* of this code, based on the Seeedstudio's wiki and ESPHome's documentation, but I used a LLM to assist me with the lambdas part of the code - I don't code for a living, and I can't figure that out myself.
 
-> [!NOTE]- My ESPHome.yaml code
+> [!warning]
+> This code is based on ESPHome version 2025.10.X. 
+> Version 2025.11.0 released today includes a rewrite of the epaper spi display component, and includes [new code specific to the reTerminal E1002](https://esphome.io/components/display/epaper_spi/). The code and model used below *should* be backwards compatible, even if you are using ESPHome 2025.11.X or later, but I haven't had the chance to test yet. In any case, I intend to update this code when I have the time.
+
+> [!NOTE]- My ESPHome.yaml code, based on ESPHome 2025.10.X
 > 
 > ```yaml
 >  substitutions:
@@ -658,7 +613,7 @@ I wrote *most* of this code, based on the Seeedstudio's wiki and ESPHome's docum
 >     format: PNG
 >     type: RGB565
 >     buffer_size: 65536
->     url: http://homeassistant.local:10000/eink-e1002/home?viewport=800x480&theme=graphite-eink-light&eink=10&dither=floydSteinberg&serpentine&display=acep
+>     url: http://homeassistant.local:10000/eink-e1002/home?device=seeed-reterminal-e1002&theme=Graphite+Light
 >     update_interval: never
 >     on_download_finished:
 >       - delay: 100ms
@@ -668,7 +623,7 @@ I wrote *most* of this code, based on the Seeedstudio's wiki and ESPHome's docum
 >     format: PNG
 >     type: RGB565
 >     buffer_size: 65536
->     url: http://homeassistant.local:10000/eink-e1002/energy?viewport=800x480&theme=graphite-eink-light&eink=10&dither=floydSteinberg&serpentine&display=acep
+>     url: http://homeassistant.local:10000/eink-e1002/energy?device=seeed-reterminal-e1002&theme=Graphite+Light
 >     update_interval: never
 >     on_download_finished:
 >       - delay: 100ms
@@ -678,7 +633,7 @@ I wrote *most* of this code, based on the Seeedstudio's wiki and ESPHome's docum
 >     format: PNG
 >     type: RGB565
 >     buffer_size: 65536
->     url: http://homeassistant.local:10000/eink-e1002/plants?viewport=800x480&theme=graphite-eink-light
+>     url: http://homeassistant.local:10000/eink-e1002/plants?device=seeed-reterminal-e1002&theme=Graphite+Light
 >     update_interval: never
 >     on_download_finished:
 >       - delay: 100ms
@@ -688,7 +643,7 @@ I wrote *most* of this code, based on the Seeedstudio's wiki and ESPHome's docum
 >     format: PNG
 >     type: RGB565
 >     buffer_size: 65536
->     url: http://homeassistant.local:10000/eink-e1002/wallpaper?viewport=800x480&theme=graphite-eink-light&eink=32&dither=floydSteinberg&serpentine&display=spectra6
+>     url: http://homeassistant.local:10000/eink-e1002/wallpaper?device=seeed-reterminal-e1002&theme=Graphite+Light
 >     update_interval: never
 >     on_download_finished:
 >       - delay: 100ms
@@ -729,3 +684,5 @@ I wrote *most* of this code, based on the Seeedstudio's wiki and ESPHome's docum
 A picture can be worth a thousand words, so that's why I decided to show you how this look on our wall. The epaper is the photo on the bottom left (the only unblurred one). The epaper blends in superbly when showing a photo, rather than a dashboard. This meets my goal. Whenever the context demands it, the automation driven by Home Assistant will display the dashboard page that will give me the information that I need in that moment.
 
 ![[./attachments/colour epaper dashboard-1620x1080.webp|Spot the epaper. A photo being displayed in the epaper blends in really well with regular framed photo prints.|800]]
+
+[^1]: The new functionality is available since version 2.4.0 of the Puppet add-on.
