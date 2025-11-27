@@ -5,8 +5,8 @@ created: 2024-11-11
 modified: 2024-11-11
 tags:
   - foss
-alias:
-  - "Technology/first-pull-request"
+aliases:
+  - Technology/first-pull-request
 ---
 # My First Open Source Pull Request
 

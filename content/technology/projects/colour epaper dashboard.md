@@ -2,7 +2,7 @@
 publish: true
 title: Colour ePaper Dashboard
 created: 2025-11-12
-modified: 2025-11-20
+modified: 2025-11-27
 tags:
   - esphome
   - homeassistant
@@ -233,11 +233,7 @@ In my case, for the wallpaper dashboard page, I am using a single picture card, 
 
 I wrote *most* of this code, based on the Seeedstudio's wiki and ESPHome's documentation, but I used a LLM to assist me with the lambdas part of the code - I don't code for a living, and I can't figure that out myself.
 
-> [!warning]
-> This code is based on ESPHome version 2025.10.X. 
-> Version 2025.11.0 released today includes a rewrite of the epaper spi display component, and includes [new code specific to the reTerminal E1002](https://esphome.io/components/display/epaper_spi/). The code and model used below *should* be backwards compatible, even if you are using ESPHome 2025.11.X or later, but I haven't had the chance to test yet. In any case, I intend to update this code when I have the time.
-
-> [!NOTE]- My ESPHome.yaml code, based on ESPHome 2025.10.X
+> [!NOTE]- My ESPHome.yaml code, based on ESPHome 2025.11.X
 > 
 > ```yaml
 >  substitutions:
@@ -652,15 +648,7 @@ I wrote *most* of this code, based on the Seeedstudio's wiki and ESPHome's docum
 > display:
 >   - platform: epaper_spi
 >     id: epaper_display
->     cs_pin: GPIO10
->     dc_pin: GPIO11
->     busy_pin:
->       number: GPIO13
->       inverted: true
->     reset_pin:
->       number: GPIO12
->       inverted: false
->     model: 7.3in-spectra-e6
+>     model: Seeed-reTerminal-E1002
 >     update_interval: never
 >     lambda: |-
 >       if (id(page_index) == 0) {
@@ -675,7 +663,7 @@ I wrote *most* of this code, based on the Seeedstudio's wiki and ESPHome's docum
 > 
 >  ```
 
-
+This code has been updated for ESPHome 2025.11.X, and that would be the minimum version required. This version implemented a new display model, `model: Seeed-reTerminal-E1002`, which automatically sets all the required pins for the display to work on this device, so I have removed all the extra lines from the code.
 
 [Full code for ESPHome, Automation and Dashboard on GitHub](https://github.com/cromelex/e1002-esphome-dashboard)
 
