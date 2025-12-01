@@ -45,11 +45,11 @@ That last bit is crucial. Ransomware can spread across networks and encrypt any 
 
 ```mermaid
 graph TB
-    NAS[NAS<br/>(Snapshots)]
+    NAS[**NAS**<br/>Snapshots]
     
-    SSD[External SSD<br/>(Offline / air-gapped)]
-    B2[Backblaze B2<br/>(Encrypted)]
-    PI[Remote Pi<br/>(Off-site)]
+    SSD[**External SSD**<br/>Offline / air-gapped]
+    B2[**Backblaze B2**<br/>Encrypted]
+    PI[**Remote Pi4**<br/>Off-site]
     
     NAS --> SSD
     NAS --> B2
