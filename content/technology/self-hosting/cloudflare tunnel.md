@@ -5,7 +5,7 @@ created: 2025-05-12
 modified: 2025-11-10
 tags:
   - self-hosting
-  - cloudflared
+  - cloudflare
 ---
 # External access with Cloudflare tunnels
 
