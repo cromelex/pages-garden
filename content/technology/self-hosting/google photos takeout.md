@@ -65,4 +65,4 @@ When the process is finished you should  a confirmation message, and you will th
 The server will have to *chew* through all the photos and run all the different jobs, which might take a while. If you have specific hardware, like a gaming PC, you can set up an [[immich machine learning|Immich remote machine learning container]] to speed up the process.
 
 ## Don't forget to backup!
-If you are getting rid of Google Photos, make sure you set up backups to avoid any future regrets. 
+If you are getting rid of Google Photos, make sure you [[backups|set up backups]] to avoid any future regrets. 
