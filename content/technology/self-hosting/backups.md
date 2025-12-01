@@ -19,20 +19,20 @@ At the same time, local backups are not enough. Your house could burn or get flo
 
 ### The Basic 3-2-1 Rule
 
-The 3-2-1 backup strategy is straightforward: keep multiple copies of your data in different places. Here's a practical example - you back up your home computer to an external hard drive and sync both to cloud storage. You've now got a 3-2-1 backup:
+The 3-2-1 backup strategy is straightforward: keep multiple copies of your data in different places. Here's a practical example - you back up your home computer to an external hard drive and upload a copy to cloud storage. You've now got a 3-2-1 backup:
 
-- **Three** copies of your data: one on your computer, one on your hard drive, and one in the cloud
-- **Two** different storage types: your computer's internal drive and the external hard drive (plus the cloud makes three)
-- **One** copy off-site: the cloud copy is physically somewhere else
+- **Three** copies of your data: one on your computer, one on your hard drive, and one in the cloud;
+- **Two** different storage types: your computer's internal drive and the external hard drive (plus the cloud makes three);
+- **One** copy off-site: the cloud copy is physically somewhere else.
 
 ### Enhanced Protection: The 3-2-1-1 Approach
 
 The 3-2-1-1 strategy adds one more layer - an air-gapped backup. This means:
 
-- Maintain at least three copies of your data
-- Store data on at least two different types of storage media
-- Keep one copy off-site
-- Keep one copy completely offline or air-gapped (unplugged from everything, ideally in a safe)
+- Maintain at least three copies of your data;
+- Store data on at least two different types of storage media;
+- Keep one copy off-site;
+- Keep one copy completely offline or air-gapped (unplugged from everything, ideally in a safe).
 
 That last bit is crucial. Ransomware can spread across networks and encrypt any backup it can reach. An unplugged drive sitting in a drawer? Completely safe from that threat.
 
@@ -58,7 +58,7 @@ graph TB
 
 ## Final Thoughts
 
-This setup might seem excessive, but each layer addresses a specific failure mode I've either experienced or heard about from others. The NAS handles accidental deletions, the offline drive protects against ransomware, the cloud backup guards against local disasters, and the remote Pi adds geographical redundancy.
+This setup might seem excessive, but each layer addresses scenarios I've read or heard about from others. The NAS handles accidental deletions, the offline drive protects against ransomware, the cloud backup guards against local disasters, and the remote Pi adds geographical redundancy.
 
 You don't need to copy this exactly. The 3-2-1 principle matters more than the specific tools. Start with what fits your budget and technical comfort level. An imperfect backup strategy you actually use beats a perfect one that never gets implemented.
 
