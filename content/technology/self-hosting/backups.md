@@ -40,7 +40,7 @@ That last bit is crucial. Ransomware can spread across networks and encrypt any 
 
 1. I keep all my data in network volumes on my NAS (which can only be accessed locally or via VPN). The system automatically takes and keeps a number snapshots of this data (daily, weekly, monthly, and yearly).
 2. Every couple of weeks, I plug in an external SSD into my desktop. It triggers a `rsync` job that copies all my media and documents into it. This is then unplugged and stored "offline". 
-3. 3 times per week I run a backup from my NAS to Backblaze B2 using [Backrest](https://github.com/garethgeorge/backrest). This runs `restic` under the hood. It creates encrypted backups, with versioning. My retention policy is fairly aggressive: 7 daily, 4 weekly, 6 monthly, and 10 yearly. I'd rather pay a bit extra for storage than risk losing files I only notice are missing after months or a year.
+3. 3 times per week I run a backup from my NAS to [Backblaze B2](https://www.backblaze.com/cloud-storage) using [Backrest](https://github.com/garethgeorge/backrest). This runs `restic` under the hood. It creates encrypted backups, with versioning. My retention policy is fairly aggressive: 7 daily, 4 weekly, 6 monthly, and 10 yearly. I'd rather pay a bit extra for storage than risk losing files I only notice are missing after months or a year.
 4. Out of some *healthy* paranoia, I am currently setting up a spare RaspberryPi4 with an external SSD at a relative's place, in an entirely different country, and plan to keep an extra copy of my photos there. This backup will be versioned and encrypted with Backrest. Access is via VPN. 
 
 ```mermaid
