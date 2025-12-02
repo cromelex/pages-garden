@@ -2,14 +2,14 @@
 publish: true
 title: Backup Strategy
 created: 2025-12-01
-modified: 2025-12-01
+modified: 2025-12-02
 tags:
   - self-hosting
 ---
 # My Backup Strategy
 
 ## The Cloud is just someone else's computer
-It is easy to think that once something is backed up to the cloud, it is safe. It is not. Not if you are a "free" customer, [and not even if you are a big corporate.](https://arstechnica.com/gadgets/2024/05/google-cloud-explains-how-it-accidentally-deleted-a-customer-account/)
+It is easy to think that once something is backed up to the cloud, it is safe. It is not. Not if you are a "free" customer, [and not even if you are a big corporate client.](https://arstechnica.com/gadgets/2024/05/google-cloud-explains-how-it-accidentally-deleted-a-customer-account/)
 
 That is why you should **always** have backups.
 
@@ -40,7 +40,7 @@ That last bit is crucial. Ransomware can spread across networks and encrypt any 
 
 1. I keep all my data in network volumes on my NAS (which can only be accessed locally or via VPN). The system automatically takes and keeps a number snapshots of this data (daily, weekly, monthly, and yearly).
 2. Every couple of weeks, I plug in an external SSD into my desktop. It triggers a `rsync` job that copies all my media and documents into it. This is then unplugged and stored "offline". 
-3. 3 times per week I run a backup from my NAS to [Backblaze B2](https://www.backblaze.com/cloud-storage) using [Backrest](https://github.com/garethgeorge/backrest). This runs `restic` under the hood. It creates encrypted backups, with versioning. My retention policy is fairly aggressive: 7 daily, 4 weekly, 6 monthly, and 10 yearly. I'd rather pay a bit extra for storage than risk losing files I only notice are missing after months or a year.
+3. 3 times per week I run a backup from my NAS to [Backblaze B2](https://www.backblaze.com/cloud-storage) using [Backrest](https://github.com/garethgeorge/backrest). This runs `restic`[^1] under the hood. It creates encrypted backups, with versioning. My retention policy is fairly extensive: 7 daily, 4 weekly, 6 monthly, and 10 yearly. I'd rather pay a bit extra for storage[^2] than risking losing files I only notice are missing after months or a year.
 4. Out of some *healthy* paranoia, I am currently setting up a spare RaspberryPi4 with an external SSD at a relative's place, in an entirely different country, and plan to keep an extra copy of my photos there. This backup will be versioned and encrypted with Backrest. Access is via VPN. 
 
 ```mermaid
@@ -56,10 +56,22 @@ graph TB
     NAS --> PI
 ```
 
+### What do I actually backup?
+
+As I said above, I use different network volumes on my NAS for different things:
+
+- I have one just for personal media (ie, photos and videos managed via [[../../tags/immich|Immich]]);
+- I use bind mounts in Docker for my self-hosted applications. I`rsync`these throughout the day between my server and the NAS. Some items will fail to copy when they are being used, so I have a separate script that stops all the containers, then runs a`rsync`to the NAS, and finally reboots the machine to apply weekly updates. Note that I am not backing up the full containers, only the data that I need to persist.
+- I also backup my [[../../tags/homeassistant|Home Assistant]] install to the NAS and the cloud. This is actually the one that *saved* me before - the whole OS broke one day on my RaspberryPi 4 (probably because a USB connected disk isn't ideal) and I was able to spin up a virtual machine, load up the backup and be back up and running in less than an hour!
 ## Final Thoughts
 
 This setup might seem excessive, but each layer addresses scenarios I've read or heard about from others. The NAS handles accidental deletions, the offline drive protects against ransomware, the cloud backup guards against local disasters, and the remote Pi adds geographical redundancy.
 
 You don't need to copy this exactly. The 3-2-1 principle matters more than the specific tools. Start with what fits your budget and technical comfort level. An imperfect backup strategy you actually use beats a perfect one that never gets implemented.
 
-Test your backups occasionally. Verify you can actually restore files. A backup is only as good as your ability to recover from it when things go wrong - and eventually, something will go wrong.
+Test your backups occasionally. Verify you can actually restore files. A backup is only as good as your ability to recover from it when things go wrong - and *eventually*, something will go wrong.
+
+And if you believe there is something I'm missing, please do get in touch! I'm always looking to improve this set up.
+
+[^1]: Restic does deduplication by saving only unique data chunks, or "blobs," in a repository, which means that if the same data is backed up multiple times, it will only be stored once. This process helps to save storage space and improve backup efficiency.
+[^2]: Backblaze B2 costs around 6 USD + VAT per 1Tb of storage, and they will bill you proportionally based on the actual usage. This is currently costing me less than 3 EUR per month. There are other options: Hetzner offers a 1Tb "storage box" for under 4 EUR per month.
