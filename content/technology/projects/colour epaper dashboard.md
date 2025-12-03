@@ -2,7 +2,7 @@
 publish: true
 title: Colour ePaper Dashboard
 created: 2025-11-12
-modified: 2025-11-27
+modified: 2025-12-03
 tags:
   - esphome
   - homeassistant
@@ -32,6 +32,7 @@ In my case, I am using the mounting whole on the E1002, and then placed a bit of
 ![[./attachments/colour epaper dashboard-2303x1080.webp|The Xiao 7.5" monochrome epaper on the left vs the E1002 colour epaper on the right. Both are shown inside a Ikea photo frame.|800]]
 
 That is my case. I prefer my home *not* to look smart, and prefer for things to be automated rather than having to interact with my smart home via a dashboard. However, there are plenty of scenarios where I want to have access to information *at a glance*. That is why I like having a dashboard in the main hallway showing information such as the weather, calendar appointments, range on our EVs, or the driving time estimate to work/the next calendar appointment.
+I have a [[smart photo frame]] in my kitchen, which also allows me to display and interact with Home Assistant, and the same principle applies. It shows photos until you tap the screen and that's when the dashboard is displayed. It's an entirely different kind of device, with a different purpose.
 
 ## The Puppet add-on for Home Assistant
 
