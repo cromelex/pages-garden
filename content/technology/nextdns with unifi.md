@@ -8,7 +8,7 @@ tags:
 ---
 # Using NextDNS with Unifi
 
-Most of the instructions I have found, including NextDNS' own, were old and outdated. They all seemed to imply you needed to install the NextDNS CLI on the Unifi Gateway.
+Most of the instructions I have found, including [NextDNS](https://nextdns.io)' own, were old and outdated. They all seemed to imply you needed to install the NextDNS CLI on the Unifi Gateway.
 
 Luckily I found a [post](https://help.nextdns.io/t/q6ykb3f?r=p8yk98n) with a much easier solution.
 
