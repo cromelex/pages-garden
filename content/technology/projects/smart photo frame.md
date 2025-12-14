@@ -2,7 +2,7 @@
 publish: true
 title: Smart Photo Wall Panel
 created: 2025-06-13
-modified: 2025-08-08
+modified: 2025-12-14
 tags:
   - immich
   - homeassistant
@@ -50,7 +50,7 @@ From within Home Assistant I am able to use the [FullyKiosk integration](https:/
 
 ![[./attachments/smart photo frame-3072x3088.webp|The wall mounted smart frame|600]]
 ## Results
-Overall, I am quite happy with this solution. The hardware has some issues. The frame is extremely slow, and the wifi is not super reliable, with random disconnects. Immich Kiosk runs really well, but on occasion the frame shows a small icon to let me know it has disconnected. On some rare occasions, the I get a 404 error when the page fails to load (probably when it tries to do it while the wifi is out). 9 out of 10 times, it's fine. I have tried using FullyKiosk's wakelock settings for wifi/cpu and even wifi re-connection, but it is still not fail proof. I might try using the [ImmichFrame Android app with ImmichKiosk](https://docs.immichkiosk.app/misc/frameo/#installing-immichframe), in the hope that the caching functionality works better and see if it's sufficient to handle the disconnections.
+Overall, I am quite happy with this solution. The hardware has some issues. The frame is extremely slow, and the wifi is not super reliable, with random disconnects. Immich Kiosk runs really well, but on occasion the frame shows a small icon to let me know it has disconnected. On some rare occasions, I get a 404 error when the page fails to load (probably when it tries to do it while the wifi is out). 9 out of 10 times, it's fine. I have tried using FullyKiosk's wakelock settings for wifi/cpu and even wifi re-connection, but it is still not fail proof. I might try using the [ImmichFrame Android app with ImmichKiosk](https://docs.immichkiosk.app/misc/frameo/#installing-immichframe), in the hope that the caching functionality works better and see if it's sufficient to handle the disconnections.
 
 ![[./attachments/smart photo frame-3988x2012.webp|My current Home Assistant dashboard on the smart frame|1000]]
 
@@ -60,7 +60,12 @@ I consider this a work in progress and will probably keep changing and simplifyi
 
 ## Update after 2 months
 At some point over the last month I ended up setting the wifi to a static ip, and the issues became a bit less common. It still happens, on occasion, but it's a lot less common.  
-I also noticed that the screensaver (Immich-kiosk) connection failed a lot less often if connected via `http://` directly to the ip, instead of `https://` via reverse proxy. My guess is that the Android version is so ancient that it causes some type of issues with the TLS connection.  
+I also noticed that the screensaver (Immich-kiosk) connection failed a lot less often if connected via `http://` directly to the ip, instead of `https://` via reverse proxy. ~~My guess is that the Android version is so ancient that it causes some type of issues with the TLS connection~~(Turns out it was purely wifi issues, see below update).  
 I am still happy with the purchase, 95% of the time it works without issue. I get to display my photos, and by just tapping on the screen I get quick access to a simple Home Assistant dashboard. 
 
 There is probably better hardware out there, but, for the price, this was unbeatable.
+
+## 6 month update
+I've recently updated my network setup to a Unifi Gateway with a Unifi I7 Lite AP and that actually solved the wifi issues entirely!
+The frame was less than 2 meters away from my previous router and the connection kept dropping at least once a day. Now, it is connected to a AP on the floor above, and yet it is absolutely stable and hasn't disconnected in days.
+I don't know what the issue was exactly but, clearly, this fixed it.
