@@ -2,7 +2,7 @@
 publish: true
 title: Immich Machine Learning with NVIDIA GPU
 created: 2025-01-06
-modified: 2025-08-27
+modified: 2025-12-23
 tags:
   - self-hosting
   - bazzite
@@ -85,6 +85,10 @@ Next, open Immich in your browser, go into Administration -> Settings -> Machine
 `http://your_remote_nvidia_machineip:3003`
 
 Save, and Immich will automatically try to use this address for the machine learning server, falling back to the original one if this is offline (which is ideal as I want to keep this machine off most of the time, due to power consumption).
+
+You *might* want to either disable Availability Checks or to adjust the Check Interval. By default, it is set to 30 seconds, and Immich will ping the remote URL every interval. 
+Since my machine is off most of the time, this is a bit wasteful. I only noticed when I recently upgraded my router to a Unifi Gateway and saw thousands of these requests.  
+I changed it to 15 minutes. Immich will obviously not use the remote machine learning server unless it is online, so this does mean that that it could take up to 15 minutes for it to be seen as back online by Immich.
 
 ### Changing the Smart Search CLIP model 
 In the same screen, I also changed the Smart Search CLIP model to my new pick: `VIT-L-16-SigLIP-384_webli`, instead of the default `ViT-B-32_openai`.

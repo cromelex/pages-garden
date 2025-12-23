@@ -66,6 +66,6 @@ I am still happy with the purchase, 95% of the time it works without issue. I ge
 There is probably better hardware out there, but, for the price, this was unbeatable.
 
 ## 6 month update
-I've recently updated my network setup to a Unifi Gateway with a Unifi I7 Lite AP and that actually solved the wifi issues entirely!
+I've recently updated my network setup to a Unifi Gateway with a Unifi U7 Lite AP and that actually solved the wifi issues entirely!
 The frame was less than 2 meters away from my previous router and the connection kept dropping at least once a day. Now, it is connected to a AP on the floor above, and yet it is absolutely stable and hasn't disconnected in days.
 I don't know what the issue was exactly but, clearly, this fixed it.
