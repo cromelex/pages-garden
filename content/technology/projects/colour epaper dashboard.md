@@ -2,7 +2,7 @@
 publish: true
 title: Colour ePaper Dashboard
 created: 2025-11-12
-modified: 2025-12-03
+modified: 2026-01-06
 tags:
   - esphome
   - homeassistant
@@ -673,5 +673,14 @@ This code has been updated for ESPHome 2025.11.X, and that would be the minimum 
 A picture can be worth a thousand words, so that's why I decided to show you how this look on our wall. The epaper is the photo on the bottom left (the only unblurred one). The epaper blends in superbly when showing a photo, rather than a dashboard. This meets my goal. Whenever the context demands it, the automation driven by Home Assistant will display the dashboard page that will give me the information that I need in that moment.
 
 ![[./attachments/colour epaper dashboard-1620x1080.webp|Spot the epaper. A photo being displayed in the epaper blends in really well with regular framed photo prints.|800]]
+
+## Battery life update
+After a couple of months "live", I can better comment on the actual battery life.  
+
+With the overnight deep sleep and 60 minutes between updates ( as in the example code above), I can get a full month out of the battery.  
+In my personal device, I have updates every 45 minutes (with a long deep sleep overnight) and I get almost 25 days out of the battery.
+
+This is pretty much in line with what I expected based on the previous model.
+
 
 [^1]: The new functionality is available since version 2.4.0 of the Puppet add-on.
