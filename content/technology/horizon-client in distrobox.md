@@ -2,7 +2,7 @@
 publish: true
 title: Running Omnissa / VMware Horizon Client on distrobox
 created: 2025-05-06
-modified: 2025-05-06
+modified: 2026-02-23
 tags:
   - distrobox
   - steamdeck
@@ -84,6 +84,12 @@ yay -S omnissa-horizon-client --noconfirm
 ```
 
 ![[./attachments/horizon-client in distrobox-1090x640.webp|The edit application menu in KDE|800]]
+
+## Browser based SSO login
+A reader contacted me after facing an issue, where the Horizon client needs to open a browser window to actually handle the login.
+We figured out that if you install a browser in the same distrobox container, export it, and *potentially* set it as default browser on the host, then the browser window will open and allow you to login. 
+This seems to have worked for him (Thanks Richard for the feedback!).
+Hopefully this will be useful for anyone else facing the same issue.
 
 ## Usage and Benefits
 You can then start and use the horizon-client app directly from the start menu, like any other app. It will persist across images updates, ie if your Steamdeck or Fedora Atomic / Universal Blue image is updated, the distrobox container and app shortcuts will remain unaffected.
