@@ -17,6 +17,7 @@ Lady Stout was our first cat. She's a lean, elegant cat, who happens to be extre
 
 ![[./attachments/my cats-1913x1440.webp|Stout lying by the window.|800]]
 ## Poppy
+
 Poppy is our fat cat. She lives to eat. Sometimes it feels like she only has 2 brain cells. She's a very nervous, but usually very sweet cat. She's somehow extremely territorial, and she gets very worked up when she sees any other cat through the windows.  
 Poppy could not be less elegant. While Stout is completely quiet when she jumps to the floor, Poppy always sounds like something crashed. She meows at the moon, and when she can't find us or Stout in the house. She is a proper lap cat, absolutely loves being on my lap. At times, she likes to pretend she is a scarf and lies down around my neck. She'll just plop herself there, and I have to support her with my arm or something.
 
