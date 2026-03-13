@@ -2,7 +2,7 @@
 publish: true
 title: Unifi Protect with Home Assistant
 created: 2026-03-10
-modified: 2026-03-10
+modified: 2026-03-13
 tags:
   - unifi
   - homeassistant
@@ -29,7 +29,9 @@ All of these are PoE powered. I had no pre-existing cabling in most of the house
 ## Integrating with Home Assistant
 
 ### Initial Setup
-There's a few steps that need to be followed, but the Home Assistant documentation for [Unifi Protect is quite extensive](https://www.home-assistant.io/integrations/unifiprotect/). You need to create a local user and create an API Key, but once you input that in Home Assistant, everything shows up automatically. 
+There's a few steps that need to be followed, but the Home Assistant documentation for [Unifi Protect is quite extensive](https://www.home-assistant.io/integrations/unifiprotect/). You need to create a local user and create an API Key (the user MUST have the Super Admin predefined role to allow creating the API Key, but you can change this afterwards. 
+Once you add this in Home Assistant, camera feeds, sensor entities, and control entities all show up automatically.  
+
 To use the thumbnails and videos from the endpoints within Home Assistant, you need to retrieve the `nvr_id`. The [details on how to retrieve it](https://www.home-assistant.io/integrations/unifiprotect/#views) can be a bit confusing, but if you play a Unifi Protect video from *within* the Home Assistant Media browser you can retrieve it from the URL. 
 
 ### Notifications
