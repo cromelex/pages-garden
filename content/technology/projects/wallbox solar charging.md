@@ -22,12 +22,11 @@ A few days ago an updated version was made available by **jagheterfredrik** on G
 > If you hit this error, you can use a workaround, by connecting with a compatible version of a SSH client using a container.  
 > Just clone the repo and run this from inside its folder, replacing with the correct ip address:
 > 
-> ```bash
-> podman run --rm -it \
+> `podman run --rm -it \
 >   -v $(pwd)/id_rsa:/root/.ssh/id_rsa:z \
 >   debian:bookworm \
 >   bash -c "chmod 600 /root/.ssh/id_rsa && apt-get update -qq && apt-get install -y -qq openssh-client && ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa -i /root/.ssh/id_rsa root@192.168.0.123"
-> ```
+> `
 
 
 ## Integrating with Home Assistant
@@ -190,4 +189,4 @@ I came up with the logic myself, but used a LLM to review and clean up the code,
 
 ## Conclusion
 Solar-excess EV charging required getting several layers working together - hardware rooting, local MQTT control, and a Home Assistant automation that responds quickly enough to be useful. 
-The setup described here handles the day-to-day case well, but I expect I will have to adapt the automation further, once I have a few days of real-world data, and potentially faced a few unexpected scenarios.
+The setup described here handles the day-to-day case well, but I expect I will have to adapt the automation further, once I have a few days of real-world data, and potentially having faced a few unexpected scenarios.
