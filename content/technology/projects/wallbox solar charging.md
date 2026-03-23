@@ -2,7 +2,7 @@
 publish: true
 title: Solar PV Car Charging
 created: 2026-03-20
-modified: 2026-03-20
+modified: 2026-03-23
 tags:
   - ev
   - homeassistant
@@ -88,6 +88,11 @@ I came up with the logic myself, but used a LLM to review and clean up the code,
 >     to: "off"
 >     trigger: state
 >     id: solar_charging_disabled
+>   - trigger: sun
+>     event: sunset
+>     id: sunset_reset
+>   - trigger: sun
+>     event: sunrise
 > conditions: []
 > actions:
 >   - alias: Handle solar charging boolean turned off
@@ -107,6 +112,19 @@ I came up with the logic myself, but used a LLM to review and clean up the code,
 >             data:
 >               value: 32
 >           - stop: EV solar charging disabled
+>   - alias: Handle sunset - reset current for overnight scheduled charging
+>     choose:
+>       - conditions:
+>           - condition: template
+>             value_template: "{{ trigger.id == 'sunset_reset' }}"
+>         sequence:
+>           - alias: Reset charging current to maximum at sunset
+>             action: number.set_value
+>             target:
+>               entity_id: number.wallbox_max_charging_current
+>             data:
+>               value: 32
+>           - stop: Sunset reached - current reset for overnight scheduled charging
 >   - alias: Check solar charging boolean is on
 >     condition: state
 >     entity_id: input_boolean.ev_solar_charging
@@ -162,17 +180,28 @@ I came up with the logic myself, but used a LLM to review and clean up the code,
 >               {{ (as_timestamp(now()) -
 >               as_timestamp(states('input_datetime.ev_charger_last_adjusted'),
 >               0)) > 120 }}
->           - alias: Solar PV - adjust charging current
->             action: number.set_value
->             target:
->               entity_id: number.wallbox_max_charging_current
->             data:
->               value: "{{ clamped_amps }}"
->           - action: input_datetime.set_datetime
->             target:
->               entity_id: input_datetime.ev_charger_last_adjusted
->             data:
->               datetime: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
+>           - alias: Check cable is connected
+>             condition: state
+>             entity_id: binary_sensor.wallbox_cable_connected
+>             state: "on"
+>           - alias: Adjust current only if wallbox is actively charging
+>             choose:
+>               - conditions:
+>                   - condition: state
+>                     entity_id: sensor.wallbox_status
+>                     state: "Charging"
+>                 sequence:
+>                   - alias: Solar PV - adjust charging current
+>                     action: number.set_value
+>                     target:
+>                       entity_id: number.wallbox_max_charging_current
+>                     data:
+>                       value: "{{ clamped_amps }}"
+>                   - action: input_datetime.set_datetime
+>                     target:
+>                       entity_id: input_datetime.ev_charger_last_adjusted
+>                     data:
+>                       datetime: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
 >           - alias: Only enable switch if not already charging
 >             condition: state
 >             entity_id: switch.wallbox_charging_enable
@@ -183,9 +212,7 @@ I came up with the logic myself, but used a LLM to review and clean up the code,
 >               entity_id: switch.wallbox_charging_enable
 > mode: single
 > max_exceeded: silent
-> 
 > ```
-
 
 ## Conclusion
 Solar-excess EV charging required getting several layers working together - hardware rooting, local MQTT control, and a Home Assistant automation that responds quickly enough to be useful. 
