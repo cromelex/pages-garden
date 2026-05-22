@@ -62,7 +62,6 @@ However, as a 2 EV household, there are some days where that window might be ins
 
 I came up with the logic myself, but used a LLM to review and clean up the code, as well as to help document it, to make it easier to read. 
 
-
 > [!code]- The Automation YAML code
 > ```yaml
 > alias: EV Solar Excess Charging
