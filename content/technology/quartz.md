@@ -2,14 +2,14 @@
 publish: true
 title: Quartz customisation
 created: 2025-01-11
-modified: 2025-05-13
+modified: 2026-05-26
 tags:
   - quartz
 aliases:
   - Technology/quartz
 ---
 # Quartz customisation
-[Quartz](https://quartz.jzhao.xyz/) ([GitHub](https://github.com/jackyzha0/quartz)) is the *tool* used to create this website.  
+[Quartz V4](https://quartz.jzhao.xyz/) ([GitHub](https://github.com/jackyzha0/quartz)) is the *tool* used to create this website.  
 I have done a number of modifications to different components of Quartz, in order to better suit my use case and my preferences. 
 The repo history was a huge mess and it made it very hard to track all the changes, so I've decided to add these code snippets here.  
 In addition to this, I ended up recreating a new git repo for my Quartz page, allowing me to properly document all the changes to the tool, and the content, separately, using the git commit messages to document the changes.

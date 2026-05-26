@@ -2,7 +2,7 @@
 publish: true
 title: Solar PV Car Charging
 created: 2026-03-20
-modified: 2026-03-23
+modified: 2026-05-26
 tags:
   - ev
   - homeassistant
@@ -42,7 +42,7 @@ I have a "switch" (a boolean helper) in Home Assistant that needs to be switched
 My EV usually charges on a schedule, as I have a time of use energy tariff with a cheap rate between 2 and 5 am. On a typical day, I sell my excess solar back to the grid during the day, and *then* charge the car only in that cheaper night period.
 However, as a 2 EV household, there are some days where that window might be insufficient. The idea is to use the excess solar to top up the car during the day.
 
-### Requirements:
+### Requirements
 - an EV charger which you can control from Home Assistant
 	- control switch (`switch.wallbox_charging_enable`)
 	- current setting, in my case set in A, from 6-32A (`number.wallbox_max_charging_current`) 
@@ -104,7 +104,7 @@ I came up with the logic myself, but used a LLM to review and clean up the code,
 >             action: switch.turn_off
 >             target:
 >               entity_id: switch.wallbox_charging_enable
->           - alias: Reset charging current to maximum
+>           - alias: Reset charging current to max 32A
 >             action: number.set_value
 >             target:
 >               entity_id: number.wallbox_max_charging_current
@@ -169,6 +169,13 @@ I came up with the logic myself, but used a LLM to review and clean up the code,
 >             action: switch.turn_off
 >             target:
 >               entity_id: switch.wallbox_charging_enable
+>             data: {}
+>           - alias: Reset charging current to max 32A
+>             action: number.set_value
+>             target:
+>               entity_id: number.wallbox_max_charging_current
+>             data:
+>               value: 32
 >       - conditions:
 >           - condition: template
 >             value_template: "{{ total_available >= min_watts }}"
@@ -205,13 +212,21 @@ I came up with the logic myself, but used a LLM to review and clean up the code,
 >             condition: state
 >             entity_id: switch.wallbox_charging_enable
 >             state: "off"
+>           - alias: Set charging current to max 16A at start
+>             action: number.set_value
+>             target:
+>               entity_id: number.wallbox_max_charging_current
+>             data:
+>               value: "16"
 >           - alias: PV excess - turning on car charging
 >             action: switch.turn_on
 >             target:
 >               entity_id: switch.wallbox_charging_enable
+>             data: {}
 > mode: single
 > max_exceeded: silent
 > ```
+> 
 
 ## Conclusion
 Solar-excess EV charging required getting several layers working together - hardware rooting, local MQTT control, and a Home Assistant automation that responds quickly enough to be useful. 
