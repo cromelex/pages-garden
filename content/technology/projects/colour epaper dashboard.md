@@ -2,7 +2,7 @@
 publish: true
 title: Colour ePaper Dashboard
 created: 2025-11-12
-modified: 2026-01-06
+modified: 2026-06-22
 tags:
   - esphome
   - homeassistant
@@ -60,7 +60,7 @@ The ESPHome code will still work without it - it will just default to the `home`
 The idea is to allow me to dynamically choose what should be displayed depending on context. 
 
 Here is my sample automation, and what it does:
-- If any plant is in state "problem", display the Plants Dashboard page;
+- If any plant is in state "problem", display the Plants Dashboard page[^2];
 - If time between 9.30am and 1pm, and current and forecasted solar energy production is high, display Energy Dashboard page;
 - If there are any calendar.family events today (based on a helper), display Home Dashboard page;
 - If nobody is home, display Wallpaper Dashboard page;
@@ -83,44 +83,9 @@ In my case, for the wallpaper dashboard page, I am using a single picture card, 
 >   - choose:
 >       - alias: If any plant is in state "problem", display the Plants Dashboard page
 >         conditions:
->           - condition: or
->             conditions:
->               - condition: state
->                 entity_id: plant.butterfly_palm
->                 state:
->                   - problem
->               - condition: state
->                 entity_id: plant.dracaena
->                 state:
->                   - problem
->               - condition: state
->                 entity_id: plant.olive
->                 state:
->                   - problem
->               - condition: state
->                 entity_id: plant.fishbone_cactus
->                 state:
->                   - problem
->               - condition: state
->                 entity_id: plant.fishbone_cactus_kitchen
->                 state:
->                   - problem
->               - condition: state
->                 entity_id: plant.fishbone_cactus_office
->                 state:
->                   - problem
->               - condition: state
->                 entity_id: plant.mistletoe_cactus
->                 state:
->                   - problem
->               - condition: state
->                 entity_id: plant.peperomia
->                 state:
->                   - problem
->               - condition: state
->                 entity_id: plant.peperomia_santorini
->                 state:
->                   - problem
+>           - condition: template
+>             value_template: >-
+>               {{ states.plant | selectattr('state', 'eq', 'problem') | list | count > 0 }}
 >         sequence:
 >           - action: input_select.select_option
 >             metadata: {}
@@ -684,3 +649,4 @@ This is pretty much in line with what I expected based on the previous model.
 
 
 [^1]: The new functionality is available since version 2.4.0 of the Puppet add-on.
+[^2]: Previously I was using a discrete list of my plants. As these sometimes change, I've updated the code to include a template that will pick *any* plant sensor in problem status instead.

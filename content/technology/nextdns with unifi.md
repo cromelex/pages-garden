@@ -2,7 +2,7 @@
 publish: true
 title: Using NextDNS with Unifi
 created: 2025-12-11
-modified: 2025-12-11
+modified: 2026-05-31
 tags:
   - unifi
 ---
@@ -19,8 +19,14 @@ Luckily I found a [post](https://help.nextdns.io/t/q6ykb3f?r=p8yk98n) with a muc
 That's it, that is all it takes. Every device with DNS assigned by the Unifi Gateway will have the requests sent via DNS-over-HTTPS.
 
 ## NextDNS
-I've been using NextDNS for quite a few years, and even upgraded to the paid plan in 2022, to allow me to add my family under the same plan, instead of creating separate *free* accounts.  
+I've been using NextDNS for quite a few years, and even upgraded to the paid plan since 2022, to allow me to add my family under the same plan, instead of creating separate *free* accounts.  
 I know a lot of people prefer to self-host their own using Pi-Hole or Adguard locally, however, NextDNS works on all my devices, even the phones, regardless of my location or without having the expose a DNS server.
 On top of that, in every test I have done online, NextDNS consistently came up on top on the list of the quickest DNS providers - they are likely using a datacenter close to my home in Ireland, and that means I get both speed and ad-blocking on all my devices just by using it as a DNS provider.  
 
 Not everything needs to be self-hosted. The convenience is well worth the cost, in this instance.
+
+### 2026 update
+My NextDNS renewal just came up and, once again, my opinion is still that the cost is worth the convenience.
+
+I have never really had any issues with it, no outages, and the analytics show it keeps blocking ads and trackers throughout my devices.  
+That's all I could ask for!
