@@ -92,7 +92,7 @@ A reader contacted me after facing an issue, where the Horizon client needs to o
 We figured out that if you install a browser in the same distrobox container, then the browser window will open and allow you to login. 
 This seems to have worked for him (Thanks Richard for the feedback!).
 
-My employer has now implemented a browser based validation, so I was able to confirm that these steps work.
+As of July 2026, my employer has implemented a browser based login, so I had to do the exact same thing. Thankfully, I was able to confirm that these steps work. 
 
 Specifically, I installed Chromium in the same distrobox, using:
 
