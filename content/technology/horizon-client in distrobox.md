@@ -2,7 +2,7 @@
 publish: true
 title: Running Omnissa / VMware Horizon Client on distrobox
 created: 2025-05-06
-modified: 2026-02-23
+modified: 2026-07-07
 tags:
   - distrobox
   - steamdeck
@@ -24,7 +24,7 @@ After a lot of trial and error, I eventually managed to find a guide that helped
 Distrobox allows you to use any Linux distribution inside your terminal. It creates containers using either podman or docker to create containers for running command-line applications. This means you can install packages that might otherwise be difficult to install on immutable operating systems like Fedora Atomic or SteamOS.  
 
 ## Installation Methods
-There are 2 main ways of managing a distrobox, and installing the client. If you are comfortable with the terminal, you can do all of it via command line. Alternatively, there is a nice GUI for distrobox called [BoxBuddy](https://github.com/Dvlv/BoxBuddyRS) that makes it really easy to handle part of the process via a graphical interface. 
+There are 2 main ways of managing a distrobox, and installing the client. If you are comfortable with the terminal, you can do all of it via command line. Alternatively, there is a couple of nice GUIs for distrobox. You have a GNOME based one called [BoxBuddy](https://github.com/Dvlv/BoxBuddyRS), or, alternatively, the KDE based [Kontainer](https://github.com/DenysMb/Kontainer). These make it really easy to handle part of the process via a graphical interface. 
 
 ### Method 1: Terminal Command-line Installation
 ```shell
@@ -53,9 +53,9 @@ Once you have exported the Omnissa Horizon Client desktop shortcut, you need to 
 -n arch --additional-flags '--env TZ=Europe/Dublin' -- horizon-client %u
 ```
 
-### Method 2: BoxBuddy GUI Installation
+### Method 2: BoxBuddy or Kontainer - GUI Installation
 #### 1. Create a new distrobox container:
-- Install and open BoxBuddy, click on the + sign to create a new distrobox.
+- Install and open BoxBuddy or Kontainer, click on the + sign to create a new distrobox.
 - Name the container and choose `arch - quay.io/toolbx/arch-toolbox:latest` as the image.
 - Create the container
 ![[attachments/horizon-client in distrobox-1067x600.webp|Create the distrobox in BoxBuddy|800]]
@@ -76,7 +76,8 @@ yay -S omnissa-horizon-client --noconfirm
 ```
 
 #### 3. Add the application to your system menu:
-- In BoxBuddy, click on *View Applications*. You can then click *Add to Menu*. It will then show on your "Start" menu.
+- If you are using BoxBuddy, click on *View Applications*. You can then click *Add to Menu*. It will then show on your "Start" menu.
+- If you are using Kontainer, click on *Manage Applications*, and then click  *Export*. It will then show on your "Start" menu.
 - On the "Start" Menu, right-click and edit application. You can then update the command-line arguments to include the timezone, as otherwise you will see a mismatch within the client. 
 
 ```shell
@@ -87,8 +88,22 @@ yay -S omnissa-horizon-client --noconfirm
 
 ## Browser based SSO login
 A reader contacted me after facing an issue, where the Horizon client needs to open a browser window to actually handle the login.
-We figured out that if you install a browser in the same distrobox container, export it, and *potentially* set it as default browser on the host, then the browser window will open and allow you to login. 
+
+We figured out that if you install a browser in the same distrobox container, then the browser window will open and allow you to login. 
 This seems to have worked for him (Thanks Richard for the feedback!).
+
+My employer has now implemented a browser based validation, so I was able to confirm that these steps work.
+
+Specifically, I installed Chromium in the same distrobox, using:
+
+```shell
+sudo pacman -S chromium
+```
+
+I then exported Chromium. There's no need to change any flags, it will just work.
+
+When I select the server in Horizon Client, it automatically opens the browser and allows the login. It then returns me to the Horizon Client and authenticates successfully. 
+
 Hopefully this will be useful for anyone else facing the same issue.
 
 ## Usage and Benefits
