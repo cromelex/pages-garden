@@ -145,5 +145,5 @@ I have found that, overall, having the sensors does help in keeping plants alive
 
 
 
-[^1]: I've looked into different options, and found these to be by far the cheapest, especially if bought in bulk. They do go through something like a CR2032 battery per each 9 months.
+[^1]: I've looked into different options, and found these to be by far the cheapest, especially if bought in bulk. They do go through something like a CR2032 battery every 9 to 12 months.
 [^2]: I have plants spread out throughout the house, with some even outside. ESPHome Bluetooth Proxy functionality allows any of my ESP32 devices to pick up the Bluetooth signal and relay it to Home Assistant. They are not needed specifically for this, they just help in ensuring you can cover a wider area.
