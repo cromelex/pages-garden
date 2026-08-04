@@ -2,7 +2,7 @@
 publish: true
 title: E-paper dashboard
 created: 2025-07-21
-modified: 2025-09-29
+modified: 2026-08-03
 tags:
   - esphome
   - homeassistant
@@ -38,6 +38,8 @@ I am currently experimenting with more complex code to keep the display in deep 
 After the update to [[../../tags/esphome|ESPHome]] version 2025.7.x, I add to make some changes to the sample code provided by Seeedstudio in their wiki. The PNG decoder kept running out of memory, so I replaced it with BMP, which works just the same and avoids the issue entirely.
 
 #### Configuration with deep sleep
+
+04-08-2026: added a last seen timestamp sensor. This makes more sense than the timestamp, and allows you to know directly when the device was last updated from the entity.
 
 29-Aug-2025: this code has been updated with manual sensor updates for the diagnostic sensors. The sensors were failing to update as the attempts were happening while wifi was disconnected (during deep sleep). They are now triggered manually each time the wifi connects.
 
@@ -172,14 +174,13 @@ After the update to [[../../tags/esphome|ESPHome]] version 2025.7.x, I add to ma
 >       icon: mdi:wifi-strength-2
 >       entity_category: diagnostic
 >       id: sensorssid
->       update_interval: never 
->       
-> sensor:
->   - platform: uptime
->     name: "${friendly_name} Uptime"
+>       update_interval: never
+>   - platform: template
+>     name: "${friendly_name} Last Seen"
 >     entity_category: diagnostic
->     id: sensoruptime
->     update_interval: never
+>     id: sensor_last_seen
+>     lambda: |-
+>       return id(homeassistant_time).now().strftime("%Y-%m-%d %H:%M:%S");        
 > ```
 
 #### Faster display updates with partial refresh
@@ -283,6 +284,8 @@ With fast refresh, you could conceivably use the display as a desk clock + calen
 >   - platform: uptime
 >     name: "${friendly_name} Uptime"
 >     entity_category: diagnostic
+>     id: sensoruptime
+>     update_interval: 60s
 > ```
 > 
 

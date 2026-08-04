@@ -2,7 +2,7 @@
 publish: true
 title: Colour ePaper Dashboard
 created: 2025-11-12
-modified: 2026-06-22
+modified: 2026-08-03
 tags:
   - esphome
   - homeassistant
@@ -361,6 +361,14 @@ I wrote *most* of this code, based on the Seeedstudio's wiki and ESPHome's docum
 >       icon: mdi:wifi-strength-2
 >       entity_category: diagnostic
 >       id: sensorssid
+>   - platform: template
+>     name: "${friendly_name} Last Seen"
+>     entity_category: diagnostic
+>     id: sensor_last_seen
+>     lambda: |-
+>       return id(homeassistant_time).now().strftime("%Y-%m-%d %H:%M:%S");
+>       
+>       
 > 
 > interval:
 >   - interval: 1s
