@@ -41,7 +41,10 @@ I decided to order a couple of these, and simply attached each of them to a M5St
 ![[attachments/CO2 sensor-m5stack co2-5472x3648.webp|The SD40 CO2 sensor connected to the M5Stack Atom Lite ESP32|500]]
 
 ## Configuring with ESPHome
-I put together a configuration in ESPHome using a template from [M5Stack-ESPHome](https://github.com/Chill-Division/M5Stack-ESPHome/blob/main/CO2%20Unit%20with%20Temperature%20and%20humidity%20Sensor%20(SCD40).md)
+
+**Update 24 August 2026:** I've noticed that the Chill-Divison repo is currently unavailable, and seems gone from GitHub. As those links are returning 404s, I've added links to my forked version.
+
+I put together a configuration in ESPHome using a template from [M5Stack-ESPHome](https://github.com/Chill-Division/M5Stack-ESPHome/blob/main/CO2%20Unit%20with%20Temperature%20and%20humidity%20Sensor%20(SCD40).md) [(link to my forked version).](https://github.com/cromelex/M5Stack-ESPHome/blob/main/CO2%20Unit%20with%20Temperature%20and%20humidity%20Sensor%20(SCD40).md)
 
 This is fairly straight forward:
 

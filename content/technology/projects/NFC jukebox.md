@@ -2,7 +2,7 @@
 publish: true
 title: NFC Jukebox
 created: 2024-11-29
-modified: 2025-10-06
+modified: 2026-08-24
 tags:
   - esphome
   - homeassistant
@@ -23,9 +23,11 @@ A few years later, I now have a daughter who's almost 2, and who occasionally de
 
 ## The NFC bit 
 
+**Update 24 August 2026:** I've noticed that the Chill-Divison repo is currently unavailable, and seems gone from GitHub. As those links are returning 404s, I've added links to my forked version.
+
 To read the cards, I bought a M5Stack RFID sensor, plugged it into an Atom Lite ESP32, and flashed it with [[../../tags/esphome|ESPHome]]. Someone has already done the hard work, so it's easy to find a working config and to quickly adapt it to my needs.
-I put together a configuration using a template from [M5Stack-ESPHome.](https://github.com/Chill-Division/M5Stack-ESPHome/blob/main/RFID%202%20Unit%20(WS1850S).md)
-The below NFC/RFID related bit has been updated on 24/03/2025, following changes in the upstream template.
+I put together a configuration using a template from [M5Stack-ESPHome](https://github.com/Chill-Division/M5Stack-ESPHome/blob/main/RFID%202%20Unit%20(WS1850S).md)  [(link to my forked version).](https://github.com/cromelex/M5Stack-ESPHome/blob/main/RFID%202%20Unit%20(WS1850S).md)
+
 
 I did a small change in the code, based on the existing code of the Adonno Tag Reader which I use as part of my alarm system.
 This is what the final code looks like:

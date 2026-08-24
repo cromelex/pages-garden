@@ -105,7 +105,7 @@ wifi:
 external_components:
   - source:
       type: git
-      url: https://github.com/chill-Division/M5Stack-ESPHome/
+      url: https://github.com/cromelex/M5Stack-ESPHome/
       ref: main
     components: mfrc522_i2c
 

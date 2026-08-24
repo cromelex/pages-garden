@@ -2,7 +2,7 @@
 publish: true
 title: Water Tank Level Sensor
 created: 2026-08-04
-modified: 2026-08-04
+modified: 2026-08-24
 tags:
   - esphome
   - homeassistant
@@ -24,10 +24,14 @@ Climbing up and down to the attic, carrying 10 or 20L of water in one go gets ol
 
 ## Solutioning with ESPHome
 
-I decided to investigate and found out a few mentions of using ultrasonic range sensors as a way to measure the content of the tank. 15€ (with shipping) later and I received a [M5Stack Ultrasonic-I2C sensor.](https://docs.m5stack.com/en/unit/ULTRASONIC%20I2C) I don't have USB ports at hand in the attic, but I do have a PoE switch with a spare port, as well as a [M5Stack PoE ESP32](https://docs.m5stack.com/en/unit/poesp32) unit that was sitting in my drawer.
-Unfortunately, the PoE ESP32 does not have a USB port. Flashing it with ESPHome means connecting the pins to a serial flasher. This can be a bit of a pain, but I found [instructions and photos here](https://github.com/DrJohnM61/poesp32-esphome), and [Chill-Division's repo has sample ESP32 code for this unit](https://github.com/Chill-Division/M5Stack-ESPHome/blob/main/ESP32%20Ethernet%20Unit%20with%20PoE.md).
+**Update 24 August 2026:** I've noticed that the Chill-Divison repo is currently unavailable, and seems gone from GitHub. As those links are returning 404s, I've added links to my forked version.
 
-Afterwards, putting the unit together was as simple as plugging in the I2C cable on both units, and flashing the unit with the ESPHome code. Again, Chill-Division's repo is a lifesaver, as it also has [ready made code for the Ultrasonic-I2C sensor](https://github.com/Chill-Division/M5Stack-ESPHome/blob/main/Ultrasonic%20Distance%20Unit%20I2C%20(RCWL-9620).md).
+I decided to investigate and found out a few mentions of using ultrasonic range sensors as a way to measure the content of the tank. 15€ (with shipping) later and I received a [M5Stack Ultrasonic-I2C sensor.](https://docs.m5stack.com/en/unit/ULTRASONIC%20I2C) I don't have USB ports at hand in the attic, but I do have a PoE switch with a spare port, as well as a [M5Stack PoE ESP32](https://docs.m5stack.com/en/unit/poesp32) unit that was sitting in my drawer.
+Unfortunately, the PoE ESP32 does not have a USB port. Flashing it with ESPHome means connecting the pins to a serial flasher. This can be a bit of a pain, but I found [instructions and photos here](https://github.com/DrJohnM61/poesp32-esphome), and [Chill-Division's repo has sample ESP32 code for this unit](https://github.com/Chill-Division/M5Stack-ESPHome/blob/main/ESP32%20Ethernet%20Unit%20with%20PoE.md) [(version on my fork)](https://github.com/cromelex/M5Stack-ESPHome/blob/main/ESP32%20Ethernet%20Unit%20with%20PoE.md).
+
+Afterwards, putting the unit together was as simple as plugging in the I2C cable on both units, and flashing the unit with the ESPHome code. Again, Chill-Division's repo is a lifesaver, as it also has [ready made code for the Ultrasonic-I2C sensor](https://github.com/Chill-Division/M5Stack-ESPHome/blob/main/Ultrasonic%20Distance%20Unit%20I2C%20(RCWL-9620).md) [(version on my fork).](https://github.com/cromelex/M5Stack-ESPHome/blob/main/Ultrasonic%20Distance%20Unit%20I2C%20(RCWL-9620).md)
+
+
 
 ### ESPHome code
 
@@ -98,7 +102,7 @@ Below is the full code put together. The only *real* work is setting up the dist
 > external_components:
 >   - source:
 >       type: git
->       url: https://github.com/chill-Division/M5Stack-ESPHome/
+>       url: https://github.com/cromelex/M5Stack-ESPHome/
 >       ref: main
 >     components: sonic_i2c
 > 

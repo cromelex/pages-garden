@@ -4,7 +4,7 @@ title: ESPHome
 tags:
   - explorerexclude
 created: 2024-11-29
-modified: 2024-11-29
+modified: 2026-08-24
 aliases:
   - Technology/ESP-sensors-for-ESPHome
   - technology/ESP-sensors-for-ESPHome
@@ -24,3 +24,5 @@ I learned that M5Stack also sell a number of ready made sensors that can be easi
 
 As with so many things ESPHome, someone has already done all of the hard-work.
 *Chill-Division* has documented and shared template .yaml configs to allow anyone to use a number of different M5Stack devices with ESPHome in his [M5Stack-ESPHome](https://github.com/Chill-Division/M5Stack-ESPHome) repo.
+
+**Update 24 August 2026:** I've noticed that the Chill-Divison repo is currently unavailable, and seems gone from GitHub. All the different `yaml` samples are super useful, so if needed, you can find my [fork of the M5Stack-ESPHome](https://github.com/cromelex/M5Stack-ESPHome) repo.
