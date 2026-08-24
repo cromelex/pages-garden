@@ -2,7 +2,7 @@
 publish: true
 title: Smart Home Resiliency
 created: 2025-08-04
-modified: 2025-08-04
+modified: 2026-08-24
 tags:
   - homeassistant
   - esphome
@@ -56,7 +56,9 @@ The result? Light switches that work exactly as people expect them to, whether y
 
 ### Technical Implementation
 
-The ESPHome configuration handles the fail-over logic automatically. The key is using the `wifi.connected` and `api.connected` conditions to determine which mode to operate in:
+The ESPHome configuration handles the fail-over logic automatically. The key is using the `wifi.connected` and `api.connected` conditions to determine which mode to operate in.
+
+Update 24 August 2026: replaced the `homeassistant.service` with `homeassistant.action`. This was flagged on the ESPHome dashboard/editor as of 2026.8
 
 > [!code]- ESPHome sample code for the Shelly Plus 1PM, with fallback to *dumb* mode (based on [this](https://devices.esphome.io/devices/Shelly-Plus-1PM) original)
 > ```yaml
@@ -155,8 +157,8 @@ The ESPHome configuration handles the fail-over logic automatically. The key is 
 >                   - lambda: 'return (id(ha_bulb_1).state == "on" || id(ha_bulb_1).state == "off");'
 >               # toggle smart light if wifi and api are connected and relay is on
 >               then:
->                 - homeassistant.service:
->                     service: light.toggle
+>                 - homeassistant.action:
+>                     action: light.toggle
 >                     data:
 >                       entity_id: "${bulb_name_1}"
 >               else:
